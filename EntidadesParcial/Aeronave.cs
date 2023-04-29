@@ -55,9 +55,13 @@ namespace EntidadesParcial
         }
         private Aeronave(string matricula, int cantidadAsientos, int cantidadBaños, ESiNo servicioInternet, ESiNo servicioComida) :this(cantidadAsientos,cantidadBaños)
         {
-            this.matricula = matricula;
-            this.servicioInternet = servicioInternet;
-            this.servicioComida = servicioComida;
+            if (matricula is not null) 
+            {
+                this.matricula = matricula;
+                this.servicioInternet = servicioInternet;
+                this.servicioComida = servicioComida;
+            }
+
         }
 
         private string Mostrar() 
