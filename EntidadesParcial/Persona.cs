@@ -19,11 +19,8 @@ namespace EntidadesParcial
         }
         protected Persona(string nombre, string apellido) : this()
         {
-            if (nombre is not null && apellido is not null)
-            {
                 this.nombre = nombre;
                 this.apellido = apellido;
-            }
         }
         protected string Mostrar()
         {

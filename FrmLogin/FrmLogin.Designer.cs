@@ -1,6 +1,6 @@
 ﻿namespace FrmLogin
 {
-    partial class Form1
+    partial class FrmLogin
     {
         /// <summary>
         ///  Required designer variable.
@@ -89,6 +89,7 @@
             Controls.Add(btnIngresar);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
