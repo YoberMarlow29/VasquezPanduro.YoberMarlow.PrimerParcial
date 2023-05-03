@@ -38,16 +38,17 @@ namespace FrmLogin
             switch (usuario.Perfil)
             {
                 case "vendedor":
+
                     MessageBox.Show("Inicio de sesión exitoso como vendedor.", "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
    
                     break;
                 case "supervisor":
 
+
                     MessageBox.Show("Inicio de sesión exitoso como supervisor.", "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case "administrador":
-                    FrmPrincipal frmPrincipal3 = new FrmPrincipal();
-                    frmPrincipal3.ShowDialog();
+
                     MessageBox.Show("Inicio de sesión exitoso como administrador.", "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 default:
@@ -63,7 +64,7 @@ namespace FrmLogin
         }
         private List<Usuario> DeserializarUsuarios(string path)
         {
-            List<Usuario> usuarios = new List<Usuario>();
+
             if (File.Exists(path))
             {
                 try

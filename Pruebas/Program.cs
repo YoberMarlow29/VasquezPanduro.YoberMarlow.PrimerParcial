@@ -8,13 +8,12 @@ namespace Pruebas
     {
         static void Main(string[] args)
         {
-            // Leer el contenido del archivo en una cadena
+
             string json = File.ReadAllText("MOCK_DATA.json");
 
-            // Deserializar la cadena en una lista de objetos de tipo Usuario
+
             List<Usuario> usuarios = JsonConvert.DeserializeObject<List<Usuario>>(json);
 
-            // Recorrer la lista y mostrar la información de cada objeto
             foreach (var usuario in usuarios)
             {
              
