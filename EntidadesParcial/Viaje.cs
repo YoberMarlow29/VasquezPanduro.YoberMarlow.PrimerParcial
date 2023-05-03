@@ -113,7 +113,7 @@ namespace EntidadesParcial
             sb.AppendLine($"El precio premium es: {this.precioPremium} ");
             sb.AppendLine($"El precio turista es: {this.precioTurista} ");
             sb.AppendLine($"La duracion del viaje es: {this.duracionHoras} ");
-            sb.AppendLine($"El puerto de partida es: {this.aerolinea} ");
+            sb.AppendLine($"La aerolinea de partida es: {this.aerolinea} ");
             return sb.ToString();
         }
 
