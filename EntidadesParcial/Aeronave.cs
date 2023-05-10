@@ -9,111 +9,91 @@ namespace EntidadesParcial
     public class Aeronave
     {
         private string matricula;//(un identificador alfanumérico de 8 dígitos).
-        private string nombre;
         private int cantidadAsientos;
         private int cantidadBaños;
-        private static int capacidadBodega;
-        private ESiNo servicioComida;
-        private ESiNo servicioInternet;
-        private int capacidadBodegaActual;
-        private int capacidadPasajerosActual;
-        private bool enViaje;
-
-        static Aeronave()
-        {
-            Aeronave.capacidadBodega = 10000;
-        }
+        private double capacidadBodega;
+        private List<DateTime> planDeVuelos;
 
         public string Matricula
         {
-            get { return this.matricula; }
-        }
-        public string Nombre
-        {
-            get { return this.nombre; }
-        }
-        public int CantidadAsientos
-        {
-            get { return cantidadAsientos; }
-        }
-        public int CantidadBaños
-        {
-            get { return cantidadBaños; }
-        }
-        public int CapacidadBodega
-        {
-            get { return capacidadBodega; }
-        }
-        public ESiNo ServicioComida
-        {
-            get { return this.servicioComida; }
-        }
-        public ESiNo ServicioInternet
-        {
-            get { return this.servicioInternet; }
+            get { return matricula; }
+            set { matricula = value; }
         }
 
-        public int CapacidadBodegaActual
+        public int Premium
         {
-            get { return this.capacidadBodegaActual; }
-            set { this.capacidadBodegaActual = value; }
-        }
-        public int CapacidadPasajerosActual
-        {
-            get { return this.capacidadPasajerosActual; }
-            set { this.capacidadPasajerosActual = value; }
-        }
-        public bool EnViaje
-        {
-            get { return this.enViaje; }
-            set { this.enViaje = value; }
-        }
-
-        private Aeronave(int cantidadAsientos) 
-        {
-            if (cantidadAsientos > 0) 
+            get
             {
-                this.matricula = "";
-                this.nombre = "";
-                this.cantidadAsientos = 0;
-                this.cantidadBaños = 0;
-                this.capacidadBodegaActual = Aeronave.capacidadBodega;
-                this.servicioComida = ESiNo.No;
-                this.servicioInternet = ESiNo.No;
-                this.capacidadPasajerosActual = this.cantidadAsientos;
-                this.enViaje = false;
+                return (int)(cantidadAsientos * 0.20);
             }
         }
-        public Aeronave(string matricula, string nombre, int cantidadAsientos, int cantidadBaños, ESiNo servicioComida, ESiNo servicioInternet) :this(cantidadAsientos)
+
+        public int Tursita
+        {
+            get
+            {
+                return this.cantidadAsientos - this.Premium;
+            }
+        }
+
+        public int AsientosTotales
+        {
+            get { return cantidadAsientos; }
+            set { cantidadAsientos = value; }
+        }
+
+        public int Baños
+        {
+            get { return cantidadBaños; }
+            set { cantidadBaños = value; }
+        }
+
+        public double Bodega
+        {
+            get { return capacidadBodega; }
+            set { capacidadBodega = value; }
+        }
+        private Aeronave()
+        {
+            planDeVuelos = new List<DateTime>();
+        }
+        public Aeronave(string matricula,int cantidadDeAsientos, int cantidadDeBanios, double capacidadDeBodega) : this()
         {
             this.matricula = matricula;
-            this.nombre = nombre;
-            this.cantidadBaños = cantidadBaños;
-            this.servicioComida = servicioComida;
-            this.servicioInternet = servicioInternet;
+            this.cantidadAsientos = cantidadDeAsientos;
+            this.cantidadBaños = cantidadDeBanios;
+            this.capacidadBodega = capacidadDeBodega;
+        }
+        public void AgregarVueloAPlanDeVuelos(DateTime vueloFecha)
+        {
+            if (VerificarQueNuevoPlanDeVueloNoExista(vueloFecha))
+            {
+                this.planDeVuelos.Add(vueloFecha);
+            }
+        }
+        private bool VerificarQueNuevoPlanDeVueloNoExista(DateTime vueloFecha)
+        {
+            foreach (DateTime item in this.planDeVuelos)
+            {
+                if (item.ToShortDateString() == vueloFecha.ToShortDateString())
+                {
+                    throw new Exception($"La aerovane {this.matricula} ya tiene un vuelo en {vueloFecha.ToString("dd/MM/yyyy")}");
+                }
+            }
+            return true;
         }
         private string Mostrar()
         {
-            StringBuilder cadena = new StringBuilder();
-            cadena.AppendLine("Datos Aeronave: ");
-            cadena.Append($"Esta en viaje? ");
-            if (this.enViaje)
-            {
-                cadena.AppendLine("si ");
-            }
-            else
-            {
-                cadena.AppendLine("no ");
-            }
-            cadena.AppendLine($"La matricula es: {this.matricula} ");
-            cadena.AppendLine($"El nombre es: {this.nombre} ");
-            cadena.AppendLine($"La cantidad de asientos es: {this.cantidadAsientos} ");
-            cadena.AppendLine($"La cantidad de baños es: {this.cantidadBaños} ");
-            cadena.AppendLine($"La capacidad total de la bodega es de: {this.CapacidadBodega} kg ");
-            cadena.AppendLine($"La capacidad restante de la bodega es de: {this.CapacidadBodegaActual} kg ");
-            cadena.AppendLine($"Ofrece servicio de comida: {this.servicioComida} ");
-            cadena.AppendLine($"Ofrece servicio de internet:{this.servicioInternet} ");
-            return cadena.ToString();
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine($"Matricula: {this.matricula}");
+            sb.AppendLine($"Cantidad de Asientos Totales: {this.cantidadAsientos}");
+            sb.AppendLine($"Cantidad de Asientos Premium: {this.Premium}");
+            sb.AppendLine($"Cantidad de Asientos Tursitas: {this.Tursita}");
+            sb.AppendLine($"Cantidad de Baños: {this.cantidadBaños}");
+            sb.AppendLine($"Capacidad de Bodega: {this.capacidadBodega.ToString("0.##")} KG.");
+
+            return sb.ToString();
         }
         public override string ToString()
         {
@@ -123,7 +103,7 @@ namespace EntidadesParcial
         public static bool operator ==(Aeronave a1, Aeronave a2)
         {
             bool rta = false;
-            if (a1.matricula == a2.matricula && a1.nombre == a2.nombre)
+            if (a1.matricula == a2.matricula )
             {
                 rta = true;
             }

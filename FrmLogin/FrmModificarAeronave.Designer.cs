@@ -1,6 +1,6 @@
 ﻿namespace FRMVIAJES
 {
-    partial class FrmPrincipal
+    partial class FrmModificarAeronave
     {
         /// <summary>
         /// Required designer variable.
@@ -28,32 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(369, 202);
-            label1.Name = "label1";
-            label1.Size = new Size(66, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Bienvenido";
-            // 
-            // FrmPrincipal
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label1);
-            Name = "FrmPrincipal";
-            Text = "FrmPrincipal";
-            ResumeLayout(false);
-            PerformLayout();
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "FrmModificarAeronave";
         }
 
         #endregion
-
-        private Label label1;
     }
 }

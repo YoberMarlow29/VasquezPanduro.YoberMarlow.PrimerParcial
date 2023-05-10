@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FRMVIAJES
 {
-    public partial class FrmPrincipal : Form
+    public partial class FrmAltaAeronave : Form
     {
-        public FrmPrincipal()
+        public FrmAltaAeronave()
         {
             InitializeComponent();
         }

@@ -8,126 +8,106 @@ namespace EntidadesParcial
 {
     public class Pasajero
     {
-        private List<Bolsos> equipajes;  
-        private ETipoPasajero clase;
         private Cliente cliente;
+        private ETipoPasajero claseDePasajero;
+        private bool equipajeDeMano;
+        private List<double> equipajeDeBodega;
+        private int equipajesMaximos;
+        private double pesoAdicional;
 
         public ETipoPasajero Clase
         {
-            get { return clase; }
+            get
+            {
+                return claseDePasajero;
+            }
+            set
+            {
+                claseDePasajero = value;
+            }
         }
 
-        public string Cliente
-        {
-            get{ return cliente.ToString(); }
-        }
-        public List<Bolsos> Equipajes
-        {
-            get { return equipajes; }
-        }
-
-        public string Nombre
-        {
-            get { return cliente.Nombre; }
-        }
-        public string Apellido
-        {
-            get { return cliente.Apellido; }
-        }
-        public int Dni
-        {
-            get { return cliente.Dni; }
-        }
-        public int Edad
-        {
-            get { return cliente.Edad; }
-        }
-        public string Equipaje
+        public Cliente Cliente
         {
             get
             {
-                StringBuilder cadena = new StringBuilder();
-                cadena.AppendLine($"El equipaje es: ");
-                foreach (Bolsos item in this.equipajes)
-                {
-                    cadena.AppendLine($"- {item.ToString()} ");
-                }
-                return cadena.ToString();
+                return cliente;
+            }
+            set
+            {
+                cliente = value;
+            }
+        }
+
+        public bool EquipajeDeMano
+        {
+            get
+            {
+                return equipajeDeMano;
+            }
+            set
+            {
+                equipajeDeMano = value;
+            }
+        }
+
+        public double PesoAdicional
+        {
+            get
+            {
+                return this.pesoAdicional;
+            }
+        }
+
+        public List<double> EquipajeDeBodega
+        {
+            get
+            {
+                return equipajeDeBodega;
+            }
+            set
+            {
+                equipajeDeBodega = value;
+            }
+        }
+
+        public int EquipajesMaximos
+        {
+            get
+            {
+                return equipajesMaximos;
+            }
+            set
+            {
+                equipajesMaximos = value;
             }
         }
 
         private Pasajero()
         {
-            this.equipajes = new List<Bolsos>();
-            this.clase = ETipoPasajero.NoCargado;
-            this.cliente = new Cliente("", "", 0, 0, ESexo.NoCargado,ENacionalidad.NoCargado);
+            this.equipajeDeBodega = new List<double>();
+            this.EquipajeDeMano = false;
+            this.equipajesMaximos = 4;
+            this.pesoAdicional = 0;
         }
-        public Pasajero(Cliente cliente, ETipoPasajero clase) : this()
+        public Pasajero(Cliente cliente, ETipoPasajero claseDePasajero) : this()
         {
-            this.clase = clase;
             this.cliente = cliente;
-            this.cliente.EnViaje = true;
+            this.claseDePasajero = claseDePasajero;
         }
         private string Mostrar()
         {
-            StringBuilder cadena = new StringBuilder();
-            cadena.AppendLine("Datos Pasajero: ");
-            cadena.AppendLine($"El cliente es: {this.cliente.ToString()} ");
-            cadena.AppendLine($"El equipaje es: ");
-            foreach (Bolsos item in this.equipajes)
-            {
-                cadena.AppendLine($"- {item.ToString()} ");
-            }
-            cadena.AppendLine($"La clase es: {this.clase} ");
+            StringBuilder sb = new StringBuilder();
 
-            return cadena.ToString();
+            sb.AppendLine(this.claseDePasajero.ToString());
+            sb.AppendLine(this.cliente.ToString());
+
+            return sb.ToString();
         }
         public override string ToString()
         {
             return this.Mostrar();
         }
-        public static Pasajero operator +(Pasajero pasajero, Bolsos bolso)
-        {
-            if (bolso is not null && pasajero is not null)
-            {
-                pasajero.equipajes.Add(bolso);
-            }
-            return pasajero;
-        }
-
-        public static bool operator ==(Pasajero pasajero1, Pasajero pasajero2)
-        {
-            bool rta = false;
-            if (pasajero1 is not null && pasajero2 is not null)
-            {
-                if (pasajero1.cliente.Dni == pasajero2.cliente.Dni)
-                {
-                    rta = true;
-                }
-            }
-            return rta;
-        }
-        public static bool operator !=(Pasajero pasajero1, Pasajero pasajero2)
-        {
-            return !(pasajero1 == pasajero2);
-        }
-        public override bool Equals(object? obj)
-        {
-            bool ok = false;
-            if (obj is Pasajero)
-            {
-                if (this == ((Pasajero)obj))
-                {
-                    ok = true;
-                }
-            }
-            return ok;
-        }
-
-        public override int GetHashCode()
-        {
-            return this.cliente.Dni.GetHashCode();
-        }
-
+        
     }
 }

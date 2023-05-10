@@ -10,51 +10,11 @@ namespace FrmLogin
     public partial class FrmLogin : Form
     {
         private List<Usuario> usuarios;
+        private int bandera = 0;
         public FrmLogin()
         {
             InitializeComponent();
             this.usuarios = new List<Usuario>();
-        }
-        private void btnIngresar_Click(object sender, EventArgs e)
-        {
-            string correo = txtCorreo.Text;
-            string contraseña = txtContraseña.Text;
-
-            if (string.IsNullOrEmpty(correo) || string.IsNullOrEmpty(contraseña))
-            {
-                MessageBox.Show("Debe ingresar correo y contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            Usuario usuario = usuarios.FirstOrDefault(u => u.Correo == correo && u.Clave == contraseña);
-
-            if (usuario == null)
-            {
-                MessageBox.Show("Correo o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-
-            switch (usuario.Perfil)
-            {
-                case "vendedor":
-
-                    MessageBox.Show("Inicio de sesión exitoso como vendedor.", "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
-   
-                    break;
-                case "supervisor":
-
-
-                    MessageBox.Show("Inicio de sesión exitoso como supervisor.", "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    break;
-                case "administrador":
-
-                    MessageBox.Show("Inicio de sesión exitoso como administrador.", "Inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    break;
-                default:
-                    MessageBox.Show("Perfil de usuario no reconocido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-            }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -62,6 +22,32 @@ namespace FrmLogin
             this.usuarios = this.DeserializarUsuarios(path);
 
         }
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            int correcto = 0;
+            if (Validar())
+            {
+                Usuario aux = new Usuario(txtCorreo.Text, txtContraseña.Text);
+                foreach (Usuario item in this.usuarios)
+                {
+                    if (item.Equals(aux))
+                    {
+                        correcto = 1;
+                        this.bandera = 1;
+                        this.Visible = false;
+                        FrmCliente frm = new FrmCliente();  // consultar por 
+                        frm.ShowDialog();
+                        this.Close();
+                    }
+
+                }
+                if (correcto == 0)
+                {
+                    MessageBox.Show("datos no validos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         private List<Usuario> DeserializarUsuarios(string path)
         {
 
@@ -87,6 +73,32 @@ namespace FrmLogin
                 MessageBox.Show("El archivo de usuarios no existe o no se puede leer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return usuarios;
+        }
+        private bool Validar()
+        {
+            bool esValido = true;
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.AppendLine("Se deben completar los siguientes campos:");
+
+            if (string.IsNullOrWhiteSpace(txtCorreo.Text))
+            {
+                esValido = false;
+                stringBuilder.AppendLine("Correo");
+            }
+
+            if (string.IsNullOrWhiteSpace(txtContraseña.Text))
+            {
+                esValido = false;
+                stringBuilder.AppendLine("Contraseña");
+            }
+
+            if (!esValido)
+            {
+                MessageBox.Show(stringBuilder.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return esValido;
         }
     }
 

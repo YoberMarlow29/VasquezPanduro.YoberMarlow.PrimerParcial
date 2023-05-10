@@ -6,117 +6,233 @@ using System.Threading.Tasks;
 
 namespace EntidadesParcial
 {
-    public abstract class Viaje
+    public class Viaje
     {
-        public enum AerolineaPartida
+        private const double PRECIOPORHORANACIONAL = 50;
+        private const double PRECIOPORHORAINTERNACIONAL = 100;
+        private string id;
+        private string destino;
+        private string origen;
+        private ETipoDeViaje tipo;
+        private int horaDelVuelo;
+        private int minutosDelVuelo;
+        private string duracion;
+        private DateTime partida;
+        private Aeronave aeronave;
+        private List<Pasajero> listaDePasajeros;
+        private bool servicioWifi;
+        private bool servicioComida;
+        public string ID
         {
-            BuenosAires_Argentina
-        };
-        protected AerolineaPartida aerolinea;
-        protected DateTime fechaInicio;
-        protected DateTime fechaActual;
-        protected Aeronave avion;
-        protected int cantidadAsientosPremium;
-        protected int cantidadAsientosTurista;
-        protected float precioPremium;
-        protected float precioTurista;
-        protected float precioPremiumBruto;
-        protected float precioTuristaBruto;
-        protected int duracionHoras;
-        protected List<Pasajero> pasajeros;
-
-        public List<Pasajero> ListaPasajeros
-        {
-            get { return this.pasajeros; }
+            get { return id; }
         }
-
-        public int CantidadPasajeros
+        public string Origen
         {
-            get { return pasajeros.Count; }
+            get { return origen; }
+            set { origen = value; }
         }
-
-        public AerolineaPartida Aerolinea
+        public string Destino
         {
-            get { return aerolinea; }
+            get { return destino; }
+            set { destino = value; }
         }
-        public String FechaDePartida
+        public ETipoDeViaje Tipo
         {
-            get { return fechaInicio.ToString(); }
+            get { return tipo; }
         }
-        public Aeronave Avion
+        public string Duracion
         {
-            get { return avion; }
+            get { return duracion; }
         }
-        public int CantidadAsientosPremium
-        {
-            get { return cantidadAsientosPremium; }
-        }
-        public int CantidadAsientosTurista
-        {
-            get { return cantidadAsientosTurista; }
-        }
-        public float PrecioPremium
-        {
-            get { return precioPremium; }
-        }
-        public float PrecioTurista
-        {
-            get { return precioTurista; }
-        }
-        public int DuracionHoras
-        {
-            get { return duracionHoras; }
-        }
-
-        public float PrecioPremiumBruto
-        {
-            get { return precioPremiumBruto; }
-        }
-        public float PrecioTuristaBruto
-        {
-            get { return precioTuristaBruto; }
-        }
-        public Pasajero this[int indice]
+        public string Disponibilidad
         {
             get
             {
-                // agarrar el pasajero de la lista en ese indice
-                return this.pasajeros[indice];
+                return ActualizarDisponibilidad();
             }
         }
-        protected Viaje() 
+        public Aeronave Aeronave
         {
-            this.aerolinea = AerolineaPartida.BuenosAires_Argentina;
-            this.fechaInicio = DateTime.Today;
-            this.avion = new Aeronave("","",1,0,ESiNo.No,ESiNo.No);
-            this.cantidadAsientosPremium = 0;
-            this.cantidadAsientosTurista = 0;
-            this.precioPremium = 0;
-            this.precioTurista = 0;
-            this.pasajeros = new List<Pasajero>();
+            get { return aeronave; }
+            set { aeronave = value; }
         }
-        protected Viaje(DateTime fecha,Aeronave a1,int asientosPremium,int asientosTurista):this()
+        public List<Pasajero> ListaDePasajeros
         {
-            this.fechaInicio = fecha;
-            this.avion = a1;
-            this.cantidadAsientosPremium = asientosPremium;
-            this.cantidadAsientosTurista = asientosTurista;
+            get { return listaDePasajeros; }
+            set { listaDePasajeros = value; }
         }
-        public virtual string Mostrar()
+        public int HoraDelVuelo
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Datos Viaje: ");
-            sb.AppendLine($"La fecha de inicio es: {this.fechaInicio.ToString()} ");
-            sb.AppendLine($"{this.avion.ToString()} ");
-            sb.AppendLine($"La cantidad de asientos premium es: {this.cantidadAsientosPremium} ");
-            sb.AppendLine($"La cantidad de asientos turista es: {this.cantidadAsientosTurista} ");
-            sb.AppendLine($"El precio premium es: {this.precioPremium} ");
-            sb.AppendLine($"El precio turista es: {this.precioTurista} ");
-            sb.AppendLine($"La duracion del viaje es: {this.duracionHoras} ");
-            sb.AppendLine($"La aerolinea de partida es: {this.aerolinea} ");
-            return sb.ToString();
+            get { return horaDelVuelo; }
+            set { horaDelVuelo = value; }
+        }
+        public int MinutosDelVuelo
+        {
+            get { return minutosDelVuelo; }
+            set { minutosDelVuelo = value; }
+        }
+        public DateTime Partida
+        {
+            get { return partida; }
+            set { partida = value; }
+        }
+        public int Premium
+        {
+            get
+            {
+                return CantidadDeVuelosPorClase(ETipoPasajero.Premium);
+            }
+        }
+        public int Tursita
+        {
+            get
+            {
+                return CantidadDeVuelosPorClase(ETipoPasajero.Turista);
+            }
+        }
+        public bool Wifii
+        {
+            get { return servicioComida; }
+            set { servicioComida = value; }
+        }
+        public bool Comida
+        {
+            get { return servicioComida; }
+            set { servicioComida = value; }
         }
 
+        private Viaje()
+        {
+            this.listaDePasajeros = new List<Pasajero>();
+            this.id = GenerarID();
+        }
+        public Viaje(Aeronave aeronave, string origen, string destino, DateTime partida, bool servicioWifi, bool servicioComida, bool menuVegano, bool menuPremium, bool bebidasSinAlcohol, bool bebidasAlcoholicas) : this()
+        {
+            this.origen = origen;
+            this.destino = destino;
+            ValidarOrigenDestino(origen, destino);
+            ValidarVueloInternacional();
+            this.tipo = DestinoEsInternacional(this.origen, this.destino);
+            this.partida = partida;
+            GenerarDuracionDeVuelos();
+            this.duracion = new DateTime(1, 1, 1, this.horaDelVuelo, this.minutosDelVuelo, 0).ToString("HH:mm");
+            this.servicioWifi = servicioWifi;
+            this.servicioComida = servicioComida;           
+            this.aeronave = aeronave;
+            this.aeronave.AgregarVueloAPlanDeVuelos(this.partida);
+        }
+        private string GenerarID()
+        {
+            string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            char[] idArray = new char[11];
+            Random random = new Random();
 
+            for (int i = 0; i < idArray.Length; i++)
+            {
+                idArray[i] = caracteres[random.Next(caracteres.Length)];
+            }
+
+            return new String(idArray);
+        }
+        private static void ValidarOrigenDestino(string origen, string destino)
+        {
+            if (origen == destino)
+            {
+                throw new Exception("El origen no puede ser igual que el destino");
+            }
+        }
+        private void ValidarVueloInternacional()
+        {
+            if (DestinoEsInternacional(this.origen, this.destino) == ETipoDeViaje.Internacional &&
+                                        this.origen != "Buenos Aires" && this.destino != "Buenos Aires")
+            {
+                throw new Exception("Vuelos internacionales deben partir o arribar en Buenos Aires");
+            }
+        }
+        private static ETipoDeViaje DestinoEsInternacional(string origen, string destino)
+        {
+            if (origen == "Acapulco(México)" ||
+                origen == "Miami(EEUU)" ||
+                origen == "Recife(Brasil)" ||
+                origen == "Roma(Italia)" ||
+                destino == "Acapulco(México)" ||
+                destino == "Miami(EEUU)" ||
+                destino == "Recife(Brasil)" ||
+                destino == "Roma(Italia)")
+            {
+                return ETipoDeViaje.Internacional;
+            }
+            return ETipoDeViaje.Nacional;
+        }
+        private void GenerarDuracionDeVuelos()
+        {
+            Random rnd = new Random();
+            if (this.Tipo == ETipoDeViaje.Internacional)
+            {
+                this.horaDelVuelo = rnd.Next(8, 12);
+                this.minutosDelVuelo = rnd.Next(0, 55);
+                if (this.horaDelVuelo == 12)
+                {
+                    this.minutosDelVuelo = 0;
+                }
+            }
+            else
+            {
+                this.horaDelVuelo = rnd.Next(2, 4);
+                this.minutosDelVuelo = rnd.Next(0, 55);
+                if (this.horaDelVuelo == 4)
+                {
+                    this.minutosDelVuelo = 0;
+                }
+            }
+        }
+        private string ActualizarDisponibilidad()
+        {
+            string vuelo = ActualizarEstadoDelVuelo();
+            if (!string.IsNullOrEmpty(vuelo))
+            {
+                return vuelo;
+            }
+            else if (this.listaDePasajeros.Count == this.aeronave.AsientosTotales)
+            {
+                return "COMPLETO";
+            }
+            return $"{this.listaDePasajeros.Count}/ {this.aeronave.AsientosTotales}";
+        }
+        private string ActualizarEstadoDelVuelo()
+        {
+            string estado = string.Empty;
+            if (MedirHorarioDeLlegada() > DateTime.Now && this.partida < DateTime.Now)
+            {
+                estado = "EN VUELO";
+            }
+            else if (this.partida < DateTime.Now)
+            {
+                estado = "FINALIZADO";
+            }
+            return estado;
+        }
+        private DateTime MedirHorarioDeLlegada()
+        {
+            DateTime llegada;
+
+            llegada = this.partida.AddHours(this.horaDelVuelo);
+            llegada = this.partida.AddMinutes(this.minutosDelVuelo);
+
+            return llegada;
+
+        }
+        private int CantidadDeVuelosPorClase(ETipoPasajero clase)
+        {
+            int contador = 0;
+            foreach (Pasajero item in this.listaDePasajeros)
+            {
+                if (item.Clase == clase)
+                {
+                    contador++;
+                }
+            }
+            return contador;
+        }
     }
 }

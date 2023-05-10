@@ -14,16 +14,7 @@ namespace EntidadesParcial
         private string clave;
         private int legajo;
         private string? perfil;
-        public string Nombre 
-        {
-            get { return nombre; }
-            set { nombre = value; }
-        }
-        public string Apellido
-        {
-            get { return apellido; }
-            set { apellido = value; }
-        }
+
         public string Correo
         {
             get { return correo; }
@@ -44,58 +35,41 @@ namespace EntidadesParcial
             get { return legajo; }
             set { legajo = value; }
         }
-        public Usuario() : base("", "",0,ESexo.NoCargado)
+        public Usuario() : base("", "", DateTime.Now,0)
         {
             this.correo = "";
             this.clave = "";
         }
-        public Usuario(string nombre, string apellido,int edad,ESexo sexo, int legajo, string correo, string clave, string perfil): base(nombre, apellido,edad,sexo)
+        public Usuario(string usuario, string contraseña) : this()
+        {
+                this.correo = usuario;
+                this.clave = contraseña;
+        }
+
+        public Usuario(string nombre, string apellido, DateTime fechaDeNacimiento, int dni, int legajo, string correo, string clave, string perfil):this(correo,clave)
         {
             this.legajo = legajo;
-            this.correo = correo;
-            this.clave = clave;
             this.perfil = perfil;             
         }
-        public static bool operator ==(Usuario t1, Usuario t2)
+        public override int CalcularAntiguedad() 
         {
-            bool rta = false;
-            if (t1 is not null && t2 is not null)
-            {
-                if (t1.correo == t2.correo && t1.clave == t2.clave)
-                {
-                    rta = true;
-                }
-            }
-            else
-            {
-                if (t1 is null && t2 is null)
-                {
-                    rta = true;
-                }
-            }
-            return rta;
-        }
-        public static bool operator !=(Usuario t1, Usuario t2)
-        {
-            return !(t1 == t2);
-        }
-        public override bool Equals(object? obj)
-        {
-            bool ok = false;
-            if (obj is Usuario)
-            {
-                if (this == ((Usuario)obj))
-                {
-                    ok = true;
-                }
-            }
-            return ok;
+            return 0;
         }
 
-        public override int GetHashCode()
+        public static bool operator ==(Usuario u1, Usuario u2)
         {
-            return this.edad.GetHashCode();
+            return u1 is not null && u2 is not null && u1.perfil == u2.perfil && u1.clave == u2.clave;
         }
 
+        public static bool operator !=(Usuario u1, Usuario u2)
+        {
+            return !(u1 == u2);
+        }
+
+        public override bool Equals(object obj)
+        {
+            Usuario usuario = obj as Usuario;
+            return usuario is not null && this == usuario;
+        }
     }
 }
