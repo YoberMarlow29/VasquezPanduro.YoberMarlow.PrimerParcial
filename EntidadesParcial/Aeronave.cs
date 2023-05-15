@@ -12,7 +12,7 @@ namespace EntidadesParcial
         private int cantidadAsientos;
         private int cantidadBaños;
         private double capacidadBodega;
-        private List<DateTime> planDeVuelos;
+        private bool enViaje;
 
         public string Matricula
         {
@@ -20,23 +20,7 @@ namespace EntidadesParcial
             set { matricula = value; }
         }
 
-        public int Premium
-        {
-            get
-            {
-                return (int)(cantidadAsientos * 0.20);
-            }
-        }
-
-        public int Tursita
-        {
-            get
-            {
-                return this.cantidadAsientos - this.Premium;
-            }
-        }
-
-        public int AsientosTotales
+        public int CantidadAsientos
         {
             get { return cantidadAsientos; }
             set { cantidadAsientos = value; }
@@ -53,9 +37,13 @@ namespace EntidadesParcial
             get { return capacidadBodega; }
             set { capacidadBodega = value; }
         }
-        private Aeronave()
+        public Aeronave()
         {
-            planDeVuelos = new List<DateTime>();
+            this.matricula = "";
+            this.cantidadBaños=0;
+            this.cantidadAsientos=0;
+            this.capacidadBodega=0;
+            this.enViaje=false;
         }
         public Aeronave(string matricula,int cantidadDeAsientos, int cantidadDeBanios, double capacidadDeBodega) : this()
         {
@@ -64,32 +52,12 @@ namespace EntidadesParcial
             this.cantidadBaños = cantidadDeBanios;
             this.capacidadBodega = capacidadDeBodega;
         }
-        public void AgregarVueloAPlanDeVuelos(DateTime vueloFecha)
-        {
-            if (VerificarQueNuevoPlanDeVueloNoExista(vueloFecha))
-            {
-                this.planDeVuelos.Add(vueloFecha);
-            }
-        }
-        private bool VerificarQueNuevoPlanDeVueloNoExista(DateTime vueloFecha)
-        {
-            foreach (DateTime item in this.planDeVuelos)
-            {
-                if (item.ToShortDateString() == vueloFecha.ToShortDateString())
-                {
-                    throw new Exception($"La aerovane {this.matricula} ya tiene un vuelo en {vueloFecha.ToString("dd/MM/yyyy")}");
-                }
-            }
-            return true;
-        }
         private string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine($"Matricula: {this.matricula}");
-            sb.AppendLine($"Cantidad de Asientos Totales: {this.cantidadAsientos}");
-            sb.AppendLine($"Cantidad de Asientos Premium: {this.Premium}");
-            sb.AppendLine($"Cantidad de Asientos Tursitas: {this.Tursita}");
+            sb.AppendLine($"Cantidad de Asientos : {this.cantidadAsientos}");
             sb.AppendLine($"Cantidad de Baños: {this.cantidadBaños}");
             sb.AppendLine($"Capacidad de Bodega: {this.capacidadBodega.ToString("0.##")} KG.");
 

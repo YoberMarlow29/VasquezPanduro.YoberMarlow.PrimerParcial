@@ -60,6 +60,7 @@
             btnAgregar.TabIndex = 5;
             btnAgregar.Text = "ALTA";
             btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // lstListaVuelos
             // 

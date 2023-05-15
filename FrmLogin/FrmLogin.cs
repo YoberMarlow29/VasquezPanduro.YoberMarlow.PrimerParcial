@@ -1,32 +1,36 @@
 using Microsoft.VisualBasic.ApplicationServices;
-using EntidadesParcial;
-//using System.Text.Json;
 using System.Text;
 using Newtonsoft.Json;
-using FRMVIAJES;
+using System;
+using EntidadesParcial;
 
-namespace FrmLogin
+
+namespace FRMVIAJES
 {
     public partial class FrmLogin : Form
     {
         private List<Usuario> usuarios;
         private int bandera = 0;
+        private Archivos archivos;
         public FrmLogin()
         {
             InitializeComponent();
             this.usuarios = new List<Usuario>();
+            this.archivos = new Archivos();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             string path = "MOCK_DATA.json";
-            this.usuarios = this.DeserializarUsuarios(path);
+            this.usuarios = this.archivos.DeserializarLista<Usuario>(path);
 
         }
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+
             int correcto = 0;
             if (Validar())
             {
+
                 Usuario aux = new Usuario(txtCorreo.Text, txtContraseña.Text);
                 foreach (Usuario item in this.usuarios)
                 {
@@ -34,10 +38,34 @@ namespace FrmLogin
                     {
                         correcto = 1;
                         this.bandera = 1;
-                        this.Visible = false;
-                        FrmCliente frm = new FrmCliente();  // consultar por 
-                        frm.ShowDialog();
-                        this.Close();
+                        gpbIngresarDatos.Visible = false;
+                        switch (item.Perfil)
+                        {
+                            case "vendedor":
+                                menuStrip1.Items[2].BackColor = Color.White;
+                                menuStrip1.Items[2].Enabled = false;
+                                menuStrip1.Items[3].BackColor = Color.White;
+                                menuStrip1.Items[3].Enabled = false;
+
+                                break;
+                            case "supervisor":
+                                menuStrip1.Items[1].BackColor = Color.White;
+                                menuStrip1.Items[1].Enabled = false;
+                                menuStrip1.Items[3].BackColor = Color.White;
+                                menuStrip1.Items[3].Enabled = false;
+
+                                break;
+                            case "administrador":
+                                menuStrip1.Items[1].BackColor = Color.White;
+                                menuStrip1.Items[1].Enabled = false;
+                                menuStrip1.Items[2].BackColor = Color.White;
+                                menuStrip1.Items[2].Enabled = false;
+                                break;
+
+                        }
+
+
+
                     }
 
                 }
@@ -46,33 +74,6 @@ namespace FrmLogin
                     MessageBox.Show("datos no validos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private List<Usuario> DeserializarUsuarios(string path)
-        {
-
-            if (File.Exists(path))
-            {
-                try
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-                    using (FileStream file = File.OpenRead(path))
-                    using (StreamReader reader = new StreamReader(file))
-                    using (JsonTextReader jsonReader = new JsonTextReader(reader))
-                    {
-                        usuarios = serializer.Deserialize<List<Usuario>>(jsonReader);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al deserializar el archivo: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("El archivo de usuarios no existe o no se puede leer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return usuarios;
         }
         private bool Validar()
         {
@@ -99,6 +100,23 @@ namespace FrmLogin
             }
 
             return esValido;
+        }
+
+        private void iniciarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gpbIngresarDatos.Visible = true;
+        }
+
+        private void aBMVIAJEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmVuelos frm = new FrmVuelos();
+            frm.ShowDialog();
+        }
+
+        private void aBMAERONAVEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAeronave frm = new FrmAeronave();
+            frm.ShowDialog();
         }
     }
 

@@ -6,26 +6,14 @@ using System.Threading.Tasks;
 
 namespace EntidadesParcial
 {
-    public class Pasajero
+    public abstract class Pasajero
     {
-        private Cliente cliente;
-        private ETipoPasajero claseDePasajero;
-        private bool equipajeDeMano;
-        private List<double> equipajeDeBodega;
-        private int equipajesMaximos;
-        private double pesoAdicional;
+        protected Cliente cliente;
+        protected bool equipajeDeMano;
+        protected List<double> equipajeDeBodega;
+        protected int equipajesMaximos;
+        protected double pesoAdicional;
 
-        public ETipoPasajero Clase
-        {
-            get
-            {
-                return claseDePasajero;
-            }
-            set
-            {
-                claseDePasajero = value;
-            }
-        }
 
         public Cliente Cliente
         {
@@ -83,23 +71,20 @@ namespace EntidadesParcial
             }
         }
 
-        private Pasajero()
+        public Pasajero()
         {
             this.equipajeDeBodega = new List<double>();
             this.EquipajeDeMano = false;
-            this.equipajesMaximos = 4;
-            this.pesoAdicional = 0;
+
         }
-        public Pasajero(Cliente cliente, ETipoPasajero claseDePasajero) : this()
+        public Pasajero(Cliente cliente):this()
         {
             this.cliente = cliente;
-            this.claseDePasajero = claseDePasajero;
         }
         private string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine(this.claseDePasajero.ToString());
             sb.AppendLine(this.cliente.ToString());
 
             return sb.ToString();

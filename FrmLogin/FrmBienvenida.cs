@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FrmLogin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,16 +11,17 @@ using System.Windows.Forms;
 
 namespace FRMVIAJES
 {
-    public partial class FrmAltaAeronave : Form
+    public partial class FrmBienvenida : Form
     {
-        public FrmAltaAeronave()
+        public FrmBienvenida()
         {
             InitializeComponent();
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnIngresar_Click(object sender, EventArgs e)
         {
-
+             FrmLogin frmLogin = new FrmLogin();
+            frmLogin.ShowDialog();
         }
     }
 }

@@ -45,18 +45,18 @@ namespace EntidadesParcial
         {
             this.nombre = "";
             this.apellido = "";
-            this.fechaDeNacimiento = DateTime.Now;
-            this.dni = 0;
-
         }
 
-        protected Persona(string nombre, string apellido, DateTime fechaDeNacimiento, int dni) : this()
+        protected Persona(string nombre, string apellido) :this()
         {
             this.nombre = nombre;
             this.apellido = apellido;
-            this.fechaDeNacimiento = fechaDeNacimiento.ToUniversalTime();
-            this.dni = dni;
-            
+        }
+
+        protected Persona(string nombre, string apellido, DateTime fechaDeNacimiento, int dni) : this(nombre,apellido)
+        {
+            this.fechaDeNacimiento = fechaDeNacimiento;
+            this.dni = dni;        
         }
         protected string Mostrar()
         {
@@ -88,10 +88,17 @@ namespace EntidadesParcial
             return !(p1 == p2);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
-            Persona p = obj as Persona;
-            return p is not null && this == p;
+            bool ok = false;
+            if (obj is Persona)
+            {
+                if (this == ((Persona)obj))
+                {
+                    ok = true;
+                }
+            }
+            return ok;
         }
 
         public override int GetHashCode()

@@ -44,13 +44,13 @@ namespace EntidadesParcial
         {
             get { return duracion; }
         }
-        public string Disponibilidad
+        /*public string Disponibilidad
         {
             get
             {
                 return ActualizarDisponibilidad();
             }
-        }
+        }*/
         public Aeronave Aeronave
         {
             get { return aeronave; }
@@ -76,7 +76,7 @@ namespace EntidadesParcial
             get { return partida; }
             set { partida = value; }
         }
-        public int Premium
+        /*public int Premium
         {
             get
             {
@@ -89,7 +89,7 @@ namespace EntidadesParcial
             {
                 return CantidadDeVuelosPorClase(ETipoPasajero.Turista);
             }
-        }
+        }*/
         public bool Wifii
         {
             get { return servicioComida; }
@@ -106,7 +106,7 @@ namespace EntidadesParcial
             this.listaDePasajeros = new List<Pasajero>();
             this.id = GenerarID();
         }
-        public Viaje(Aeronave aeronave, string origen, string destino, DateTime partida, bool servicioWifi, bool servicioComida, bool menuVegano, bool menuPremium, bool bebidasSinAlcohol, bool bebidasAlcoholicas) : this()
+        public Viaje(Aeronave aeronave, string origen, string destino, DateTime partida, bool servicioWifi, bool servicioComida) : this()
         {
             this.origen = origen;
             this.destino = destino;
@@ -119,7 +119,7 @@ namespace EntidadesParcial
             this.servicioWifi = servicioWifi;
             this.servicioComida = servicioComida;           
             this.aeronave = aeronave;
-            this.aeronave.AgregarVueloAPlanDeVuelos(this.partida);
+            //this.aeronave.AgregarVueloAPlanDeVuelos(this.partida);
         }
         private string GenerarID()
         {
@@ -186,7 +186,7 @@ namespace EntidadesParcial
                 }
             }
         }
-        private string ActualizarDisponibilidad()
+        /*private string ActualizarDisponibilidad()
         {
             string vuelo = ActualizarEstadoDelVuelo();
             if (!string.IsNullOrEmpty(vuelo))
@@ -198,8 +198,8 @@ namespace EntidadesParcial
                 return "COMPLETO";
             }
             return $"{this.listaDePasajeros.Count}/ {this.aeronave.AsientosTotales}";
-        }
-        private string ActualizarEstadoDelVuelo()
+        }*/
+        /*private string ActualizarEstadoDelVuelo()
         {
             string estado = string.Empty;
             if (MedirHorarioDeLlegada() > DateTime.Now && this.partida < DateTime.Now)
@@ -211,8 +211,8 @@ namespace EntidadesParcial
                 estado = "FINALIZADO";
             }
             return estado;
-        }
-        private DateTime MedirHorarioDeLlegada()
+        }*/
+        /*private DateTime MedirHorarioDeLlegada()
         {
             DateTime llegada;
 
@@ -221,8 +221,8 @@ namespace EntidadesParcial
 
             return llegada;
 
-        }
-        private int CantidadDeVuelosPorClase(ETipoPasajero clase)
+        }*/
+        /*private int CantidadDeVuelosPorClase(ETipoPasajero clase)
         {
             int contador = 0;
             foreach (Pasajero item in this.listaDePasajeros)
@@ -233,6 +233,6 @@ namespace EntidadesParcial
                 }
             }
             return contador;
-        }
+        }*/
     }
 }

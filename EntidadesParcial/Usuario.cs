@@ -13,7 +13,7 @@ namespace EntidadesParcial
         private string correo;
         private string clave;
         private int legajo;
-        private string? perfil;
+        private string perfil;
 
         public string Correo
         {
@@ -25,7 +25,7 @@ namespace EntidadesParcial
             get { return clave; }
             set { clave = value; }
         }
-        public string? Perfil
+        public string Perfil
         {
             get { return perfil; }
             set { perfil = value; }
@@ -35,21 +35,24 @@ namespace EntidadesParcial
             get { return legajo; }
             set { legajo = value; }
         }
-        public Usuario() : base("", "", DateTime.Now,0)
+        public Usuario() : base()
         {
             this.correo = "";
             this.clave = "";
         }
-        public Usuario(string usuario, string contraseña) : this()
+
+        public Usuario(string correo, string clave):this()
         {
-                this.correo = usuario;
-                this.clave = contraseña;
+            this.correo = correo;
+            this.clave = clave;
         }
 
-        public Usuario(string nombre, string apellido, DateTime fechaDeNacimiento, int dni, int legajo, string correo, string clave, string perfil):this(correo,clave)
+        public Usuario(string nombre, string apellido, int legajo, string correo, string clave, string perfil) : base(nombre, apellido)
         {
+            this.correo = correo;
+            this.clave = clave;
             this.legajo = legajo;
-            this.perfil = perfil;             
+            this.perfil = perfil;
         }
         public override int CalcularAntiguedad() 
         {
@@ -58,7 +61,7 @@ namespace EntidadesParcial
 
         public static bool operator ==(Usuario u1, Usuario u2)
         {
-            return u1 is not null && u2 is not null && u1.perfil == u2.perfil && u1.clave == u2.clave;
+            return u1 is not null && u2 is not null && u1.correo == u2.correo && u1.clave == u2.clave;
         }
 
         public static bool operator !=(Usuario u1, Usuario u2)
@@ -66,10 +69,17 @@ namespace EntidadesParcial
             return !(u1 == u2);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
-            Usuario usuario = obj as Usuario;
-            return usuario is not null && this == usuario;
+            bool ok = false;
+            if (obj is Usuario)
+            {
+                if (this == ((Usuario)obj))
+                {
+                    ok = true;
+                }
+            }
+            return ok;
         }
     }
 }
