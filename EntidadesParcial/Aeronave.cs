@@ -81,7 +81,7 @@ namespace EntidadesParcial
         {
             return !(a1 == a2);
         }
-
+        //asas
         public override bool Equals(object? obj)
         {
             bool ok = false;
