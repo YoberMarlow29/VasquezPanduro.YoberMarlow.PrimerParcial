@@ -26,13 +26,13 @@ namespace EntidadesParcial
             set { cantidadAsientos = value; }
         }
 
-        public int Baños
+        public int CantidadBaños
         {
             get { return cantidadBaños; }
             set { cantidadBaños = value; }
         }
 
-        public double Bodega
+        public double CapacidadBodega
         {
             get { return capacidadBodega; }
             set { capacidadBodega = value; }
