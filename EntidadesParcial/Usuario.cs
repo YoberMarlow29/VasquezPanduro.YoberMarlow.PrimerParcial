@@ -81,5 +81,13 @@ namespace EntidadesParcial
             }
             return ok;
         }
+        public bool VerificarContrasenia(string contraseniaActual)
+        {
+            if (contraseniaActual == this.clave)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

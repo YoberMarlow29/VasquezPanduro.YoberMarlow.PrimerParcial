@@ -17,7 +17,7 @@ namespace EntidadesParcial
             }
         }
 
-        public Cliente(string nombre, string apellido, DateTime fechaDeNacimiento, int dni, string email, DateTime antiguedadComoCliente)
+        public Cliente(string nombre, string apellido, DateTime fechaDeNacimiento, int dni, DateTime antiguedadComoCliente)
            : base(nombre, apellido, fechaDeNacimiento, dni)
         {
             this.antiguedadComoCliente = antiguedadComoCliente;

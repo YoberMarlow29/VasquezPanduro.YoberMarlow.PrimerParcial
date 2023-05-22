@@ -9,5 +9,36 @@ namespace EntidadesParcial
     public static class Compañia
     {
 
+        public static void AltaDeAeronave(Aeronave nuevaAeronave)
+        {
+            if (nuevaAeronave is not null)
+            {
+                Archivos.listaDeAeronaves.Add(nuevaAeronave);
+            }
+        }
+        public static void BajaDeAeronave(Aeronave bajaAeronave) 
+        {
+            if (bajaAeronave is not null)
+            {
+                Archivos.listaDeAeronaves.Remove(bajaAeronave);
+            }
+        }
+        public static void ModificarAeronave(Aeronave modificaAeronave) 
+        {
+            List<Aeronave> nuevaLista = Archivos.DevolverListaAeronave();
+            if (modificaAeronave is not null)
+            {
+                foreach (Aeronave item in nuevaLista) 
+                {
+                    if (item.Equals(modificaAeronave))                    
+                    {
+                        item.CantidadAsientos=modificaAeronave.CantidadAsientos;
+                        item.CantidadBaños = modificaAeronave.CantidadBaños;
+                        item.CapacidadBodega = modificaAeronave.CapacidadBodega;
+                    }
+                }
+            }
+        }
+
     }
 }

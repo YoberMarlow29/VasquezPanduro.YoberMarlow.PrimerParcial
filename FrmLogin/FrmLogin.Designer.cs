@@ -37,7 +37,13 @@
             menuStrip1 = new MenuStrip();
             iniciarSesionToolStripMenuItem = new ToolStripMenuItem();
             vueloToolStripMenuItem = new ToolStripMenuItem();
+            lISTADEVIAJESToolStripMenuItem = new ToolStripMenuItem();
+            vENDERVIAJEToolStripMenuItem = new ToolStripMenuItem();
+            eSTADISTICASHISTORICASToolStripMenuItem1 = new ToolStripMenuItem();
+            pASAJEROSToolStripMenuItem1 = new ToolStripMenuItem();
             avionToolStripMenuItem = new ToolStripMenuItem();
+            eSTADISTICASHISTORICASToolStripMenuItem = new ToolStripMenuItem();
+            pASAJEROSToolStripMenuItem = new ToolStripMenuItem();
             estadisticasToolStripMenuItem = new ToolStripMenuItem();
             aBMVIAJEToolStripMenuItem = new ToolStripMenuItem();
             aBMAERONAVEToolStripMenuItem = new ToolStripMenuItem();
@@ -119,15 +125,53 @@
             // 
             // vueloToolStripMenuItem
             // 
+            vueloToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lISTADEVIAJESToolStripMenuItem, vENDERVIAJEToolStripMenuItem, eSTADISTICASHISTORICASToolStripMenuItem1, pASAJEROSToolStripMenuItem1 });
             vueloToolStripMenuItem.Name = "vueloToolStripMenuItem";
             vueloToolStripMenuItem.Size = new Size(69, 20);
             vueloToolStripMenuItem.Text = "Vendedor";
             // 
+            // lISTADEVIAJESToolStripMenuItem
+            // 
+            lISTADEVIAJESToolStripMenuItem.Name = "lISTADEVIAJESToolStripMenuItem";
+            lISTADEVIAJESToolStripMenuItem.Size = new Size(214, 22);
+            lISTADEVIAJESToolStripMenuItem.Text = "LISTA DE VIAJES";
+            // 
+            // vENDERVIAJEToolStripMenuItem
+            // 
+            vENDERVIAJEToolStripMenuItem.Name = "vENDERVIAJEToolStripMenuItem";
+            vENDERVIAJEToolStripMenuItem.Size = new Size(214, 22);
+            vENDERVIAJEToolStripMenuItem.Text = "VENDER VIAJE";
+            // 
+            // eSTADISTICASHISTORICASToolStripMenuItem1
+            // 
+            eSTADISTICASHISTORICASToolStripMenuItem1.Name = "eSTADISTICASHISTORICASToolStripMenuItem1";
+            eSTADISTICASHISTORICASToolStripMenuItem1.Size = new Size(214, 22);
+            eSTADISTICASHISTORICASToolStripMenuItem1.Text = "ESTADISTICAS HISTORICAS";
+            // 
+            // pASAJEROSToolStripMenuItem1
+            // 
+            pASAJEROSToolStripMenuItem1.Name = "pASAJEROSToolStripMenuItem1";
+            pASAJEROSToolStripMenuItem1.Size = new Size(214, 22);
+            pASAJEROSToolStripMenuItem1.Text = "PASAJEROS";
+            // 
             // avionToolStripMenuItem
             // 
+            avionToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { eSTADISTICASHISTORICASToolStripMenuItem, pASAJEROSToolStripMenuItem });
             avionToolStripMenuItem.Name = "avionToolStripMenuItem";
             avionToolStripMenuItem.Size = new Size(74, 20);
             avionToolStripMenuItem.Text = "Supervisor";
+            // 
+            // eSTADISTICASHISTORICASToolStripMenuItem
+            // 
+            eSTADISTICASHISTORICASToolStripMenuItem.Name = "eSTADISTICASHISTORICASToolStripMenuItem";
+            eSTADISTICASHISTORICASToolStripMenuItem.Size = new Size(214, 22);
+            eSTADISTICASHISTORICASToolStripMenuItem.Text = "ESTADISTICAS HISTORICAS";
+            // 
+            // pASAJEROSToolStripMenuItem
+            // 
+            pASAJEROSToolStripMenuItem.Name = "pASAJEROSToolStripMenuItem";
+            pASAJEROSToolStripMenuItem.Size = new Size(214, 22);
+            pASAJEROSToolStripMenuItem.Text = "PASAJEROS";
             // 
             // estadisticasToolStripMenuItem
             // 
@@ -185,5 +229,11 @@
         private ToolStripMenuItem estadisticasToolStripMenuItem;
         private ToolStripMenuItem aBMVIAJEToolStripMenuItem;
         private ToolStripMenuItem aBMAERONAVEToolStripMenuItem;
+        private ToolStripMenuItem lISTADEVIAJESToolStripMenuItem;
+        private ToolStripMenuItem vENDERVIAJEToolStripMenuItem;
+        private ToolStripMenuItem eSTADISTICASHISTORICASToolStripMenuItem1;
+        private ToolStripMenuItem pASAJEROSToolStripMenuItem1;
+        private ToolStripMenuItem eSTADISTICASHISTORICASToolStripMenuItem;
+        private ToolStripMenuItem pASAJEROSToolStripMenuItem;
     }
 }
