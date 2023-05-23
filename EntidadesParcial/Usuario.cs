@@ -54,11 +54,6 @@ namespace EntidadesParcial
             this.legajo = legajo;
             this.perfil = perfil;
         }
-        public override int CalcularAntiguedad() 
-        {
-            return 0;
-        }
-
         public static bool operator ==(Usuario u1, Usuario u2)
         {
             return u1 is not null && u2 is not null && u1.correo == u2.correo && u1.clave == u2.clave;

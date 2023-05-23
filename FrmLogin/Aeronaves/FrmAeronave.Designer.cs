@@ -67,13 +67,23 @@
             // 
             // dataGridAeronaves
             // 
+            dataGridAeronaves.AllowUserToAddRows = false;
+            dataGridAeronaves.AllowUserToDeleteRows = false;
+            dataGridAeronaves.AllowUserToResizeRows = false;
+            dataGridAeronaves.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridAeronaves.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridAeronaves.EnableHeadersVisualStyles = false;
             dataGridAeronaves.Location = new Point(12, 12);
+            dataGridAeronaves.MultiSelect = false;
             dataGridAeronaves.Name = "dataGridAeronaves";
+            dataGridAeronaves.ReadOnly = true;
+            dataGridAeronaves.RowHeadersVisible = false;
             dataGridAeronaves.RowTemplate.Height = 25;
             dataGridAeronaves.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridAeronaves.Size = new Size(1341, 513);
             dataGridAeronaves.TabIndex = 8;
+            dataGridAeronaves.TabStop = false;
+            dataGridAeronaves.VirtualMode = true;
             // 
             // FrmAeronave
             // 

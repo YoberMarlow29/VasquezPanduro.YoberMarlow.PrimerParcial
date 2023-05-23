@@ -31,12 +31,13 @@
             btnEliminar = new Button();
             btnModificar = new Button();
             btnAgregar = new Button();
-            lstListaVuelos = new ListBox();
+            dataGridAeronaves = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridAeronaves).BeginInit();
             SuspendLayout();
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(93, 428);
+            btnEliminar.Location = new Point(87, 521);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 23);
             btnEliminar.TabIndex = 7;
@@ -45,7 +46,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(174, 428);
+            btnModificar.Location = new Point(168, 521);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(84, 23);
             btnModificar.TabIndex = 6;
@@ -54,7 +55,7 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(12, 428);
+            btnAgregar.Location = new Point(6, 521);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 5;
@@ -62,26 +63,38 @@
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 
-            // lstListaVuelos
+            // dataGridAeronaves
             // 
-            lstListaVuelos.FormattingEnabled = true;
-            lstListaVuelos.ItemHeight = 15;
-            lstListaVuelos.Location = new Point(12, 12);
-            lstListaVuelos.Name = "lstListaVuelos";
-            lstListaVuelos.Size = new Size(929, 409);
-            lstListaVuelos.TabIndex = 4;
+            dataGridAeronaves.AllowUserToAddRows = false;
+            dataGridAeronaves.AllowUserToDeleteRows = false;
+            dataGridAeronaves.AllowUserToResizeRows = false;
+            dataGridAeronaves.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridAeronaves.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridAeronaves.EnableHeadersVisualStyles = false;
+            dataGridAeronaves.Location = new Point(12, 12);
+            dataGridAeronaves.MultiSelect = false;
+            dataGridAeronaves.Name = "dataGridAeronaves";
+            dataGridAeronaves.ReadOnly = true;
+            dataGridAeronaves.RowHeadersVisible = false;
+            dataGridAeronaves.RowTemplate.Height = 25;
+            dataGridAeronaves.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridAeronaves.Size = new Size(1303, 503);
+            dataGridAeronaves.TabIndex = 10;
+            dataGridAeronaves.TabStop = false;
+            dataGridAeronaves.VirtualMode = true;
             // 
             // FrmVuelos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(961, 476);
+            ClientSize = new Size(1327, 556);
+            Controls.Add(dataGridAeronaves);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
-            Controls.Add(lstListaVuelos);
             Name = "FrmVuelos";
             Text = "FrmVuelos";
+            ((System.ComponentModel.ISupportInitialize)dataGridAeronaves).EndInit();
             ResumeLayout(false);
         }
 
@@ -90,6 +103,6 @@
         private Button btnEliminar;
         private Button btnModificar;
         private Button btnAgregar;
-        private ListBox lstListaVuelos;
+        private DataGridView dataGridAeronaves;
     }
 }

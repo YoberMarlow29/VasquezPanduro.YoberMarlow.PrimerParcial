@@ -46,6 +46,10 @@ namespace FRMVIAJES
             cboAsientos.SelectedItem = cantidadAsientos.ToString();
             txtCantidadDeBaños.Text = cantidadBanios.ToString();
             txtCapacidadBodega.Text = capacidadBodega.ToString();
+            //falta
+            AeronaveModificar.CantidadAsientos = cantidadAsientos;
+            AeronaveModificar.CapacidadBodega = capacidadBodega;
+            AeronaveModificar.CantidadBaños = cantidadBanios;
             DialogResult = DialogResult.OK;
             this.Close();
         }

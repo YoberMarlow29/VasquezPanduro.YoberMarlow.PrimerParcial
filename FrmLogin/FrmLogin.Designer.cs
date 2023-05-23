@@ -172,6 +172,7 @@
             pASAJEROSToolStripMenuItem.Name = "pASAJEROSToolStripMenuItem";
             pASAJEROSToolStripMenuItem.Size = new Size(214, 22);
             pASAJEROSToolStripMenuItem.Text = "PASAJEROS";
+            pASAJEROSToolStripMenuItem.Click += pASAJEROSToolStripMenuItem_Click;
             // 
             // estadisticasToolStripMenuItem
             // 
@@ -183,14 +184,14 @@
             // aBMVIAJEToolStripMenuItem
             // 
             aBMVIAJEToolStripMenuItem.Name = "aBMVIAJEToolStripMenuItem";
-            aBMVIAJEToolStripMenuItem.Size = new Size(180, 22);
+            aBMVIAJEToolStripMenuItem.Size = new Size(133, 22);
             aBMVIAJEToolStripMenuItem.Text = "VIAJES";
             aBMVIAJEToolStripMenuItem.Click += aBMVIAJEToolStripMenuItem_Click;
             // 
             // aBMAERONAVEToolStripMenuItem
             // 
             aBMAERONAVEToolStripMenuItem.Name = "aBMAERONAVEToolStripMenuItem";
-            aBMAERONAVEToolStripMenuItem.Size = new Size(180, 22);
+            aBMAERONAVEToolStripMenuItem.Size = new Size(133, 22);
             aBMAERONAVEToolStripMenuItem.Text = "AERONAVE";
             aBMAERONAVEToolStripMenuItem.Click += aBMAERONAVEToolStripMenuItem_Click;
             // 

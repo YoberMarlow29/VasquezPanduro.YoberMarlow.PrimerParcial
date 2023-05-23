@@ -1,6 +1,6 @@
 ﻿namespace FRMVIAJES
 {
-    partial class FrmCliente
+    partial class FrmPasajeros
     {
         /// <summary>
         /// Required designer variable.
@@ -28,24 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lstListaClientes = new ListBox();
             btnAgregar = new Button();
             btnModificar = new Button();
             btnEliminar = new Button();
+            dataGridPasajeros = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridPasajeros).BeginInit();
             SuspendLayout();
-            // 
-            // lstListaClientes
-            // 
-            lstListaClientes.FormattingEnabled = true;
-            lstListaClientes.ItemHeight = 15;
-            lstListaClientes.Location = new Point(12, 12);
-            lstListaClientes.Name = "lstListaClientes";
-            lstListaClientes.Size = new Size(929, 409);
-            lstListaClientes.TabIndex = 0;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(12, 428);
+            btnAgregar.Location = new Point(11, 540);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 1;
@@ -55,7 +47,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(174, 428);
+            btnModificar.Location = new Point(173, 540);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(84, 23);
             btnModificar.TabIndex = 2;
@@ -64,33 +56,52 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(93, 428);
+            btnEliminar.Location = new Point(92, 540);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 23);
             btnEliminar.TabIndex = 3;
             btnEliminar.Text = "BAJA";
             btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // FrmCliente
+            // dataGridPasajeros
+            // 
+            dataGridPasajeros.AllowUserToAddRows = false;
+            dataGridPasajeros.AllowUserToDeleteRows = false;
+            dataGridPasajeros.AllowUserToResizeRows = false;
+            dataGridPasajeros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridPasajeros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridPasajeros.EnableHeadersVisualStyles = false;
+            dataGridPasajeros.Location = new Point(12, 12);
+            dataGridPasajeros.MultiSelect = false;
+            dataGridPasajeros.Name = "dataGridPasajeros";
+            dataGridPasajeros.ReadOnly = true;
+            dataGridPasajeros.RowHeadersVisible = false;
+            dataGridPasajeros.RowTemplate.Height = 25;
+            dataGridPasajeros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridPasajeros.Size = new Size(1600, 522);
+            dataGridPasajeros.TabIndex = 9;
+            dataGridPasajeros.TabStop = false;
+            dataGridPasajeros.VirtualMode = true;
+            // 
+            // FrmPasajeros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(953, 463);
+            ClientSize = new Size(1624, 575);
+            Controls.Add(dataGridPasajeros);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
-            Controls.Add(lstListaClientes);
-            Name = "FrmCliente";
+            Name = "FrmPasajeros";
             Text = "FrmCliente";
-            Load += FrmCliente_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridPasajeros).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private ListBox lstListaClientes;
         private Button btnAgregar;
         private Button btnModificar;
         private Button btnEliminar;
+        private DataGridView dataGridPasajeros;
     }
 }

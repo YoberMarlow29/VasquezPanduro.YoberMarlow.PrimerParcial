@@ -45,7 +45,7 @@ namespace FRMVIAJES
             {
                 Aeronave nuevaAeronave = frmModificar.AeronaveModificar;
                 Compañia.ModificarAeronave(nuevaAeronave);
-                UpdateDataGrid(dataGridAeronaves);               
+                UpdateDataGrid(dataGridAeronaves);
             }
             Archivos.SerializarListaJson(Archivos.listaDeAeronaves, Archivos.pathAeronaves);
 

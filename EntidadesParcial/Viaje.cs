@@ -193,13 +193,13 @@ namespace EntidadesParcial
             {
                 return vuelo;
             }
-            else if (this.listaDePasajeros.Count == this.aeronave.AsientosTotales)
+            else if (this.listaDePasajeros.Count == this.aeronave.CantidadAsientos)
             {
                 return "COMPLETO";
             }
-            return $"{this.listaDePasajeros.Count}/ {this.aeronave.AsientosTotales}";
-        }*/
-        /*private string ActualizarEstadoDelVuelo()
+            return $"{this.listaDePasajeros.Count}/ {this.aeronave.CantidadAsientos}";
+        }
+        private string ActualizarEstadoDelVuelo()
         {
             string estado = string.Empty;
             if (MedirHorarioDeLlegada() > DateTime.Now && this.partida < DateTime.Now)
@@ -211,8 +211,8 @@ namespace EntidadesParcial
                 estado = "FINALIZADO";
             }
             return estado;
-        }*/
-        /*private DateTime MedirHorarioDeLlegada()
+        }
+        private DateTime MedirHorarioDeLlegada()
         {
             DateTime llegada;
 

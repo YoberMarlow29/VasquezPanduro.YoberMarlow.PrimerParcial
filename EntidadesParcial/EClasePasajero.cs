@@ -1,6 +1,6 @@
-﻿public enum ETipoPasajero
+﻿public enum ClasePasajero
 {
     NoCargado,
     Turista,
     Premium
-};
+}

@@ -39,6 +39,14 @@ namespace EntidadesParcial
                 }
             }
         }
+        public static void AltaDePasajeros(Pasajero nuevoPasajero) 
+        {
+            if (nuevoPasajero is not null)
+            {
+                Archivos.listaDePasajeros.Add(nuevoPasajero);
+            }
+
+        }
 
     }
 }

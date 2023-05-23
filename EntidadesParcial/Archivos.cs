@@ -14,13 +14,16 @@ namespace EntidadesParcial
     {
         public static string pathAeronaves;
         private static string pathUsuarios;
+        public static string pathPasajeros;
         public static List<Usuario> usuarios;
         public static List<Aeronave> listaDeAeronaves;
+        public static List<Pasajero> listaDePasajeros;
 
         static Archivos() 
         {
             CargarUsuarios();
             CargarAeronaves();
+            CargarPasajeros();
 
         }
         private static void CargarUsuarios()   
@@ -35,6 +38,13 @@ namespace EntidadesParcial
             pathAeronaves = "Aeronaves.json";
             listaDeAeronaves = new List<Aeronave>();
             listaDeAeronaves = DeserializarListaJson<Aeronave>(pathAeronaves);
+        }
+        private static void CargarPasajeros() 
+        {
+            pathPasajeros = "Pasajeros.xml";
+            listaDePasajeros = new List<Pasajero>();         
+            listaDePasajeros = DeserializarListaXml<Pasajero>(pathPasajeros);
+
         }
         public static List<Aeronave> DevolverListaAeronave() 
         {        

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace FRMVIAJES
 {
-    public partial class FrmAltaAeronave : Form
+    public partial class FrmModificarPasajeros : Form
     {
-        public FrmAltaAeronave()
+        public FrmModificarPasajeros()
         {
             InitializeComponent();
-        }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

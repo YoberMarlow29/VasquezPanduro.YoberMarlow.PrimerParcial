@@ -6,93 +6,67 @@ using System.Threading.Tasks;
 
 namespace EntidadesParcial
 {
-    public abstract class Pasajero
+    public class Pasajero : Persona
     {
-        protected Cliente cliente;
-        protected bool equipajeDeMano;
-        protected List<double> equipajeDeBodega;
-        protected int equipajesMaximos;
-        protected double pesoAdicional;
+        private ClasePasajero clase;
+        private bool equipajeDeMano;
+        private List<double> equipajeDeBodega;
 
-
-        public Cliente Cliente
+        public ClasePasajero Clase
         {
-            get
-            {
-                return cliente;
-            }
-            set
-            {
-                cliente = value;
-            }
+            get { return clase; }
+            set { clase = value; }
         }
 
         public bool EquipajeDeMano
         {
-            get
-            {
-                return equipajeDeMano;
-            }
-            set
-            {
-                equipajeDeMano = value;
-            }
-        }
-
-        public double PesoAdicional
-        {
-            get
-            {
-                return this.pesoAdicional;
-            }
+            get { return equipajeDeMano; }
+            set { equipajeDeMano = value; }
         }
 
         public List<double> EquipajeDeBodega
         {
-            get
-            {
-                return equipajeDeBodega;
-            }
-            set
-            {
-                equipajeDeBodega = value;
-            }
-        }
-
-        public int EquipajesMaximos
-        {
-            get
-            {
-                return equipajesMaximos;
-            }
-            set
-            {
-                equipajesMaximos = value;
-            }
+            get { return equipajeDeBodega; }
+            set { equipajeDeBodega = value; }
         }
 
         public Pasajero()
         {
-            this.equipajeDeBodega = new List<double>();
-            this.EquipajeDeMano = false;
-
+            clase = ClasePasajero.NoCargado;
+            equipajeDeMano = false;
+            equipajeDeBodega = new List<double>();
         }
-        public Pasajero(Cliente cliente):this()
+
+        public Pasajero(string nombre, string apellido, DateTime fechaDeNacimiento, int dni, ClasePasajero clase,bool equipajeDeMano, List<double> equipajeDeBodega)
+        : base(nombre, apellido, fechaDeNacimiento, dni)
         {
-            this.cliente = cliente;
+            this.clase = clase;
+            this.equipajeDeMano = equipajeDeMano;
+            this.equipajeDeBodega = equipajeDeBodega;
         }
-        private string Mostrar()
+
+        public static bool operator ==(Pasajero p1, Pasajero p2)
         {
-            StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine(this.cliente.ToString());
-
-            return sb.ToString();
+            return p1.GetHashCode() == p2.GetHashCode();
         }
+
+        public static bool operator !=(Pasajero p1, Pasajero p2)
+        {
+            return !(p1 == p2);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Pasajero)
+            {
+                return this == (Pasajero)obj;
+            }
+            return false;
+        }
+
         public override string ToString()
         {
-            return this.Mostrar();
+            return $"{base.Apellido}, {base.Nombre} - DNI: {base.GetHashCode()}";
         }
-        
     }
 }

@@ -57,7 +57,7 @@ namespace FRMVIAJES
             if (correcto == 0)
             {
                 MessageBox.Show("datos no validos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }          
+            }
         }
 
         private void iniciarSesionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,6 +74,12 @@ namespace FRMVIAJES
         private void aBMAERONAVEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAeronave frm = new FrmAeronave();
+            frm.ShowDialog();
+        }
+
+        private void pASAJEROSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPasajeros frm = new FrmPasajeros();
             frm.ShowDialog();
         }
     }

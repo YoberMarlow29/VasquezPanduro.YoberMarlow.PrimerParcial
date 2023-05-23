@@ -43,8 +43,7 @@ namespace EntidadesParcial
         }
         protected Persona()
         {
-            this.nombre = "";
-            this.apellido = "";
+
         }
 
         protected Persona(string nombre, string apellido) :this()
@@ -77,7 +76,6 @@ namespace EntidadesParcial
             }
             return edad;
         }
-        public abstract int CalcularAntiguedad();
         public static bool operator ==(Persona p1, Persona p2)
         {
             return p1 is not null && p2 is not null && p1.dni == p2.dni;
