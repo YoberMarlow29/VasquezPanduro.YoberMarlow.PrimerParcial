@@ -53,6 +53,7 @@
             btnModificar.TabIndex = 2;
             btnModificar.Text = "MODIFICAR";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnEliminar
             // 
@@ -62,6 +63,7 @@
             btnEliminar.TabIndex = 3;
             btnEliminar.Text = "BAJA";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // dataGridPasajeros
             // 
@@ -71,14 +73,14 @@
             dataGridPasajeros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridPasajeros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridPasajeros.EnableHeadersVisualStyles = false;
-            dataGridPasajeros.Location = new Point(12, 12);
+            dataGridPasajeros.Location = new Point(11, 12);
             dataGridPasajeros.MultiSelect = false;
             dataGridPasajeros.Name = "dataGridPasajeros";
             dataGridPasajeros.ReadOnly = true;
             dataGridPasajeros.RowHeadersVisible = false;
             dataGridPasajeros.RowTemplate.Height = 25;
             dataGridPasajeros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridPasajeros.Size = new Size(1600, 522);
+            dataGridPasajeros.Size = new Size(1069, 522);
             dataGridPasajeros.TabIndex = 9;
             dataGridPasajeros.TabStop = false;
             dataGridPasajeros.VirtualMode = true;
@@ -87,13 +89,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1624, 575);
+            ClientSize = new Size(1092, 575);
             Controls.Add(dataGridPasajeros);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
             Name = "FrmPasajeros";
             Text = "FrmCliente";
+            Load += FrmPasajeros_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridPasajeros).EndInit();
             ResumeLayout(false);
         }

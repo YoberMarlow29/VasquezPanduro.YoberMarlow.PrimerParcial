@@ -18,12 +18,14 @@ namespace EntidadesParcial
         public static List<Usuario> usuarios;
         public static List<Aeronave> listaDeAeronaves;
         public static List<Pasajero> listaDePasajeros;
+        public static List<string> listaLocalidades;
 
         static Archivos() 
         {
             CargarUsuarios();
             CargarAeronaves();
             CargarPasajeros();
+            CargarLocalidades();
 
         }
         private static void CargarUsuarios()   
@@ -45,6 +47,32 @@ namespace EntidadesParcial
             listaDePasajeros = new List<Pasajero>();         
             listaDePasajeros = DeserializarListaXml<Pasajero>(pathPasajeros);
 
+        }
+        private static void CargarLocalidades()
+        {
+            listaLocalidades = new List<string>()
+            {
+                "Buenos Aires",
+                "Santa Rosa",
+                "Bariloche",
+                "Corrientes",
+                "Córdoba",
+                "Jujuy",
+                "Mendoza",
+                "Neuquén",
+                "Posadas",
+                "Iguazú",
+                "Salta",
+                "Santiago del Estero",
+                "Trelew",
+                "Tucumán",
+                "Puerto Madryn",
+                "Ushuaia",
+                "Recife(Brasil)",
+                "Roma(Italia)",
+                "Acapulco(México)",
+                "Miami(EEUU)"
+            };
         }
         public static List<Aeronave> DevolverListaAeronave() 
         {        

@@ -10,7 +10,7 @@ namespace EntidadesParcial
     {
         protected string nombre;
         protected string apellido;
-        protected DateTime fechaDeNacimiento;
+        protected int edad;
         protected int dni;
 
         public string Nombre
@@ -31,16 +31,12 @@ namespace EntidadesParcial
             set { dni = value; }
         }
 
-        public DateTime Nacimiento
-        {
-            get { return fechaDeNacimiento; }
-            set { fechaDeNacimiento = value; }
-        }
-
         public int Edad
         {
-            get { return CalcularEdad(fechaDeNacimiento); }
+            get { return edad; }
+            set { edad = value; }
         }
+
         protected Persona()
         {
 
@@ -52,9 +48,9 @@ namespace EntidadesParcial
             this.apellido = apellido;
         }
 
-        protected Persona(string nombre, string apellido, DateTime fechaDeNacimiento, int dni) : this(nombre,apellido)
+        protected Persona(string nombre, string apellido, int edad, int dni) : this(nombre,apellido)
         {
-            this.fechaDeNacimiento = fechaDeNacimiento;
+            this.edad = edad;
             this.dni = dni;        
         }
         protected string Mostrar()
@@ -63,18 +59,8 @@ namespace EntidadesParcial
             cadena.AppendLine($"El nombre es: {this.nombre} ");
             cadena.AppendLine($"El apellido es: {this.apellido} ");
             cadena.AppendLine($"El dni es: {this.dni}");
-            cadena.AppendLine($"Fecha de Nacimiento: {this.fechaDeNacimiento.ToString("dd/MM/yyyy")}");
+            cadena.AppendLine($"edad: {this.edad}");
             return cadena.ToString();
-        }
-        private static int CalcularEdad(DateTime nacimiento)
-        {
-            int edad;
-            edad = DateTime.Now.Year - nacimiento.Year;
-            if (nacimiento.Date > DateTime.Now.AddYears(-edad))
-            {
-                edad--;
-            }
-            return edad;
         }
         public static bool operator ==(Persona p1, Persona p2)
         {

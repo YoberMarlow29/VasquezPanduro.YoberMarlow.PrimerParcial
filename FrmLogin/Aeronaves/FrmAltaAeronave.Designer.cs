@@ -37,7 +37,8 @@
             lblMatricula = new Label();
             label2 = new Label();
             txtCapacidadBodega = new TextBox();
-            cboAsientos = new ComboBox();
+            btnGenerarMatricula = new Button();
+            txtCantidadAsientos = new TextBox();
             SuspendLayout();
             // 
             // btnCancelar
@@ -70,6 +71,7 @@
             // 
             txtMatricula.Location = new Point(156, 27);
             txtMatricula.Name = "txtMatricula";
+            txtMatricula.ReadOnly = true;
             txtMatricula.Size = new Size(213, 23);
             txtMatricula.TabIndex = 20;
             // 
@@ -116,21 +118,30 @@
             txtCapacidadBodega.Size = new Size(213, 23);
             txtCapacidadBodega.TabIndex = 30;
             // 
-            // cboAsientos
+            // btnGenerarMatricula
             // 
-            cboAsientos.FormattingEnabled = true;
-            cboAsientos.Items.AddRange(new object[] { "100", "200", "300", "500", "600", "" });
-            cboAsientos.Location = new Point(156, 76);
-            cboAsientos.Name = "cboAsientos";
-            cboAsientos.Size = new Size(213, 23);
-            cboAsientos.TabIndex = 31;
+            btnGenerarMatricula.Location = new Point(375, 27);
+            btnGenerarMatricula.Name = "btnGenerarMatricula";
+            btnGenerarMatricula.Size = new Size(158, 23);
+            btnGenerarMatricula.TabIndex = 32;
+            btnGenerarMatricula.Text = "GENERAR MATRICULA";
+            btnGenerarMatricula.UseVisualStyleBackColor = true;
+            btnGenerarMatricula.Click += btnGenerarMatricula_Click;
+            // 
+            // txtCantidadAsientos
+            // 
+            txtCantidadAsientos.Location = new Point(156, 76);
+            txtCantidadAsientos.Name = "txtCantidadAsientos";
+            txtCantidadAsientos.Size = new Size(213, 23);
+            txtCantidadAsientos.TabIndex = 33;
             // 
             // FrmAltaAeronave
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(434, 272);
-            Controls.Add(cboAsientos);
+            ClientSize = new Size(577, 272);
+            Controls.Add(txtCantidadAsientos);
+            Controls.Add(btnGenerarMatricula);
             Controls.Add(txtCapacidadBodega);
             Controls.Add(label2);
             Controls.Add(btnCancelar);
@@ -159,6 +170,7 @@
         private CheckBox cbServicioInternet;
         private Label label2;
         private TextBox txtCapacidadBodega;
-        private ComboBox cboAsientos;
+        private Button btnGenerarMatricula;
+        private TextBox txtCantidadAsientos;
     }
 }

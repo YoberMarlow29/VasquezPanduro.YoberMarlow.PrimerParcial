@@ -10,7 +10,7 @@ namespace EntidadesParcial
     {
         private ClasePasajero clase;
         private bool equipajeDeMano;
-        private List<double> equipajeDeBodega;
+        private double equipajeDeBodega;
 
         public ClasePasajero Clase
         {
@@ -24,7 +24,7 @@ namespace EntidadesParcial
             set { equipajeDeMano = value; }
         }
 
-        public List<double> EquipajeDeBodega
+        public double EquipajeDeBodega
         {
             get { return equipajeDeBodega; }
             set { equipajeDeBodega = value; }
@@ -34,15 +34,11 @@ namespace EntidadesParcial
         {
             clase = ClasePasajero.NoCargado;
             equipajeDeMano = false;
-            equipajeDeBodega = new List<double>();
+            equipajeDeBodega = 0;
         }
-
-        public Pasajero(string nombre, string apellido, DateTime fechaDeNacimiento, int dni, ClasePasajero clase,bool equipajeDeMano, List<double> equipajeDeBodega)
-        : base(nombre, apellido, fechaDeNacimiento, dni)
+        public Pasajero(string nombre, string apellido, int edad, int dni) : base(nombre, apellido, edad, dni)
         {
-            this.clase = clase;
-            this.equipajeDeMano = equipajeDeMano;
-            this.equipajeDeBodega = equipajeDeBodega;
+            
         }
 
         public static bool operator ==(Pasajero p1, Pasajero p2)
@@ -55,7 +51,7 @@ namespace EntidadesParcial
             return !(p1 == p2);
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if (obj is Pasajero)
             {

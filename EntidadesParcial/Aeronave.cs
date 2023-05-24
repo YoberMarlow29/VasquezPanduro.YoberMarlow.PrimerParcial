@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace EntidadesParcial
@@ -9,7 +10,7 @@ namespace EntidadesParcial
     public class Aeronave
     {
         private string matricula;//(un identificador alfanumérico de 8 dígitos).
-        private int cantidadAsientos;
+        private int cantidadAsientosTotales;
         private int cantidadBaños;
         private double capacidadBodega;
         private bool enViaje;
@@ -17,13 +18,23 @@ namespace EntidadesParcial
         public string Matricula
         {
             get { return matricula; }
-            set { matricula = value; }
+            set
+            {
+                if (value.Length == 8 && Regex.IsMatch(value, @"^[a-zA-Z0-9]+$"))
+                {
+                    matricula = value;
+                }
+                else
+                {
+                    throw new ArgumentException("La matrícula debe ser alfanumérica y tener 8 dígitos.");
+                }
+            }
         }
 
-        public int CantidadAsientos
+        public int CantidadAsientosTotales
         {
-            get { return cantidadAsientos; }
-            set { cantidadAsientos = value; }
+            get { return cantidadAsientosTotales; }
+            set { cantidadAsientosTotales = value; }
         }
 
         public int CantidadBaños
@@ -37,18 +48,34 @@ namespace EntidadesParcial
             get { return capacidadBodega; }
             set { capacidadBodega = value; }
         }
+        public int AsientosPremium
+        {
+            get
+            {
+                return (int)(cantidadAsientosTotales * 0.20);
+            }
+            
+
+        }
+        public int AsientosTuristas
+        {
+            get
+            {
+                return this.cantidadAsientosTotales - this.AsientosPremium;
+            }
+        }
         public Aeronave()
         {
             this.matricula = "";
             this.cantidadBaños=0;
-            this.cantidadAsientos=0;
+            this.cantidadAsientosTotales = 0;
             this.capacidadBodega=0;
             this.enViaje=false;
         }
-        public Aeronave(string matricula,int cantidadDeAsientos, int cantidadDeBanios, double capacidadDeBodega) : this()
+        public Aeronave(string matricula,int cantidadDeAsientosTotales, int cantidadDeBanios, double capacidadDeBodega) : this()
         {
             this.matricula = matricula;
-            this.cantidadAsientos = cantidadDeAsientos;
+            this.cantidadAsientosTotales = cantidadDeAsientosTotales;
             this.cantidadBaños = cantidadDeBanios;
             this.capacidadBodega = capacidadDeBodega;
         }
@@ -57,7 +84,7 @@ namespace EntidadesParcial
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine($"Matricula: {this.matricula}");
-            sb.AppendLine($"Cantidad de Asientos : {this.cantidadAsientos}");
+            sb.AppendLine($"Cantidad de Asientos : {this.cantidadAsientosTotales}");
             sb.AppendLine($"Cantidad de Baños: {this.cantidadBaños}");
             sb.AppendLine($"Capacidad de Bodega: {this.capacidadBodega.ToString("0.##")} KG.");
 
@@ -97,7 +124,9 @@ namespace EntidadesParcial
 
         public override int GetHashCode()
         {
-            return this.cantidadAsientos.GetHashCode();
+            return this.cantidadAsientosTotales.GetHashCode();
         }
+
+
     }
 }

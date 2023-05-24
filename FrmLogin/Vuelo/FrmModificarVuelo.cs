@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace FRMVIAJES
 {
-    public partial class FrmModificarVuelo : FrmAltaVuelo
+    public partial class FrmModificarVuelo : Form
     {
         public FrmModificarVuelo()
         {

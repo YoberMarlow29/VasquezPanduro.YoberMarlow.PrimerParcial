@@ -29,33 +29,25 @@ namespace FRMVIAJES
         {
             string nombre = txtNombre.Text;
             string apellido = txtApellido.Text;
-            DateTime fechaNacimiento = dtpFechaNacimiento.Value;
-            int dni = Convert.ToInt32(txtDni.Text);
-            ClasePasajero clase = rbTurista.Checked ? ClasePasajero.Turista : ClasePasajero.Premium;
-            bool equipajeDeMano = cbEquipajeMano.Checked;
-
-            List<double> equipajeDeBodega = new List<double>();
-            if (clase == ClasePasajero.Turista)
+            int edad;
+            int dni;
+            if (!int.TryParse(txtEdad.Text, out edad) || edad < 1 || edad > 100)
             {
-                double pesoBodega = Convert.ToDouble(txtPesoBodegaTurista.Text);
-                equipajeDeBodega.Add(pesoBodega);
+                MessageBox.Show("Debe ingresar un número de edad válido entre 1 y 100.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else if (clase == ClasePasajero.Premium)
+            if (!int.TryParse(txtDni.Text, out dni) || dni < 1 || dni > 99999999)
             {
-                double pesoBodega1 = Convert.ToDouble(txtPesoBodega1.Text);
-                double pesoBodega2 = Convert.ToDouble(txtPesoBodega2.Text);
-                double pesoBodegaTotal = pesoBodega1 + pesoBodega2;
-                equipajeDeBodega.Add(pesoBodegaTotal);
-                
+                MessageBox.Show("Debe ingresar un número de DNI válido entre 1 y 99999999.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            this.nuevoPasajero = new Pasajero(nombre, apellido, fechaNacimiento, dni, clase, equipajeDeMano, equipajeDeBodega);
+
+            this.nuevoPasajero = new Pasajero(nombre, apellido, edad, dni);
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtDni.Text = "";
-            txtPesoBodegaTurista.Text = "";
-            txtPesoBodega1.Text = "";
-            txtPesoBodega2.Text = "";
+
             DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -67,28 +59,10 @@ namespace FRMVIAJES
 
         private void FrmAltaPasajeros_Load(object sender, EventArgs e)
         {
-            txtPesoBodegaTurista.Visible = false;
-            labelPeso.Visible = false;
-            txtPesoBodega1.Visible = false;
-            txtPesoBodega2.Visible = false;
-        }
-
-        private void rbTurista_CheckedChanged(object sender, EventArgs e)
-        {
-            txtPesoBodegaTurista.Visible = true;
-            labelPeso.Visible = true;
-            txtPesoBodega1.Visible = false;
-            txtPesoBodega2.Visible = false;
 
         }
 
-        private void rbPremium_CheckedChanged(object sender, EventArgs e)
-        {
-            txtPesoBodegaTurista.Visible = false;
-            labelPeso.Visible = Visible;
-            txtPesoBodega1.Visible = true;
-            txtPesoBodega2.Visible = true;
 
-        }
+
     }
 }

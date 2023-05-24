@@ -22,36 +22,47 @@ namespace FRMVIAJES
         public FrmModificarAeronave(Aeronave modificarAeronave)
         {
             InitializeComponent();
-            aeronaveModificar=new Aeronave();
-            this.aeronaveModificar=modificarAeronave;
+            aeronaveModificar = new Aeronave();
+            this.aeronaveModificar = modificarAeronave;
         }
 
         private void FrmModificarAeronave_Load(object sender, EventArgs e)
         {
             txtMatricula.Text = aeronaveModificar.Matricula;
-            cboAsientos.Text = aeronaveModificar.CantidadAsientos.ToString();
+            txtCantidadAsientos.Text = aeronaveModificar.CantidadAsientosTotales.ToString();
             txtCantidadDeBaños.Text = aeronaveModificar.CantidadBaños.ToString();
             txtCapacidadBodega.Text = aeronaveModificar.CapacidadBodega.ToString();
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click_1(object sender, EventArgs e)
         {
             int cantidadBanios;
             int cantidadAsientos;
             double capacidadBodega;
             int.TryParse(this.txtCantidadDeBaños.Text, out cantidadBanios);
-            int.TryParse(cboAsientos.SelectedItem.ToString(), out cantidadAsientos);
-            double.TryParse(this.txtCapacidadBodega.Text, out capacidadBodega);       
-            txtMatricula.Text = txtMatricula.Text;
-            cboAsientos.SelectedItem = cantidadAsientos.ToString();
-            txtCantidadDeBaños.Text = cantidadBanios.ToString();
-            txtCapacidadBodega.Text = capacidadBodega.ToString();
-            //falta
-            AeronaveModificar.CantidadAsientos = cantidadAsientos;
-            AeronaveModificar.CapacidadBodega = capacidadBodega;
-            AeronaveModificar.CantidadBaños = cantidadBanios;
-            DialogResult = DialogResult.OK;
+            int.TryParse(txtCantidadAsientos.Text, out cantidadAsientos);
+            double.TryParse(this.txtCapacidadBodega.Text, out capacidadBodega);
+
+            aeronaveModificar.Matricula = txtMatricula.Text;
+            aeronaveModificar.CantidadAsientosTotales = cantidadAsientos;
+            aeronaveModificar.CantidadBaños = cantidadBanios;
+            aeronaveModificar.CapacidadBodega = capacidadBodega;
+
+            DialogResult = DialogResult.OK; 
             this.Close();
+        }
+
+        private void btnGenerarMatricula_Click(object sender, EventArgs e)
+        {
+            // Generar la matrícula
+            const string caracteresPermitidos = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            const int longitudMatricula = 8;
+
+            Random random = new Random();
+            string matricula = new string(Enumerable.Repeat(caracteresPermitidos, longitudMatricula)
+                                      .Select(s => s[random.Next(s.Length)]).ToArray());
+
+            txtMatricula.Text = matricula;
         }
     }
 }

@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cboAsientos = new ComboBox();
+            txtCantidadAsientos = new TextBox();
+            btnGenerarMatricula = new Button();
             txtCapacidadBodega = new TextBox();
             label2 = new Label();
             btnCancelar = new Button();
@@ -40,97 +41,107 @@
             lblMatricula = new Label();
             SuspendLayout();
             // 
-            // cboAsientos
+            // txtCantidadAsientos
             // 
-            cboAsientos.FormattingEnabled = true;
-            cboAsientos.Items.AddRange(new object[] { "100", "200", "300", "500", "600", "" });
-            cboAsientos.Location = new Point(145, 66);
-            cboAsientos.Name = "cboAsientos";
-            cboAsientos.Size = new Size(213, 23);
-            cboAsientos.TabIndex = 41;
+            txtCantidadAsientos.Location = new Point(145, 72);
+            txtCantidadAsientos.Name = "txtCantidadAsientos";
+            txtCantidadAsientos.Size = new Size(213, 23);
+            txtCantidadAsientos.TabIndex = 44;
+            // 
+            // btnGenerarMatricula
+            // 
+            btnGenerarMatricula.Location = new Point(364, 23);
+            btnGenerarMatricula.Name = "btnGenerarMatricula";
+            btnGenerarMatricula.Size = new Size(158, 23);
+            btnGenerarMatricula.TabIndex = 43;
+            btnGenerarMatricula.Text = "GENERAR MATRICULA";
+            btnGenerarMatricula.UseVisualStyleBackColor = true;
+            btnGenerarMatricula.Click += btnGenerarMatricula_Click;
             // 
             // txtCapacidadBodega
             // 
-            txtCapacidadBodega.Location = new Point(145, 167);
+            txtCapacidadBodega.Location = new Point(145, 173);
             txtCapacidadBodega.Name = "txtCapacidadBodega";
             txtCapacidadBodega.Size = new Size(213, 23);
-            txtCapacidadBodega.TabIndex = 40;
+            txtCapacidadBodega.TabIndex = 42;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 167);
+            label2.Location = new Point(12, 173);
             label2.Name = "label2";
             label2.Size = new Size(125, 15);
-            label2.TabIndex = 39;
+            label2.TabIndex = 41;
             label2.Text = "Capacidad de bodega:";
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(133, 215);
+            btnCancelar.Location = new Point(133, 221);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
-            btnCancelar.TabIndex = 38;
+            btnCancelar.TabIndex = 40;
             btnCancelar.Text = "CANCELAR";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(12, 215);
+            btnAceptar.Location = new Point(12, 221);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(75, 23);
-            btnAceptar.TabIndex = 37;
+            btnAceptar.TabIndex = 39;
             btnAceptar.Text = "ACEPTAR";
             btnAceptar.UseVisualStyleBackColor = true;
-            btnAceptar.Click += btnAceptar_Click;
+            btnAceptar.Click += btnAceptar_Click_1;
             // 
             // txtCantidadDeBaños
             // 
-            txtCantidadDeBaños.Location = new Point(145, 121);
+            txtCantidadDeBaños.Location = new Point(145, 127);
             txtCantidadDeBaños.Name = "txtCantidadDeBaños";
             txtCantidadDeBaños.Size = new Size(213, 23);
-            txtCantidadDeBaños.TabIndex = 36;
+            txtCantidadDeBaños.TabIndex = 38;
             // 
             // txtMatricula
             // 
-            txtMatricula.Location = new Point(145, 17);
+            txtMatricula.Location = new Point(145, 23);
             txtMatricula.Name = "txtMatricula";
+            txtMatricula.ReadOnly = true;
             txtMatricula.Size = new Size(213, 23);
-            txtMatricula.TabIndex = 35;
+            txtMatricula.TabIndex = 37;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 124);
+            label3.Location = new Point(12, 130);
             label3.Name = "label3";
             label3.Size = new Size(109, 15);
-            label3.TabIndex = 34;
+            label3.TabIndex = 36;
             label3.Text = "Cantidad de baños:";
             // 
             // lblCantidadAsientos
             // 
             lblCantidadAsientos.AutoSize = true;
-            lblCantidadAsientos.Location = new Point(12, 69);
+            lblCantidadAsientos.Location = new Point(12, 75);
             lblCantidadAsientos.Name = "lblCantidadAsientos";
             lblCantidadAsientos.Size = new Size(122, 15);
-            lblCantidadAsientos.TabIndex = 33;
+            lblCantidadAsientos.TabIndex = 35;
             lblCantidadAsientos.Text = "Cantidad de Asientos:";
             // 
             // lblMatricula
             // 
             lblMatricula.AutoSize = true;
-            lblMatricula.Location = new Point(12, 20);
+            lblMatricula.Location = new Point(12, 26);
             lblMatricula.Name = "lblMatricula";
             lblMatricula.Size = new Size(60, 15);
-            lblMatricula.TabIndex = 32;
+            lblMatricula.TabIndex = 34;
             lblMatricula.Text = "Matricula:";
             // 
             // FrmModificarAeronave
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(388, 270);
-            Controls.Add(cboAsientos);
+            ClientSize = new Size(548, 326);
+            Controls.Add(txtCantidadAsientos);
+            Controls.Add(btnGenerarMatricula);
             Controls.Add(txtCapacidadBodega);
             Controls.Add(label2);
             Controls.Add(btnCancelar);
@@ -149,7 +160,8 @@
 
         #endregion
 
-        private ComboBox cboAsientos;
+        private TextBox txtCantidadAsientos;
+        private Button btnGenerarMatricula;
         private TextBox txtCapacidadBodega;
         private Label label2;
         private Button btnCancelar;

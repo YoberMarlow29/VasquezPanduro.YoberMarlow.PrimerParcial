@@ -38,15 +38,21 @@ namespace FRMVIAJES
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            Aeronave aeronaveSeleccionada = (Aeronave)dataGridAeronaves.CurrentRow.DataBoundItem;
 
-            FrmModificarAeronave frmModificar = new FrmModificarAeronave((Aeronave)dataGridAeronaves.CurrentRow.DataBoundItem);
+            FrmModificarAeronave frmModificar = new FrmModificarAeronave(aeronaveSeleccionada);
             DialogResult respuesta = frmModificar.ShowDialog();
+
             if (respuesta == DialogResult.OK)
             {
                 Aeronave nuevaAeronave = frmModificar.AeronaveModificar;
-                Compañia.ModificarAeronave(nuevaAeronave);
+
+                int index = Archivos.listaDeAeronaves.IndexOf(aeronaveSeleccionada);
+                Archivos.listaDeAeronaves[index] = nuevaAeronave;
+
                 UpdateDataGrid(dataGridAeronaves);
             }
+
             Archivos.SerializarListaJson(Archivos.listaDeAeronaves, Archivos.pathAeronaves);
 
         }
@@ -57,6 +63,7 @@ namespace FRMVIAJES
             {
                 Compañia.BajaDeAeronave((Aeronave)dataGridAeronaves.CurrentRow.DataBoundItem);
                 UpdateDataGrid(dataGridAeronaves);
+
             }
             Archivos.SerializarListaJson(Archivos.listaDeAeronaves, Archivos.pathAeronaves);
         }

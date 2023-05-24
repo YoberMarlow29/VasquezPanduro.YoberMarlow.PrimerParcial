@@ -8,9 +8,7 @@ namespace EntidadesParcial
 {
     public class Viaje
     {
-        private const double PRECIOPORHORANACIONAL = 50;
-        private const double PRECIOPORHORAINTERNACIONAL = 100;
-        private string id;
+        private string idViaje;
         private string destino;
         private string origen;
         private ETipoDeViaje tipo;
@@ -22,9 +20,10 @@ namespace EntidadesParcial
         private List<Pasajero> listaDePasajeros;
         private bool servicioWifi;
         private bool servicioComida;
-        public string ID
+        private bool enViaje;
+        public string IdViaje
         {
-            get { return id; }
+            get { return idViaje; }
         }
         public string Origen
         {
@@ -44,13 +43,6 @@ namespace EntidadesParcial
         {
             get { return duracion; }
         }
-        /*public string Disponibilidad
-        {
-            get
-            {
-                return ActualizarDisponibilidad();
-            }
-        }*/
         public Aeronave Aeronave
         {
             get { return aeronave; }
@@ -76,35 +68,27 @@ namespace EntidadesParcial
             get { return partida; }
             set { partida = value; }
         }
-        /*public int Premium
-        {
-            get
-            {
-                return CantidadDeVuelosPorClase(ETipoPasajero.Premium);
-            }
-        }
-        public int Tursita
-        {
-            get
-            {
-                return CantidadDeVuelosPorClase(ETipoPasajero.Turista);
-            }
-        }*/
-        public bool Wifii
+
+        public bool ServicioComida
         {
             get { return servicioComida; }
             set { servicioComida = value; }
         }
-        public bool Comida
+        public bool ServicioWifi
         {
-            get { return servicioComida; }
-            set { servicioComida = value; }
+            get { return servicioWifi; }
+            set { servicioWifi = value; }
+        }
+        private bool EnViaje 
+        {
+            get { return enViaje; }
+            set { enViaje = value; }
         }
 
         private Viaje()
         {
             this.listaDePasajeros = new List<Pasajero>();
-            this.id = GenerarID();
+            this.idViaje = GenerarID();
         }
         public Viaje(Aeronave aeronave, string origen, string destino, DateTime partida, bool servicioWifi, bool servicioComida) : this()
         {
@@ -119,7 +103,7 @@ namespace EntidadesParcial
             this.servicioWifi = servicioWifi;
             this.servicioComida = servicioComida;           
             this.aeronave = aeronave;
-            //this.aeronave.AgregarVueloAPlanDeVuelos(this.partida);
+            
         }
         private string GenerarID()
         {
@@ -186,53 +170,6 @@ namespace EntidadesParcial
                 }
             }
         }
-        /*private string ActualizarDisponibilidad()
-        {
-            string vuelo = ActualizarEstadoDelVuelo();
-            if (!string.IsNullOrEmpty(vuelo))
-            {
-                return vuelo;
-            }
-            else if (this.listaDePasajeros.Count == this.aeronave.CantidadAsientos)
-            {
-                return "COMPLETO";
-            }
-            return $"{this.listaDePasajeros.Count}/ {this.aeronave.CantidadAsientos}";
-        }
-        private string ActualizarEstadoDelVuelo()
-        {
-            string estado = string.Empty;
-            if (MedirHorarioDeLlegada() > DateTime.Now && this.partida < DateTime.Now)
-            {
-                estado = "EN VUELO";
-            }
-            else if (this.partida < DateTime.Now)
-            {
-                estado = "FINALIZADO";
-            }
-            return estado;
-        }
-        private DateTime MedirHorarioDeLlegada()
-        {
-            DateTime llegada;
 
-            llegada = this.partida.AddHours(this.horaDelVuelo);
-            llegada = this.partida.AddMinutes(this.minutosDelVuelo);
-
-            return llegada;
-
-        }*/
-        /*private int CantidadDeVuelosPorClase(ETipoPasajero clase)
-        {
-            int contador = 0;
-            foreach (Pasajero item in this.listaDePasajeros)
-            {
-                if (item.Clase == clase)
-                {
-                    contador++;
-                }
-            }
-            return contador;
-        }*/
     }
 }

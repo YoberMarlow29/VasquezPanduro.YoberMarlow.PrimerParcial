@@ -37,16 +37,7 @@
             txtDni = new TextBox();
             btnAceptar = new Button();
             btnCancelar = new Button();
-            dtpFechaNacimiento = new DateTimePicker();
-            rbTurista = new RadioButton();
-            label4 = new Label();
-            rbPremium = new RadioButton();
-            cbEquipajeMano = new CheckBox();
-            label6 = new Label();
-            labelPeso = new Label();
-            txtPesoBodegaTurista = new TextBox();
-            txtPesoBodega1 = new TextBox();
-            txtPesoBodega2 = new TextBox();
+            txtEdad = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -72,9 +63,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(12, 140);
             label3.Name = "label3";
-            label3.Size = new Size(122, 15);
+            label3.Size = new Size(36, 15);
             label3.TabIndex = 2;
-            label3.Text = "Fecha de Nacimiento:";
+            label3.Text = "Edad:";
             // 
             // label5
             // 
@@ -108,7 +99,7 @@
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(153, 408);
+            btnAceptar.Location = new Point(145, 232);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(75, 23);
             btnAceptar.TabIndex = 10;
@@ -118,7 +109,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(255, 408);
+            btnCancelar.Location = new Point(247, 232);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
             btnCancelar.TabIndex = 11;
@@ -126,110 +117,19 @@
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // dtpFechaNacimiento
+            // txtEdad
             // 
-            dtpFechaNacimiento.Location = new Point(145, 132);
-            dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            dtpFechaNacimiento.Size = new Size(229, 23);
-            dtpFechaNacimiento.TabIndex = 12;
-            // 
-            // rbTurista
-            // 
-            rbTurista.AutoSize = true;
-            rbTurista.Location = new Point(145, 230);
-            rbTurista.Name = "rbTurista";
-            rbTurista.Size = new Size(60, 19);
-            rbTurista.TabIndex = 13;
-            rbTurista.TabStop = true;
-            rbTurista.Text = "Turista";
-            rbTurista.UseVisualStyleBackColor = true;
-            rbTurista.CheckedChanged += rbTurista_CheckedChanged;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(12, 232);
-            label4.Name = "label4";
-            label4.Size = new Size(96, 15);
-            label4.TabIndex = 14;
-            label4.Text = "Tipo de Pasajero:";
-            // 
-            // rbPremium
-            // 
-            rbPremium.AutoSize = true;
-            rbPremium.Location = new Point(295, 230);
-            rbPremium.Name = "rbPremium";
-            rbPremium.Size = new Size(74, 19);
-            rbPremium.TabIndex = 15;
-            rbPremium.TabStop = true;
-            rbPremium.Text = "Premium";
-            rbPremium.UseVisualStyleBackColor = true;
-            rbPremium.CheckedChanged += rbPremium_CheckedChanged;
-            // 
-            // cbEquipajeMano
-            // 
-            cbEquipajeMano.AutoSize = true;
-            cbEquipajeMano.Location = new Point(145, 268);
-            cbEquipajeMano.Name = "cbEquipajeMano";
-            cbEquipajeMano.Size = new Size(122, 19);
-            cbEquipajeMano.TabIndex = 16;
-            cbEquipajeMano.Text = "Equipaje De Mano";
-            cbEquipajeMano.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(12, 269);
-            label6.Name = "label6";
-            label6.Size = new Size(105, 15);
-            label6.TabIndex = 17;
-            label6.Text = "Equipaje de mano:";
-            // 
-            // labelPeso
-            // 
-            labelPeso.AutoSize = true;
-            labelPeso.Location = new Point(12, 304);
-            labelPeso.Name = "labelPeso";
-            labelPeso.Size = new Size(183, 15);
-            labelPeso.TabIndex = 18;
-            labelPeso.Text = "Equipaje de Bodega, poner en kg:";
-            // 
-            // txtPesoBodegaTurista
-            // 
-            txtPesoBodegaTurista.Location = new Point(201, 301);
-            txtPesoBodegaTurista.Name = "txtPesoBodegaTurista";
-            txtPesoBodegaTurista.Size = new Size(168, 23);
-            txtPesoBodegaTurista.TabIndex = 19;
-            // 
-            // txtPesoBodega1
-            // 
-            txtPesoBodega1.Location = new Point(12, 337);
-            txtPesoBodega1.Name = "txtPesoBodega1";
-            txtPesoBodega1.Size = new Size(168, 23);
-            txtPesoBodega1.TabIndex = 20;
-            // 
-            // txtPesoBodega2
-            // 
-            txtPesoBodega2.Location = new Point(201, 337);
-            txtPesoBodega2.Name = "txtPesoBodega2";
-            txtPesoBodega2.Size = new Size(168, 23);
-            txtPesoBodega2.TabIndex = 21;
+            txtEdad.Location = new Point(145, 132);
+            txtEdad.Name = "txtEdad";
+            txtEdad.Size = new Size(229, 23);
+            txtEdad.TabIndex = 22;
             // 
             // FrmAltaPasajeros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(629, 489);
-            Controls.Add(txtPesoBodega2);
-            Controls.Add(txtPesoBodega1);
-            Controls.Add(txtPesoBodegaTurista);
-            Controls.Add(labelPeso);
-            Controls.Add(label6);
-            Controls.Add(cbEquipajeMano);
-            Controls.Add(rbPremium);
-            Controls.Add(label4);
-            Controls.Add(rbTurista);
-            Controls.Add(dtpFechaNacimiento);
+            ClientSize = new Size(411, 284);
+            Controls.Add(txtEdad);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(txtDni);
@@ -257,15 +157,6 @@
         private TextBox txtDni;
         private Button btnAceptar;
         private Button btnCancelar;
-        private DateTimePicker dtpFechaNacimiento;
-        private RadioButton rbTurista;
-        private Label label4;
-        private RadioButton rbPremium;
-        private CheckBox cbEquipajeMano;
-        private Label label6;
-        private Label labelPeso;
-        private TextBox txtPesoBodegaTurista;
-        private TextBox txtPesoBodega1;
-        private TextBox txtPesoBodega2;
+        private TextBox txtEdad;
     }
 }
