@@ -13,17 +13,17 @@ namespace FRMVIAJES
 {
     public partial class FrmModificarVuelo : Form
     {
-        public Viaje vueloModificar;
+        public Vuelo vueloModificar;
         private bool fechaCambio;
-        public Viaje VueloModificar
+        public Vuelo VueloModificar
         {
             get { return vueloModificar; }
             set { vueloModificar = value; }
         }
-        public FrmModificarVuelo(Viaje modificarVuelo)
+        public FrmModificarVuelo(Vuelo modificarVuelo)
         {
             InitializeComponent();
-            vueloModificar = new Viaje();
+            vueloModificar = new Vuelo();
             vueloModificar = modificarVuelo;
             fechaCambio = false;
         }

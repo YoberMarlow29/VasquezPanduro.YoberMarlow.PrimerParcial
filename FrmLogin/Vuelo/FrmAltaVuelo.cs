@@ -13,10 +13,10 @@ namespace FRMVIAJES
 {
     public partial class FrmAltaVuelo : Form
     {
-        private Viaje nuevoViaje;
+        private Vuelo nuevoViaje;
         private bool fechaCambio;
 
-        public Viaje NuevoViaje
+        public Vuelo NuevoViaje
         {
             get { return nuevoViaje; }
             set { nuevoViaje = value; }
@@ -55,7 +55,7 @@ namespace FRMVIAJES
                         }
                         else
                         {
-                            this.nuevoViaje = new Viaje(aeronave, cboOrigen.Text, cboDestino.Text, dtpFechaPartida.Value, cbServicioWifi.Checked,cbServicioComida.Checked);
+                            this.nuevoViaje = new Vuelo(aeronave, cboOrigen.Text, cboDestino.Text, dtpFechaPartida.Value, cbServicioWifi.Checked,cbServicioComida.Checked);
                             this.DialogResult = DialogResult.OK;
                         }
                     }

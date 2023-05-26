@@ -50,18 +50,25 @@ namespace EntidadesParcial
             }
             return null;
         }
-        public static void AltaDeVuelo(Viaje vueloAAgregar)
+        public static void AltaDeVuelo(Vuelo vueloAAgregar)
         {
             if (vueloAAgregar is not null)
             {
                 Archivos.listaDeViaje.Add(vueloAAgregar);
             }
         }
-        public static void BajaDeVuelo(Viaje bajaViaje)
+        public static void BajaDeVuelo(Vuelo bajaViaje)
         {
             if (bajaViaje is not null)
             {
                 Archivos.listaDeViaje.Remove(bajaViaje);
+            }
+        }
+        public static void AltaDeUsuario(Usuario usuarioAgregar) 
+        {
+            if (usuarioAgregar is not null)
+            {
+                Archivos.usuarios.Add(usuarioAgregar);
             }
         }
     }

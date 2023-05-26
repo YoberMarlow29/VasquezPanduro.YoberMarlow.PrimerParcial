@@ -31,7 +31,7 @@ namespace FRMVIAJES
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            string nombre = txtNombre.Text;
+            /*string nombre = txtNombre.Text;
             string apellido = txtApellido.Text;
             int edad;
             int dni;
@@ -55,7 +55,28 @@ namespace FRMVIAJES
             txtDni.Text = "";
 
             DialogResult = DialogResult.OK;
-            this.Close();
+            this.Close();*/
+
+            try 
+            {
+                int dni;
+                int edad;
+                int.TryParse(this.txtDni.Text, out dni);
+                int.TryParse(this.txtEdad.Text, out edad);
+                this.nuevoPasajero = new Pasajero(txtNombre.Text, txtApellido.Text, edad, dni);
+                txtNombre.Text = "";
+                txtApellido.Text = "";
+                txtDni.Text = "";
+
+                DialogResult = DialogResult.OK;
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                labelError.Visible = true;
+                labelError.Text = ex.Message;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

@@ -18,17 +18,7 @@ namespace EntidadesParcial
         public string Matricula
         {
             get { return matricula; }
-            set
-            {
-                if (value.Length == 8 && Regex.IsMatch(value, @"^[a-zA-Z0-9]+$"))
-                {
-                    matricula = value;
-                }
-                else
-                {
-                    throw new ArgumentException("La matrícula debe ser alfanumérica y tener 8 dígitos.");
-                }
-            }
+            set {matricula = value;}
         }
 
         public int CantidadAsientosTotales

@@ -32,12 +32,14 @@
             btnModificar = new Button();
             btnAgregar = new Button();
             dataGridAeronaves = new DataGridView();
+            btnSalir = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridAeronaves).BeginInit();
             SuspendLayout();
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(94, 531);
+            btnEliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnEliminar.Location = new Point(94, 526);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 23);
             btnEliminar.TabIndex = 7;
@@ -47,7 +49,8 @@
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(175, 531);
+            btnModificar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnModificar.Location = new Point(175, 526);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(84, 23);
             btnModificar.TabIndex = 6;
@@ -57,7 +60,8 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(13, 531);
+            btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnAgregar.Location = new Point(13, 526);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 5;
@@ -70,30 +74,44 @@
             dataGridAeronaves.AllowUserToAddRows = false;
             dataGridAeronaves.AllowUserToDeleteRows = false;
             dataGridAeronaves.AllowUserToResizeRows = false;
+            dataGridAeronaves.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridAeronaves.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridAeronaves.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridAeronaves.EnableHeadersVisualStyles = false;
-            dataGridAeronaves.Location = new Point(12, 12);
+            dataGridAeronaves.Location = new Point(12, 41);
             dataGridAeronaves.MultiSelect = false;
             dataGridAeronaves.Name = "dataGridAeronaves";
             dataGridAeronaves.ReadOnly = true;
             dataGridAeronaves.RowHeadersVisible = false;
             dataGridAeronaves.RowTemplate.Height = 25;
             dataGridAeronaves.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridAeronaves.Size = new Size(1341, 513);
+            dataGridAeronaves.Size = new Size(910, 479);
             dataGridAeronaves.TabIndex = 8;
             dataGridAeronaves.TabStop = false;
             dataGridAeronaves.VirtualMode = true;
+            // 
+            // btnSalir
+            // 
+            btnSalir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnSalir.Location = new Point(895, 12);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(27, 23);
+            btnSalir.TabIndex = 9;
+            btnSalir.Text = "x";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // FrmAeronave
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1362, 566);
+            ClientSize = new Size(934, 561);
+            Controls.Add(btnSalir);
             Controls.Add(dataGridAeronaves);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FrmAeronave";
             Text = "FrmAeronave";
             Load += FrmAeronave_Load;
@@ -107,5 +125,6 @@
         private Button btnModificar;
         private Button btnAgregar;
         private DataGridView dataGridAeronaves;
+        private Button btnSalir;
     }
 }

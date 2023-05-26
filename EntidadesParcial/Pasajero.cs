@@ -62,7 +62,7 @@ namespace EntidadesParcial
 
         public override string ToString()
         {
-            return $"{base.Apellido}, {base.Nombre} - DNI: {base.GetHashCode()}";
+            return $"{base.apellido}, {base.nombre} - DNI: {base.GetHashCode()}";
         }
     }
 }

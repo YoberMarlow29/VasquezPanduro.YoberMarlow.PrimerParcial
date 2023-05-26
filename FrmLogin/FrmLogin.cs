@@ -24,11 +24,11 @@ namespace FRMVIAJES
             int correcto = 0;
             foreach (Usuario item in Archivos.usuarios)
             {
-                if (item.Correo == txtCorreo.Text && item.VerificarContrasenia(txtContraseña.Text))
+                if (item.correo == txtCorreo.Text && item.clave==txtContraseña.Text)
                 {
                     correcto = 1;
                     gpbIngresarDatos.Visible = false;
-                    switch (item.Perfil)
+                    switch (item.perfil)
                     {
                         case "vendedor":
                             menuStrip1.Items[2].BackColor = Color.White;

@@ -13,7 +13,7 @@ namespace FRMVIAJES
 {
     public partial class FrmVuelos : Form
     {
-        private Viaje viajeNuevo;
+        private Vuelo viajeNuevo;
         public FrmVuelos()
         {
             InitializeComponent();
@@ -33,17 +33,17 @@ namespace FRMVIAJES
                 Compañia.AltaDeVuelo(this.viajeNuevo);
                 UpdateDataGrid(dataGridViajes);
             }
-            Archivos.SerializarListaXml<Viaje>(Archivos.listaDeViaje, Archivos.pathViajes);
+            Archivos.SerializarListaXml<Vuelo>(Archivos.listaDeViaje, Archivos.pathVuelo);
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             DialogResult respuesta = MessageBox.Show($"¿Esta seguro que quiere eliminar el pasajero {dataGridViajes.CurrentRow.DataBoundItem}?{Environment.NewLine} Esta accion es inrreversible", "Dar Baja Aeronave", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             if (respuesta == DialogResult.Yes)
             {
-                Compañia.BajaDeVuelo((Viaje)dataGridViajes.CurrentRow.DataBoundItem);
+                Compañia.BajaDeVuelo((Vuelo)dataGridViajes.CurrentRow.DataBoundItem);
                 UpdateDataGrid(dataGridViajes);
             }
-            Archivos.SerializarListaXml<Viaje>(Archivos.listaDeViaje, Archivos.pathViajes);
+            Archivos.SerializarListaXml<Vuelo>(Archivos.listaDeViaje, Archivos.pathVuelo);
         }
         public void UpdateDataGrid(DataGridView dataGridVuelos)
         {
@@ -61,14 +61,14 @@ namespace FRMVIAJES
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Viaje viajeSeleccionado = (Viaje)dataGridViajes.CurrentRow.DataBoundItem;
+            Vuelo viajeSeleccionado = (Vuelo)dataGridViajes.CurrentRow.DataBoundItem;
 
             FrmModificarVuelo frmModificar = new FrmModificarVuelo(viajeSeleccionado);
             DialogResult respuesta = frmModificar.ShowDialog();
 
             if (respuesta == DialogResult.OK)
             {
-                Viaje nuevoViaje = frmModificar.VueloModificar;
+                Vuelo nuevoViaje = frmModificar.VueloModificar;
 
                 int index = Archivos.listaDeViaje.IndexOf(viajeSeleccionado);
                 Archivos.listaDeViaje[index] = nuevoViaje;
@@ -77,6 +77,12 @@ namespace FRMVIAJES
             }
 
             Archivos.SerializarListaXml<Pasajero>(Archivos.listaDePasajeros, Archivos.pathPasajeros);
+        }
+
+        private void btnVenderPasaje_Click(object sender, EventArgs e)
+        {
+            FrmVentaPasaje frm = new FrmVentaPasaje();
+            frm.ShowDialog();
         }
     }
 }

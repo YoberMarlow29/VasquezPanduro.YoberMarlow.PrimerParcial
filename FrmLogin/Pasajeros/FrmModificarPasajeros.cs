@@ -28,8 +28,8 @@ namespace FRMVIAJES
 
         private void FrmModificarPasajeros_Load(object sender, EventArgs e)
         {
-            txtNombre.Text = modificarPasajero.Nombre;
-            txtApellido.Text = modificarPasajero.Apellido;
+            txtNombre.Text = modificarPasajero.nombre;
+            txtApellido.Text = modificarPasajero.apellido;
             txtEdad.Text = modificarPasajero.Edad.ToString();
             txtDni.Text = modificarPasajero.Dni.ToString();
             labelError.Visible = false;
@@ -42,8 +42,8 @@ namespace FRMVIAJES
             int.TryParse(this.txtEdad.Text, out edad);
             int.TryParse(this.txtDni.Text, out dni);
 
-            modificarPasajero.Nombre = txtNombre.Text;
-            modificarPasajero.Apellido = txtApellido.Text;
+            modificarPasajero.nombre = txtNombre.Text;
+            modificarPasajero.apellido = txtApellido.Text;
             modificarPasajero.Edad = edad;
             modificarPasajero.Dni = dni;
 

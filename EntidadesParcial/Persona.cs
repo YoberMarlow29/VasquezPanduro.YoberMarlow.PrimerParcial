@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,23 +10,21 @@ namespace EntidadesParcial
 {
     public abstract class Persona
     {
-        protected string nombre;
-        protected string apellido;
+        protected string nom;
+        protected string apell;
         protected int edad;
         protected int dni;
 
-        public string Nombre
+        public string apellido
         {
-            get { return nombre; }
-            set { nombre = value; }
+            get { return apell; }
+            set { apell = value; }
         }
-
-        public string Apellido
+        public string nombre
         {
-            get { return apellido; }
-            set { apellido = value; }
+            get { return nom; }
+            set { nom = value; }
         }
-
         public int Dni
         {
             get { return dni; }
@@ -42,16 +42,16 @@ namespace EntidadesParcial
 
         }
 
-        protected Persona(string nombre, string apellido) :this()
+        protected Persona(string apellido, string nombre) :this()
         {
-            this.nombre = nombre;
-            this.apellido = apellido;
+            ValidarCampoString(apellido, out this.apell);
+            ValidarCampoString(nombre, out this.nom);
         }
 
         protected Persona(string nombre, string apellido, int edad, int dni) : this(nombre,apellido)
-        {
-            this.edad = edad;
-            this.dni = dni;        
+        {   
+            ValidarCampoEdad(edad, out this.edad);
+            ValidarCampoDni(dni, out this.dni);
         }
         protected string Mostrar()
         {
@@ -93,6 +93,32 @@ namespace EntidadesParcial
         public override string ToString()
         {
             return this.Mostrar();
+        }
+        private void ValidarCampoString(string campo, out string campoValidado)
+        {
+            if (string.IsNullOrEmpty(campo))
+            {
+                throw new Exception("Ingresar un valor valido.");
+            }
+            campoValidado = campo;
+        }
+        private void ValidarCampoDni(int dni, out int dniValidado)
+        {
+            dniValidado = -1;
+            if (dni < 1000000 || dni > 99999999)
+            {
+                throw new Exception("No es un dni valido.");
+            }
+            dniValidado = dni;
+        }
+        private void ValidarCampoEdad(int edad, out int edadValido)
+        {
+            edadValido = -1;
+            if (edad<=1 && edad>120)
+            {
+                throw new Exception("No es una edad valida.");
+            }
+            edadValido = edad;
         }
 
     }

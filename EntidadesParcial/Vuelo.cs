@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace EntidadesParcial
 {
-    public class Viaje
+    public class Vuelo
     {
-        private string idViaje;
+        private const double PRECIOPORHORANACIONAL = 50;
+        private const double PRECIOPORHORAINTERNACIONAL = 100;
         private string destino;
         private string origen;
         private ETipoDeViaje tipo;
@@ -21,11 +22,6 @@ namespace EntidadesParcial
         private bool servicioWifi;
         private bool servicioComida;
         private bool enViaje;
-        public string IdViaje
-        {
-            get { return idViaje; }
-            set { idViaje = value;}
-        }
         public string Origen
         {
             get { return origen; }
@@ -88,12 +84,12 @@ namespace EntidadesParcial
             set { enViaje = value; }
         }
 
-        public Viaje()
+        public Vuelo()
         {
             this.listaDePasajeros = new List<Pasajero>();
-            this.idViaje = GenerarID();
+            
         }
-        public Viaje(Aeronave aeronave, string origen, string destino, DateTime partida, bool servicioWifi, bool servicioComida) : this()
+        public Vuelo(Aeronave aeronave, string origen, string destino, DateTime partida, bool servicioWifi, bool servicioComida) : this()
         {
             this.origen = origen;
             this.destino = destino;
@@ -107,19 +103,6 @@ namespace EntidadesParcial
             this.servicioComida = servicioComida;           
             this.aeronave = aeronave;
             
-        }
-        private string GenerarID()
-        {
-            string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            char[] idArray = new char[11];
-            Random random = new Random();
-
-            for (int i = 0; i < idArray.Length; i++)
-            {
-                idArray[i] = caracteres[random.Next(caracteres.Length)];
-            }
-
-            return new String(idArray);
         }
         private static void ValidarOrigenDestino(string origen, string destino)
         {
@@ -172,6 +155,20 @@ namespace EntidadesParcial
                     this.minutosDelVuelo = 0;
                 }
             }
+        }
+        public double CalcularPrecioSegunTipoDeVuelo(double horasTotales)
+        {
+            double precioFinal;
+            if (DestinoEsInternacional(this.origen, this.destino) == ETipoDeViaje.Nacional)
+            {
+                precioFinal = PRECIOPORHORANACIONAL * horasTotales;
+            }
+            else
+            {
+                precioFinal = PRECIOPORHORAINTERNACIONAL * horasTotales;
+            }
+
+            return precioFinal;
         }
 
     }
