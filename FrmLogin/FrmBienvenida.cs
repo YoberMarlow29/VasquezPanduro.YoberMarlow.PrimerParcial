@@ -1,4 +1,4 @@
-﻿using FrmLogin;
+﻿using EntidadesParcial;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,11 +17,22 @@ namespace FRMVIAJES
         {
             InitializeComponent();
         }
+        private void btnCrearCuenta_Click(object sender, EventArgs e)
+        {
+            FrmCrearCuenta frm = new FrmCrearCuenta();
+            DialogResult respuesta = frm.ShowDialog();
+            if (respuesta == DialogResult.OK)
+            {
+                Usuario nuevoUsuario = frm.NuevoUsuario;
+                Compañia.AltaDeUsuario(nuevoUsuario);
+            }
+            Archivos.SerializarListaJson(Archivos.usuarios, Archivos.pathUsuarios);
+        }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-             FrmLogin frmLogin = new FrmLogin();
-            frmLogin.ShowDialog();
+            FrmLogin frm = new FrmLogin();
+            frm.ShowDialog();
         }
     }
 }

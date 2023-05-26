@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntidadesParcial", "EntidadesParcial\EntidadesParcial.csproj", "{1EF0CB35-3D5D-4F4F-A0C9-563B140BCA78}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FRMVIAJES", "FrmLogin\FRMVIAJES.csproj", "{4D5856E4-5C3C-416F-990B-B39A3382A7F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Formularios", "FrmLogin\Formularios.csproj", "{4D5856E4-5C3C-416F-990B-B39A3382A7F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -65,9 +65,9 @@ namespace EntidadesParcial
         public Aeronave(string matricula,int cantidadDeAsientosTotales, int cantidadDeBanios, double capacidadDeBodega) : this()
         {
             this.matricula = matricula;
-            this.cantidadAsientosTotales = cantidadDeAsientosTotales;
-            this.cantidadBaños = cantidadDeBanios;
-            this.capacidadBodega = capacidadDeBodega;
+            ValidarNumero(cantidadDeAsientosTotales, 1,1200,out this.cantidadAsientosTotales);
+            ValidarNumero(cantidadDeBanios, 1, 12, out this.cantidadBaños);
+            ValidarNumero(capacidadDeBodega, 2000, 15000, out this.capacidadBodega);
         }
         private string Mostrar()
         {
@@ -115,6 +115,60 @@ namespace EntidadesParcial
         public override int GetHashCode()
         {
             return this.cantidadAsientosTotales.GetHashCode();
+        }
+        private static void ValidarNumero(object numero, int valorMinimo, int valorMaximo, out int numeroValidado)
+        {
+            if (numero is int)
+            {
+                numeroValidado = (int)numero;
+            }
+            else if (numero is string)
+            {
+                if (int.TryParse((string)numero, out int parsedNumero))
+                {
+                    numeroValidado = parsedNumero;
+                }
+                else
+                {
+                    throw new Exception("No es válido.");
+                }
+            }
+            else
+            {
+                throw new Exception("No es válido.");
+            }
+
+            if (numeroValidado < valorMinimo || numeroValidado > valorMaximo)
+            {
+                throw new Exception($"Ingresar valores valido entre {valorMinimo} y {valorMaximo}");
+            }
+        }
+        private static void ValidarNumero(object numero, double valorMinimo, double valorMaximo, out double numeroValidado)
+        {
+            if (numero is double)
+            {
+                numeroValidado = (double)numero;
+            }
+            else if (numero is string)
+            {
+                if (double.TryParse((string)numero, out double parsedNumero))
+                {
+                    numeroValidado = parsedNumero;
+                }
+                else
+                {
+                    throw new Exception("No es válido.");
+                }
+            }
+            else
+            {
+                throw new Exception("No es válido.");
+            }
+
+            if (numeroValidado < valorMinimo || numeroValidado > valorMaximo)
+            {
+                throw new Exception($"Ingresar valores valido entre {valorMinimo} y {valorMaximo}");
+            }
         }
 
 

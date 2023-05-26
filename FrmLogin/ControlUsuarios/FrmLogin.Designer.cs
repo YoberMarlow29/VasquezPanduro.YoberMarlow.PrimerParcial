@@ -1,6 +1,6 @@
 ﻿namespace FRMVIAJES
 {
-    partial class FrmLoginV
+    partial class FrmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLoginV));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             label1 = new Label();
@@ -37,7 +37,7 @@
             txtCorreo = new TextBox();
             txtClave = new TextBox();
             btnAceptar = new Button();
-            button1 = new Button();
+            btnMostrarContraseña = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -49,27 +49,27 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(200, 330);
+            panel1.Size = new Size(200, 291);
             panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
-            pictureBox1.Anchor = AnchorStyles.Left;
+            pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 84);
+            pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(174, 140);
+            pictureBox1.Size = new Size(200, 291);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Left;
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(225, 94);
+            label1.Location = new Point(225, 74);
             label1.Name = "label1";
             label1.Size = new Size(178, 28);
             label1.TabIndex = 1;
@@ -77,11 +77,11 @@
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Left;
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(225, 164);
+            label2.Location = new Point(225, 144);
             label2.Name = "label2";
             label2.Size = new Size(63, 28);
             label2.TabIndex = 2;
@@ -93,7 +93,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(443, 9);
+            label3.Location = new Point(452, 9);
             label3.Name = "label3";
             label3.Size = new Size(69, 28);
             label3.TabIndex = 3;
@@ -101,24 +101,24 @@
             // 
             // txtCorreo
             // 
-            txtCorreo.Anchor = AnchorStyles.Right;
-            txtCorreo.Location = new Point(426, 99);
+            txtCorreo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtCorreo.Location = new Point(410, 79);
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(342, 23);
             txtCorreo.TabIndex = 4;
             // 
             // txtClave
             // 
-            txtClave.Anchor = AnchorStyles.Right;
-            txtClave.Location = new Point(426, 164);
+            txtClave.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtClave.Location = new Point(410, 144);
             txtClave.Name = "txtClave";
             txtClave.Size = new Size(342, 23);
             txtClave.TabIndex = 5;
             // 
             // btnAceptar
             // 
-            btnAceptar.Anchor = AnchorStyles.Bottom;
-            btnAceptar.Location = new Point(347, 253);
+            btnAceptar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnAceptar.Location = new Point(339, 214);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(291, 37);
             btnAceptar.TabIndex = 6;
@@ -126,26 +126,23 @@
             btnAceptar.UseVisualStyleBackColor = true;
             btnAceptar.Click += btnAceptar_Click;
             // 
-            // button1
+            // btnMostrarContraseña
             // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = Color.Red;
-            button1.Location = new Point(721, 278);
-            button1.Name = "button1";
-            button1.Size = new Size(47, 40);
-            button1.TabIndex = 7;
-            button1.Text = "X";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnMostrarContraseña.Location = new Point(758, 144);
+            btnMostrarContraseña.Name = "btnMostrarContraseña";
+            btnMostrarContraseña.Size = new Size(32, 23);
+            btnMostrarContraseña.TabIndex = 7;
+            btnMostrarContraseña.Text = "M";
+            btnMostrarContraseña.UseVisualStyleBackColor = true;
+            btnMostrarContraseña.Click += btnMostrarContraseña_Click;
             // 
-            // FrmLoginV
+            // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(23, 21, 32);
-            ClientSize = new Size(780, 330);
-            Controls.Add(button1);
+            ClientSize = new Size(799, 291);
+            Controls.Add(btnMostrarContraseña);
             Controls.Add(btnAceptar);
             Controls.Add(txtClave);
             Controls.Add(txtCorreo);
@@ -153,11 +150,11 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MaximumSize = new Size(880, 430);
-            MinimumSize = new Size(780, 330);
-            Name = "FrmLoginV";
+            MinimumSize = new Size(815, 330);
+            Name = "FrmLogin";
             Opacity = 0.95D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmLoginV";
@@ -177,6 +174,6 @@
         private TextBox txtCorreo;
         private TextBox txtClave;
         private Button btnAceptar;
-        private Button button1;
+        private Button btnMostrarContraseña;
     }
 }

@@ -42,12 +42,17 @@
             txtClave = new TextBox();
             btnAceptar = new Button();
             labelError = new Label();
+            panel1 = new Panel();
+            label7 = new Label();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Location = new Point(12, 56);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(12, 105);
             label1.Name = "label1";
             label1.Size = new Size(63, 15);
             label1.TabIndex = 0;
@@ -55,8 +60,10 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(12, 95);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(12, 144);
             label2.Name = "label2";
             label2.Size = new Size(59, 15);
             label2.TabIndex = 1;
@@ -64,8 +71,10 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(8, 169);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(12, 218);
             label3.Name = "label3";
             label3.Size = new Size(56, 15);
             label3.TabIndex = 3;
@@ -73,8 +82,10 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(12, 130);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(12, 179);
             label4.Name = "label4";
             label4.Size = new Size(52, 15);
             label4.TabIndex = 2;
@@ -82,8 +93,10 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(12, 207);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(12, 256);
             label5.Name = "label5";
             label5.Size = new Size(44, 15);
             label5.TabIndex = 4;
@@ -91,8 +104,10 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.Location = new Point(12, 241);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(12, 290);
             label6.Name = "label6";
             label6.Size = new Size(45, 15);
             label6.TabIndex = 5;
@@ -100,51 +115,58 @@
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(95, 48);
+            txtApellido.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtApellido.Location = new Point(99, 97);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(241, 23);
             txtApellido.TabIndex = 6;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(95, 87);
+            txtNombre.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtNombre.Location = new Point(99, 136);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(241, 23);
             txtNombre.TabIndex = 7;
             // 
             // txtLegajo
             // 
-            txtLegajo.Location = new Point(95, 122);
+            txtLegajo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtLegajo.Location = new Point(99, 171);
             txtLegajo.Name = "txtLegajo";
             txtLegajo.Size = new Size(241, 23);
             txtLegajo.TabIndex = 8;
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(95, 161);
+            txtCorreo.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtCorreo.Location = new Point(99, 210);
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(241, 23);
             txtCorreo.TabIndex = 9;
             // 
             // txtPerfil
             // 
-            txtPerfil.Location = new Point(95, 233);
+            txtPerfil.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtPerfil.Location = new Point(99, 282);
             txtPerfil.Name = "txtPerfil";
             txtPerfil.Size = new Size(241, 23);
             txtPerfil.TabIndex = 10;
             // 
             // txtClave
             // 
-            txtClave.Location = new Point(95, 199);
+            txtClave.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtClave.Location = new Point(99, 248);
             txtClave.Name = "txtClave";
             txtClave.Size = new Size(241, 23);
             txtClave.TabIndex = 11;
             // 
             // btnAceptar
             // 
-            btnAceptar.Location = new Point(133, 280);
+            btnAceptar.Anchor = AnchorStyles.Left;
+            btnAceptar.Location = new Point(99, 325);
             btnAceptar.Name = "btnAceptar";
-            btnAceptar.Size = new Size(75, 23);
+            btnAceptar.Size = new Size(120, 29);
             btnAceptar.TabIndex = 12;
             btnAceptar.Text = "ACEPTAR";
             btnAceptar.UseVisualStyleBackColor = true;
@@ -152,18 +174,44 @@
             // 
             // labelError
             // 
+            labelError.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelError.AutoSize = true;
-            labelError.Location = new Point(12, 321);
+            labelError.ForeColor = Color.White;
+            labelError.Location = new Point(16, 370);
             labelError.Name = "labelError";
             labelError.Size = new Size(43, 15);
             labelError.TabIndex = 36;
             labelError.Text = "ERROR";
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(0, 122, 204);
+            panel1.Controls.Add(label7);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(377, 82);
+            panel1.TabIndex = 37;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(115, 28);
+            label7.Name = "label7";
+            label7.Size = new Size(149, 28);
+            label7.TabIndex = 0;
+            label7.Text = "CREAR CUENTA";
+            // 
             // FrmCrearCuenta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(377, 371);
+            BackColor = Color.FromArgb(23, 21, 32);
+            ClientSize = new Size(377, 435);
+            Controls.Add(panel1);
             Controls.Add(labelError);
             Controls.Add(btnAceptar);
             Controls.Add(txtClave);
@@ -178,9 +226,15 @@
             Controls.Add(label4);
             Controls.Add(label2);
             Controls.Add(label1);
+            MaximumSize = new Size(493, 574);
+            MinimumSize = new Size(393, 474);
             Name = "FrmCrearCuenta";
+            Opacity = 0.95D;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmCrearCuenta";
             Load += FrmCrearCuenta_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -201,5 +255,7 @@
         private TextBox txtClave;
         private Button btnAceptar;
         private Label labelError;
+        private Panel panel1;
+        private Label label7;
     }
 }

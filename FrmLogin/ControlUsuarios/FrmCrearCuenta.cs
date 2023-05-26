@@ -30,12 +30,12 @@ namespace FRMVIAJES
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            
+
             try
             {
                 int legajo;
                 int.TryParse(this.txtLegajo.Text, out legajo);
-                this.nuevoUsuario = new Usuario(txtApellido.Text, txtNombre.Text,legajo,txtCorreo.Text,txtClave.Text,txtPerfil.Text);
+                this.nuevoUsuario = new Usuario(txtApellido.Text, txtNombre.Text, legajo, txtCorreo.Text, txtClave.Text, txtPerfil.Text);
                 txtApellido.Text = "";
                 txtNombre.Text = "";
                 txtLegajo.Text = "";

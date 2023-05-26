@@ -74,8 +74,8 @@ namespace FRMVIAJES
             }
             catch (Exception ex)
             {
-                labelError.Visible = true;
-                labelError.Text = ex.Message;
+                this.labelError.Text = $"       {ex.Message}";
+                this.labelError.Visible = true;
             }
         }
 

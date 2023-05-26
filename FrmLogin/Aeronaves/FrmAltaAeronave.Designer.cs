@@ -149,7 +149,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(577, 272);
+            ClientSize = new Size(545, 272);
             Controls.Add(labelError);
             Controls.Add(txtCantidadAsientos);
             Controls.Add(btnGenerarMatricula);
@@ -163,6 +163,7 @@
             Controls.Add(lblCantidadAsientos);
             Controls.Add(lblMatricula);
             Name = "FrmAltaAeronave";
+            StartPosition = FormStartPosition.Manual;
             Text = "FrmAltaAeronave";
             Load += FrmAltaAeronave_Load;
             ResumeLayout(false);

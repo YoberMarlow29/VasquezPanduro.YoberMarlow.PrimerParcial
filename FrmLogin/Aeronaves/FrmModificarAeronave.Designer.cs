@@ -163,6 +163,7 @@
             Controls.Add(lblCantidadAsientos);
             Controls.Add(lblMatricula);
             Name = "FrmModificarAeronave";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmModificarAeronave";
             Load += FrmModificarAeronave_Load;
             ResumeLayout(false);

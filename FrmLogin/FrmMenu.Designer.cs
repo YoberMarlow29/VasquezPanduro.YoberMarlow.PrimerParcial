@@ -46,7 +46,7 @@
             // panelMenuPrincipal
             // 
             panelMenuPrincipal.AutoScroll = true;
-            panelMenuPrincipal.BackColor = Color.FromArgb(11, 7, 17);
+            panelMenuPrincipal.BackColor = Color.FromArgb(0, 122, 204);
             panelMenuPrincipal.Controls.Add(btnEstadisticas);
             panelMenuPrincipal.Controls.Add(btnVenderPasaje);
             panelMenuPrincipal.Controls.Add(btnVuelos);
@@ -141,7 +141,7 @@
             // 
             // panelUsuario
             // 
-            panelUsuario.BackColor = Color.FromArgb(11, 7, 17);
+            panelUsuario.BackColor = Color.FromArgb(0, 122, 204);
             panelUsuario.Dock = DockStyle.Top;
             panelUsuario.Location = new Point(0, 0);
             panelUsuario.Name = "panelUsuario";

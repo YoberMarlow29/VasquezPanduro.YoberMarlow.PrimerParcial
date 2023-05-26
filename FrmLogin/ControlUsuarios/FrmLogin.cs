@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace FRMVIAJES
 {
-    public partial class FrmLoginV : Form
+    public partial class FrmLogin : Form
     {
-        public FrmLoginV()
+        private bool mostrarContraseña = false;
+        public FrmLogin()
         {
             InitializeComponent();
-            txtClave.PasswordChar = '*';
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -32,19 +32,22 @@ namespace FRMVIAJES
                         case "vendedor":
                             FrmMenu menuVendedor = new FrmMenu();
                             menuVendedor.PerfilVendedor();
-                            menuVendedor.Show();
+                            menuVendedor.ShowDialog();
+                            this.Close();
+
                             break;
                         case "supervisor":
                             FrmMenu menuSupervisor = new FrmMenu();
                             menuSupervisor.PerfilSupervisor();
-                            menuSupervisor.Show();
+                            menuSupervisor.ShowDialog();
+                            this.Close();
                             break;
                         case "administrador":
                             FrmMenu menuAdministrador = new FrmMenu();
                             menuAdministrador.PerfilAdministrador();
-                            menuAdministrador.Show();
+                            menuAdministrador.ShowDialog();
+                            this.Close();
                             break;
-
                     }
                 }
             }
@@ -54,9 +57,18 @@ namespace FRMVIAJES
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnMostrarContraseña_Click(object sender, EventArgs e)
         {
-            this.Close();
+            mostrarContraseña = !mostrarContraseña;
+
+            if (mostrarContraseña)
+            {
+                txtClave.PasswordChar = '\0'; // Mostrar texto plano
+            }
+            else
+            {
+                txtClave.PasswordChar = '*'; // Mostrar asteriscos
+            }
         }
     }
 }

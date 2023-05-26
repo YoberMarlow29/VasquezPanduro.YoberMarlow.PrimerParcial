@@ -28,45 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             btnIngresar = new Button();
+            label1 = new Label();
+            btnCrearCuenta = new Button();
             SuspendLayout();
+            // 
+            // btnIngresar
+            // 
+            btnIngresar.ForeColor = Color.Black;
+            btnIngresar.Location = new Point(134, 152);
+            btnIngresar.Name = "btnIngresar";
+            btnIngresar.Size = new Size(391, 37);
+            btnIngresar.TabIndex = 3;
+            btnIngresar.Text = "INICIAR SESION";
+            btnIngresar.UseVisualStyleBackColor = true;
+            btnIngresar.Click += btnIngresar_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(349, 201);
+            label1.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(118, 68);
             label1.Name = "label1";
-            label1.Size = new Size(71, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Bienvenidos";
+            label1.Size = new Size(426, 54);
+            label1.TabIndex = 2;
+            label1.Text = "Bienvenidos al Sistema";
             // 
-            // btnIngresar
+            // btnCrearCuenta
             // 
-            btnIngresar.Location = new Point(311, 219);
-            btnIngresar.Name = "btnIngresar";
-            btnIngresar.Size = new Size(141, 23);
-            btnIngresar.TabIndex = 1;
-            btnIngresar.Text = "INGRESAR AL SISTEMA";
-            btnIngresar.UseVisualStyleBackColor = true;
-            btnIngresar.Click += btnIngresar_Click;
+            btnCrearCuenta.ForeColor = SystemColors.ActiveCaptionText;
+            btnCrearCuenta.Location = new Point(134, 204);
+            btnCrearCuenta.Name = "btnCrearCuenta";
+            btnCrearCuenta.Size = new Size(391, 37);
+            btnCrearCuenta.TabIndex = 4;
+            btnCrearCuenta.Text = "CREAR CUENTA";
+            btnCrearCuenta.UseVisualStyleBackColor = true;
+            btnCrearCuenta.Click += btnCrearCuenta_Click;
             // 
             // FrmBienvenida
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.FromArgb(23, 21, 32);
+            ClientSize = new Size(646, 352);
+            Controls.Add(btnCrearCuenta);
             Controls.Add(btnIngresar);
             Controls.Add(label1);
+            ForeColor = SystemColors.ControlDarkDark;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximumSize = new Size(746, 452);
+            MinimumSize = new Size(646, 352);
             Name = "FrmBienvenida";
-            Text = "FrmBienvenida";
+            Opacity = 0.95D;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FrmLoginV2";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
         private Button btnIngresar;
+        private Label label1;
+        private Button btnCrearCuenta;
     }
 }
