@@ -41,6 +41,7 @@
             cboAeronave = new ComboBox();
             cbServicioComida = new CheckBox();
             cbServicioWifi = new CheckBox();
+            labelError = new Label();
             SuspendLayout();
             // 
             // lblOrigen
@@ -121,6 +122,7 @@
             dtpFechaPartida.Name = "dtpFechaPartida";
             dtpFechaPartida.Size = new Size(228, 23);
             dtpFechaPartida.TabIndex = 29;
+            dtpFechaPartida.ValueChanged += dtpFechaPartida_ValueChanged;
             // 
             // cboDestino
             // 
@@ -158,11 +160,21 @@
             cbServicioWifi.Text = "Wifi";
             cbServicioWifi.UseVisualStyleBackColor = true;
             // 
+            // labelError
+            // 
+            labelError.AutoSize = true;
+            labelError.Location = new Point(107, 280);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(43, 15);
+            labelError.TabIndex = 34;
+            labelError.Text = "ERROR";
+            // 
             // FrmAltaVuelo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(391, 304);
+            Controls.Add(labelError);
             Controls.Add(cbServicioWifi);
             Controls.Add(cbServicioComida);
             Controls.Add(cboAeronave);
@@ -178,6 +190,7 @@
             Controls.Add(lblOrigen);
             Name = "FrmAltaVuelo";
             Text = "FrmAltaVuelo";
+            Load += FrmAltaVuelo_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -197,5 +210,6 @@
         private ComboBox cboAeronave;
         private CheckBox cbServicioComida;
         private CheckBox cbServicioWifi;
+        private Label labelError;
     }
 }

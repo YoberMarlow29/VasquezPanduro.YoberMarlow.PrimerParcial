@@ -24,6 +24,7 @@ namespace EntidadesParcial
         public string IdViaje
         {
             get { return idViaje; }
+            set { idViaje = value;}
         }
         public string Origen
         {
@@ -37,11 +38,13 @@ namespace EntidadesParcial
         }
         public ETipoDeViaje Tipo
         {
-            get { return tipo; }
+            get { return this.tipo; }
+            set { this.tipo = value; }
         }
         public string Duracion
         {
-            get { return duracion; }
+            get { return this.duracion; }
+            set { this.duracion = value; }
         }
         public Aeronave Aeronave
         {
@@ -85,7 +88,7 @@ namespace EntidadesParcial
             set { enViaje = value; }
         }
 
-        private Viaje()
+        public Viaje()
         {
             this.listaDePasajeros = new List<Pasajero>();
             this.idViaje = GenerarID();
@@ -133,7 +136,7 @@ namespace EntidadesParcial
                 throw new Exception("Vuelos internacionales deben partir o arribar en Buenos Aires");
             }
         }
-        private static ETipoDeViaje DestinoEsInternacional(string origen, string destino)
+         private static ETipoDeViaje DestinoEsInternacional(string origen, string destino)
         {
             if (origen == "Acapulco(México)" ||
                 origen == "Miami(EEUU)" ||

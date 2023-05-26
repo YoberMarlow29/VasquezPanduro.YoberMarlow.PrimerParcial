@@ -32,6 +32,7 @@ namespace FRMVIAJES
             txtApellido.Text = modificarPasajero.Apellido;
             txtEdad.Text = modificarPasajero.Edad.ToString();
             txtDni.Text = modificarPasajero.Dni.ToString();
+            labelError.Visible = false;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)

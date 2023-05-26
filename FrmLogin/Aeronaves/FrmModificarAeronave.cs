@@ -24,6 +24,7 @@ namespace FRMVIAJES
             InitializeComponent();
             aeronaveModificar = new Aeronave();
             this.aeronaveModificar = modificarAeronave;
+            labelError.Visible = false;
         }
 
         private void FrmModificarAeronave_Load(object sender, EventArgs e)
@@ -48,7 +49,7 @@ namespace FRMVIAJES
             aeronaveModificar.CantidadBaños = cantidadBanios;
             aeronaveModificar.CapacidadBodega = capacidadBodega;
 
-            DialogResult = DialogResult.OK; 
+            DialogResult = DialogResult.OK;
             this.Close();
         }
 

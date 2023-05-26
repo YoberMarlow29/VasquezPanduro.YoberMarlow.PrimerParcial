@@ -41,6 +41,7 @@
             label1 = new Label();
             lblDestino = new Label();
             lblOrigen = new Label();
+            labelError = new Label();
             SuspendLayout();
             // 
             // cbServicioWifi
@@ -85,6 +86,7 @@
             dtpFechaPartida.Name = "dtpFechaPartida";
             dtpFechaPartida.Size = new Size(228, 23);
             dtpFechaPartida.TabIndex = 42;
+            dtpFechaPartida.ValueChanged += dtpFechaPartida_ValueChanged;
             // 
             // cboOrigen
             // 
@@ -111,6 +113,7 @@
             btnAceptar.TabIndex = 39;
             btnAceptar.Text = "ACEPTAR";
             btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // label3
             // 
@@ -157,11 +160,21 @@
             lblOrigen.TabIndex = 34;
             lblOrigen.Text = "Origen:";
             // 
+            // labelError
+            // 
+            labelError.AutoSize = true;
+            labelError.Location = new Point(12, 280);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(43, 15);
+            labelError.TabIndex = 47;
+            labelError.Text = "ERROR";
+            // 
             // FrmModificarVuelo
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(383, 272);
+            ClientSize = new Size(383, 335);
+            Controls.Add(labelError);
             Controls.Add(cbServicioWifi);
             Controls.Add(cbServicioComida);
             Controls.Add(cboAeronave);
@@ -177,6 +190,7 @@
             Controls.Add(lblOrigen);
             Name = "FrmModificarVuelo";
             Text = "FrmModificarVuelo";
+            Load += FrmModificarVuelo_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -196,5 +210,6 @@
         private Label label1;
         private Label lblDestino;
         private Label lblOrigen;
+        private Label labelError;
     }
 }

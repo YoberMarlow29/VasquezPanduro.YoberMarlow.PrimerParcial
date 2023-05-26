@@ -41,7 +41,7 @@ namespace FRMVIAJES
                 Compañia.BajaDePasajero((Pasajero)dataGridPasajeros.CurrentRow.DataBoundItem);
                 UpdateDataGrid(dataGridPasajeros);
             }
-            Archivos.SerializarListaJson(Archivos.listaDePasajeros, Archivos.pathPasajeros);
+            Archivos.SerializarListaXml<Pasajero>(Archivos.listaDePasajeros, Archivos.pathPasajeros);
         }
         public void UpdateDataGrid(DataGridView dataGridAeronave)
         {
@@ -74,7 +74,7 @@ namespace FRMVIAJES
                 UpdateDataGrid(dataGridPasajeros);
             }
 
-            Archivos.SerializarListaJson(Archivos.listaDePasajeros, Archivos.pathPasajeros);
+            Archivos.SerializarListaXml<Pasajero>(Archivos.listaDePasajeros, Archivos.pathPasajeros);
         }
     }
 }

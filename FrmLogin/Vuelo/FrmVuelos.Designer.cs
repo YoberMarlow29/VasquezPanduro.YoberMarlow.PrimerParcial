@@ -31,8 +31,8 @@
             btnEliminar = new Button();
             btnModificar = new Button();
             btnAgregar = new Button();
-            dataGridAeronaves = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridAeronaves).BeginInit();
+            dataGridViajes = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridViajes).BeginInit();
             SuspendLayout();
             // 
             // btnEliminar
@@ -43,6 +43,7 @@
             btnEliminar.TabIndex = 7;
             btnEliminar.Text = "BAJA";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnModificar
             // 
@@ -52,6 +53,7 @@
             btnModificar.TabIndex = 6;
             btnModificar.Text = "MODIFICAR";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnAgregar
             // 
@@ -63,38 +65,39 @@
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 
-            // dataGridAeronaves
+            // dataGridViajes
             // 
-            dataGridAeronaves.AllowUserToAddRows = false;
-            dataGridAeronaves.AllowUserToDeleteRows = false;
-            dataGridAeronaves.AllowUserToResizeRows = false;
-            dataGridAeronaves.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridAeronaves.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridAeronaves.EnableHeadersVisualStyles = false;
-            dataGridAeronaves.Location = new Point(12, 12);
-            dataGridAeronaves.MultiSelect = false;
-            dataGridAeronaves.Name = "dataGridAeronaves";
-            dataGridAeronaves.ReadOnly = true;
-            dataGridAeronaves.RowHeadersVisible = false;
-            dataGridAeronaves.RowTemplate.Height = 25;
-            dataGridAeronaves.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridAeronaves.Size = new Size(1319, 543);
-            dataGridAeronaves.TabIndex = 9;
-            dataGridAeronaves.TabStop = false;
-            dataGridAeronaves.VirtualMode = true;
+            dataGridViajes.AllowUserToAddRows = false;
+            dataGridViajes.AllowUserToDeleteRows = false;
+            dataGridViajes.AllowUserToResizeRows = false;
+            dataGridViajes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViajes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViajes.EnableHeadersVisualStyles = false;
+            dataGridViajes.Location = new Point(12, 12);
+            dataGridViajes.MultiSelect = false;
+            dataGridViajes.Name = "dataGridViajes";
+            dataGridViajes.ReadOnly = true;
+            dataGridViajes.RowHeadersVisible = false;
+            dataGridViajes.RowTemplate.Height = 25;
+            dataGridViajes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViajes.Size = new Size(1319, 543);
+            dataGridViajes.TabIndex = 9;
+            dataGridViajes.TabStop = false;
+            dataGridViajes.VirtualMode = true;
             // 
             // FrmVuelos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1343, 596);
-            Controls.Add(dataGridAeronaves);
+            Controls.Add(dataGridViajes);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
             Name = "FrmVuelos";
             Text = "FrmVuelos";
-            ((System.ComponentModel.ISupportInitialize)dataGridAeronaves).EndInit();
+            Load += FrmVuelos_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViajes).EndInit();
             ResumeLayout(false);
         }
 
@@ -103,6 +106,6 @@
         private Button btnEliminar;
         private Button btnModificar;
         private Button btnAgregar;
-        private DataGridView dataGridAeronaves;
+        private DataGridView dataGridViajes;
     }
 }

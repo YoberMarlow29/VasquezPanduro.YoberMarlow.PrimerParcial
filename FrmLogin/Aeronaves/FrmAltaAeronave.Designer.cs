@@ -39,6 +39,7 @@
             txtCapacidadBodega = new TextBox();
             btnGenerarMatricula = new Button();
             txtCantidadAsientos = new TextBox();
+            labelError = new Label();
             SuspendLayout();
             // 
             // btnCancelar
@@ -135,11 +136,21 @@
             txtCantidadAsientos.Size = new Size(213, 23);
             txtCantidadAsientos.TabIndex = 33;
             // 
+            // labelError
+            // 
+            labelError.AutoSize = true;
+            labelError.Location = new Point(244, 233);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(43, 15);
+            labelError.TabIndex = 35;
+            labelError.Text = "ERROR";
+            // 
             // FrmAltaAeronave
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(577, 272);
+            Controls.Add(labelError);
             Controls.Add(txtCantidadAsientos);
             Controls.Add(btnGenerarMatricula);
             Controls.Add(txtCapacidadBodega);
@@ -153,6 +164,7 @@
             Controls.Add(lblMatricula);
             Name = "FrmAltaAeronave";
             Text = "FrmAltaAeronave";
+            Load += FrmAltaAeronave_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -172,5 +184,6 @@
         private TextBox txtCapacidadBodega;
         private Button btnGenerarMatricula;
         private TextBox txtCantidadAsientos;
+        private Label labelError;
     }
 }

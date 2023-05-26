@@ -38,6 +38,7 @@
             label1 = new Label();
             btnAceptar = new Button();
             btnCancelar = new Button();
+            labelError = new Label();
             SuspendLayout();
             // 
             // txtEdad
@@ -123,11 +124,21 @@
             btnCancelar.Text = "CANCELAR";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // labelError
+            // 
+            labelError.AutoSize = true;
+            labelError.Location = new Point(26, 268);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(43, 15);
+            labelError.TabIndex = 42;
+            labelError.Text = "ERROR";
+            // 
             // FrmModificarPasajeros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(415, 282);
+            ClientSize = new Size(415, 306);
+            Controls.Add(labelError);
             Controls.Add(txtEdad);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
@@ -157,5 +168,6 @@
         private Label label1;
         private Button btnAceptar;
         private Button btnCancelar;
+        private Label labelError;
     }
 }

@@ -15,16 +15,18 @@ namespace EntidadesParcial
         public static string pathAeronaves;
         private static string pathUsuarios;
         public static string pathPasajeros;
+        public static string pathViajes;
         public static List<Usuario> usuarios;
         public static List<Aeronave> listaDeAeronaves;
         public static List<Pasajero> listaDePasajeros;
-        public static List<string> listaLocalidades;
-
+        public static List<Viaje> listaDeViaje;
+        public static List<string> localidades;
         static Archivos() 
         {
             CargarUsuarios();
             CargarAeronaves();
             CargarPasajeros();
+            CargarViajes();
             CargarLocalidades();
 
         }
@@ -46,11 +48,10 @@ namespace EntidadesParcial
             pathPasajeros = "Pasajeros.xml";
             listaDePasajeros = new List<Pasajero>();         
             listaDePasajeros = DeserializarListaXml<Pasajero>(pathPasajeros);
-
         }
         private static void CargarLocalidades()
         {
-            listaLocalidades = new List<string>()
+            localidades = new List<string>()
             {
                 "Buenos Aires",
                 "Santa Rosa",
@@ -74,10 +75,14 @@ namespace EntidadesParcial
                 "Miami(EEUU)"
             };
         }
-        public static List<Aeronave> DevolverListaAeronave() 
-        {        
-            return listaDeAeronaves;
+        private static void CargarViajes()
+        {
+            
+            pathViajes = "Viajes.xml";
+            listaDeViaje = new List<Viaje>();
+            listaDeViaje = DeserializarListaXml<Viaje>(pathViajes);
         }
+
         public static List<T> DeserializarListaJson<T>(string path)
         {
             try

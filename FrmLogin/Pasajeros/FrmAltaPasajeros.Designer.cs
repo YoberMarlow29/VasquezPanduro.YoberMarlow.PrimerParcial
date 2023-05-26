@@ -38,6 +38,7 @@
             btnAceptar = new Button();
             btnCancelar = new Button();
             txtEdad = new TextBox();
+            labelError = new Label();
             SuspendLayout();
             // 
             // label1
@@ -124,11 +125,21 @@
             txtEdad.Size = new Size(229, 23);
             txtEdad.TabIndex = 22;
             // 
+            // labelError
+            // 
+            labelError.AutoSize = true;
+            labelError.Location = new Point(23, 287);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(43, 15);
+            labelError.TabIndex = 35;
+            labelError.Text = "ERROR";
+            // 
             // FrmAltaPasajeros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(411, 284);
+            ClientSize = new Size(411, 331);
+            Controls.Add(labelError);
             Controls.Add(txtEdad);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
@@ -158,5 +169,6 @@
         private Button btnAceptar;
         private Button btnCancelar;
         private TextBox txtEdad;
+        private Label labelError;
     }
 }

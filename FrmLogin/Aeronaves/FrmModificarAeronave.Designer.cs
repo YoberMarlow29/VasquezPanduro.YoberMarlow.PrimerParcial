@@ -39,6 +39,7 @@
             label3 = new Label();
             lblCantidadAsientos = new Label();
             lblMatricula = new Label();
+            labelError = new Label();
             SuspendLayout();
             // 
             // txtCantidadAsientos
@@ -135,11 +136,21 @@
             lblMatricula.TabIndex = 34;
             lblMatricula.Text = "Matricula:";
             // 
+            // labelError
+            // 
+            labelError.AutoSize = true;
+            labelError.Location = new Point(233, 229);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(43, 15);
+            labelError.TabIndex = 45;
+            labelError.Text = "ERROR";
+            // 
             // FrmModificarAeronave
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(548, 326);
+            ClientSize = new Size(548, 268);
+            Controls.Add(labelError);
             Controls.Add(txtCantidadAsientos);
             Controls.Add(btnGenerarMatricula);
             Controls.Add(txtCapacidadBodega);
@@ -171,5 +182,6 @@
         private Label label3;
         private Label lblCantidadAsientos;
         private Label lblMatricula;
+        private Label labelError;
     }
 }

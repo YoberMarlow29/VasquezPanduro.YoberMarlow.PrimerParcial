@@ -23,8 +23,12 @@ namespace FRMVIAJES
         public FrmAltaPasajeros()
         {
             InitializeComponent();
+            
         }
-
+        private void FrmAltaPasajeros_Load(object sender, EventArgs e)
+        {
+            labelError.Visible = false;
+        }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             string nombre = txtNombre.Text;
@@ -33,12 +37,14 @@ namespace FRMVIAJES
             int dni;
             if (!int.TryParse(txtEdad.Text, out edad) || edad < 1 || edad > 100)
             {
-                MessageBox.Show("Debe ingresar un número de edad válido entre 1 y 100.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                labelError.Text = $"Ingresar una edad valida";
+                labelError.Visible = true;
                 return;
             }
             if (!int.TryParse(txtDni.Text, out dni) || dni < 1 || dni > 99999999)
             {
-                MessageBox.Show("Debe ingresar un número de DNI válido entre 1 y 99999999.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                labelError.Text = $"Ingresar un dni valido";
+                labelError.Visible = true;
                 return;
             }
 
@@ -57,10 +63,7 @@ namespace FRMVIAJES
 
         }
 
-        private void FrmAltaPasajeros_Load(object sender, EventArgs e)
-        {
 
-        }
 
 
 

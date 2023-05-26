@@ -28,7 +28,10 @@ namespace FRMVIAJES
             InitializeComponent();
 
         }
-
+        private void FrmAltaAeronave_Load(object sender, EventArgs e)
+        {
+            labelError.Visible = false;
+        }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             int cantidadBanios;
@@ -70,7 +73,8 @@ namespace FRMVIAJES
         {
             if (!int.TryParse(inputText, out value) || value < minValue || value > maxValue)
             {
-                MessageBox.Show($"Ingrese un valor válido para el campo (entre {minValue} y {maxValue}).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.labelError.Text = $"Ingrese un valor válido para el campo (entre {minValue} y {maxValue}).";
+                this.labelError.Visible = true;
                 return false;
             }
             return true;
@@ -80,10 +84,13 @@ namespace FRMVIAJES
         {
             if (!double.TryParse(inputText, out value) || value < minValue || value > maxValue)
             {
-                MessageBox.Show($"Ingrese un valor válido para el campo (entre {minValue} y {maxValue}).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.labelError.Text = $"Ingrese un valor válido para el campo (entre {minValue} y {maxValue}).";
+                this.labelError.Visible = true;
                 return false;
             }
             return true;
         }
+
+
     }
 }

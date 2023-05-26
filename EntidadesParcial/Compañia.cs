@@ -23,22 +23,7 @@ namespace EntidadesParcial
                 Archivos.listaDeAeronaves.Remove(bajaAeronave);
             }
         }
-        public static void ModificarAeronave(Aeronave modificaAeronave)
-        {
-            List<Aeronave> nuevaLista = Archivos.DevolverListaAeronave();
-            if (modificaAeronave is not null)
-            {
-                foreach (Aeronave item in nuevaLista)
-                {
-                    if (item.Equals(modificaAeronave))
-                    {
-                        item.CantidadAsientosTotales = modificaAeronave.CantidadAsientosTotales;
-                        item.CantidadBaños = modificaAeronave.CantidadBaños;
-                        item.CapacidadBodega = modificaAeronave.CapacidadBodega;
-                    }
-                }
-            }
-        }
+
         public static void AltaDePasajeros(Pasajero nuevoPasajero)
         {
             if (nuevoPasajero is not null)
@@ -54,6 +39,32 @@ namespace EntidadesParcial
                 Archivos.listaDePasajeros.Remove(bajaPasajero);
             }
         }
+        public static Aeronave BuscarAeronavePorMatricula(string matricula)
+        {
+            foreach (Aeronave item in Archivos.listaDeAeronaves)
+            {
+                if (item.Matricula == matricula)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+        public static void AltaDeVuelo(Viaje vueloAAgregar)
+        {
+            if (vueloAAgregar is not null)
+            {
+                Archivos.listaDeViaje.Add(vueloAAgregar);
+            }
+        }
+        public static void BajaDeVuelo(Viaje bajaViaje)
+        {
+            if (bajaViaje is not null)
+            {
+                Archivos.listaDeViaje.Remove(bajaViaje);
+            }
+        }
     }
+
 
 }
