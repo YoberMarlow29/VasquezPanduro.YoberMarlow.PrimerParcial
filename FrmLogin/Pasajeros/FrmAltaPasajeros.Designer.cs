@@ -44,6 +44,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.ForeColor = Color.White;
             label1.Location = new Point(12, 36);
             label1.Name = "label1";
             label1.Size = new Size(54, 15);
@@ -53,6 +54,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = Color.White;
             label2.Location = new Point(12, 85);
             label2.Name = "label2";
             label2.Size = new Size(54, 15);
@@ -62,6 +64,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.ForeColor = Color.White;
             label3.Location = new Point(12, 140);
             label3.Name = "label3";
             label3.Size = new Size(36, 15);
@@ -71,6 +74,7 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.ForeColor = Color.White;
             label5.Location = new Point(12, 185);
             label5.Name = "label5";
             label5.Size = new Size(30, 15);
@@ -128,6 +132,7 @@
             // labelError
             // 
             labelError.AutoSize = true;
+            labelError.ForeColor = Color.Red;
             labelError.Location = new Point(23, 287);
             labelError.Name = "labelError";
             labelError.Size = new Size(43, 15);
@@ -138,6 +143,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(23, 21, 32);
             ClientSize = new Size(411, 331);
             Controls.Add(labelError);
             Controls.Add(txtEdad);
@@ -150,7 +156,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            ForeColor = Color.White;
             Name = "FrmAltaPasajeros";
+            Opacity = 0.95D;
             Text = "FrmPrincipal";
             Load += FrmAltaPasajeros_Load;
             ResumeLayout(false);

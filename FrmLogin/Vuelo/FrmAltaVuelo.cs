@@ -55,7 +55,7 @@ namespace FRMVIAJES
                         }
                         else
                         {
-                            this.nuevoViaje = new Vuelo(aeronave, cboOrigen.Text, cboDestino.Text, dtpFechaPartida.Value, cbServicioWifi.Checked,cbServicioComida.Checked);
+                            this.nuevoViaje = new Vuelo(aeronave, cboOrigen.Text, cboDestino.Text, dtpFechaPartida.Value, cbServicioWifi.Checked, cbServicioComida.Checked);
                             this.DialogResult = DialogResult.OK;
                         }
                     }

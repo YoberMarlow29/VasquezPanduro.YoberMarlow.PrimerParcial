@@ -105,6 +105,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(23, 21, 32);
             ClientSize = new Size(934, 561);
             Controls.Add(btnSalir);
             Controls.Add(dataGridAeronaves);
@@ -113,6 +114,7 @@
             Controls.Add(btnAgregar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmAeronave";
+            Opacity = 0.95D;
             Text = "FrmAeronave";
             Load += FrmAeronave_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridAeronaves).EndInit();

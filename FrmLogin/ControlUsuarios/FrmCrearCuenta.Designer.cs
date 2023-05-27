@@ -176,7 +176,7 @@
             // 
             labelError.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelError.AutoSize = true;
-            labelError.ForeColor = Color.White;
+            labelError.ForeColor = Color.Red;
             labelError.Location = new Point(16, 370);
             labelError.Name = "labelError";
             labelError.Size = new Size(43, 15);
@@ -232,6 +232,7 @@
             Opacity = 0.95D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmCrearCuenta";
+
             Load += FrmCrearCuenta_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

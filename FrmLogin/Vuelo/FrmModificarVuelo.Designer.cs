@@ -47,6 +47,7 @@
             // cbServicioWifi
             // 
             cbServicioWifi.AutoSize = true;
+            cbServicioWifi.ForeColor = Color.White;
             cbServicioWifi.Location = new Point(278, 176);
             cbServicioWifi.Name = "cbServicioWifi";
             cbServicioWifi.Size = new Size(47, 19);
@@ -57,6 +58,7 @@
             // cbServicioComida
             // 
             cbServicioComida.AutoSize = true;
+            cbServicioComida.ForeColor = Color.White;
             cbServicioComida.Location = new Point(133, 176);
             cbServicioComida.Name = "cbServicioComida";
             cbServicioComida.Size = new Size(68, 19);
@@ -118,6 +120,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.ForeColor = Color.White;
             label3.Location = new Point(12, 180);
             label3.Name = "label3";
             label3.Size = new Size(56, 15);
@@ -127,6 +130,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = Color.White;
             label2.Location = new Point(12, 139);
             label2.Name = "label2";
             label2.Size = new Size(97, 15);
@@ -136,6 +140,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.ForeColor = Color.White;
             label1.Location = new Point(12, 100);
             label1.Name = "label1";
             label1.Size = new Size(60, 15);
@@ -145,6 +150,7 @@
             // lblDestino
             // 
             lblDestino.AutoSize = true;
+            lblDestino.ForeColor = Color.White;
             lblDestino.Location = new Point(12, 57);
             lblDestino.Name = "lblDestino";
             lblDestino.Size = new Size(50, 15);
@@ -154,6 +160,7 @@
             // lblOrigen
             // 
             lblOrigen.AutoSize = true;
+            lblOrigen.ForeColor = Color.White;
             lblOrigen.Location = new Point(12, 15);
             lblOrigen.Name = "lblOrigen";
             lblOrigen.Size = new Size(46, 15);
@@ -163,6 +170,7 @@
             // labelError
             // 
             labelError.AutoSize = true;
+            labelError.ForeColor = Color.Red;
             labelError.Location = new Point(12, 280);
             labelError.Name = "labelError";
             labelError.Size = new Size(43, 15);
@@ -173,6 +181,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(23, 21, 32);
             ClientSize = new Size(383, 335);
             Controls.Add(labelError);
             Controls.Add(cbServicioWifi);
@@ -189,6 +198,7 @@
             Controls.Add(lblDestino);
             Controls.Add(lblOrigen);
             Name = "FrmModificarVuelo";
+            Opacity = 0.95D;
             Text = "FrmModificarVuelo";
             Load += FrmModificarVuelo_Load;
             ResumeLayout(false);

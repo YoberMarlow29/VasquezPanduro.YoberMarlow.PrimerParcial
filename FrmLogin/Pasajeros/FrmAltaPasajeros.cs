@@ -23,7 +23,7 @@ namespace FRMVIAJES
         public FrmAltaPasajeros()
         {
             InitializeComponent();
-            
+
         }
         private void FrmAltaPasajeros_Load(object sender, EventArgs e)
         {
@@ -57,7 +57,7 @@ namespace FRMVIAJES
             DialogResult = DialogResult.OK;
             this.Close();*/
 
-            try 
+            try
             {
                 int dni;
                 int edad;

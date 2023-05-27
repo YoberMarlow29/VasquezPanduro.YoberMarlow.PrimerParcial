@@ -16,7 +16,7 @@ namespace EntidadesParcial
         public static string pathUsuarios;
         public static string pathPasajeros;
         public static string pathVuelo;
-        public static List<Usuario> usuarios;
+        public static List<Usuario> listaDeUsuarios;
         public static List<Aeronave> listaDeAeronaves;
         public static List<Pasajero> listaDePasajeros;
         public static List<Vuelo> listaDeViaje;
@@ -33,12 +33,13 @@ namespace EntidadesParcial
         private static void CargarUsuarios()   
         {
             pathUsuarios = "MOCK_DATA.json";
-            usuarios = new List<Usuario>();
-            usuarios=DeserializarListaJson<Usuario>(pathUsuarios);
+            listaDeUsuarios = new List<Usuario>();
+            listaDeUsuarios = DeserializarListaJson<Usuario>(pathUsuarios);
 
         }
         private static void CargarAeronaves() 
         {
+
             pathAeronaves = "Aeronaves.json";
             listaDeAeronaves = new List<Aeronave>();
             listaDeAeronaves = DeserializarListaJson<Aeronave>(pathAeronaves);

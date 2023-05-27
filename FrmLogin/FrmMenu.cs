@@ -13,13 +13,34 @@ namespace FRMVIAJES
 {
     public partial class FrmMenu : Form
     {
+        private string nombreUsuario;
+        private string perfilUsuario;
+        public string NombreUsuario
+        {
+            get { return nombreUsuario; }
+            set
+            {
+                nombreUsuario = value;
+                lblNombreUsuario.Text = value;
+            }
+        }
+
+        public string PerfilUsuario
+        {
+            get { return perfilUsuario; }
+            set
+            {
+                perfilUsuario = value;
+                lblPerfilUsuario.Text = value;
+            }
+        }
         public FrmMenu()
         {
             InitializeComponent();
         }
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-
+            lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
         private void btnAeronaves_Click(object sender, EventArgs e)
         {
@@ -85,14 +106,14 @@ namespace FRMVIAJES
 
         public void PerfilAdministrador()
         {
-            btnVenderPasaje.Enabled = false;
-            btnEstadisticas.Enabled = false;
-            btnPasajeros.Enabled = false;
+            btnVenderPasaje.Enabled = true;
+            btnEstadisticas.Enabled = true;
+            btnPasajeros.Enabled = true;
             btnVuelos.Enabled = true;
             btnAeronaves.Enabled = true;
-            btnVenderPasaje.BackColor = Color.LightGray;
+            /*btnVenderPasaje.BackColor = Color.LightGray;
             btnEstadisticas.BackColor = Color.LightGray;
-            btnPasajeros.BackColor = Color.LightGray;
+            btnPasajeros.BackColor = Color.LightGray;*/
         }
     }
 }

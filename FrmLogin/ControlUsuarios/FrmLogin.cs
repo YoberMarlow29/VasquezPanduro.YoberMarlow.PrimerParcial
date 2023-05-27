@@ -22,7 +22,7 @@ namespace FRMVIAJES
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             int correcto = 0;
-            foreach (Usuario item in Archivos.usuarios)
+            foreach (Usuario item in Archivos.listaDeUsuarios)
             {
                 if (item.correo == txtCorreo.Text && item.clave == txtClave.Text)
                 {
@@ -32,6 +32,8 @@ namespace FRMVIAJES
                         case "vendedor":
                             FrmMenu menuVendedor = new FrmMenu();
                             menuVendedor.PerfilVendedor();
+                            menuVendedor.NombreUsuario = item.nombre;
+                            menuVendedor.PerfilUsuario = item.perfil;
                             menuVendedor.ShowDialog();
                             this.Close();
 
@@ -39,12 +41,16 @@ namespace FRMVIAJES
                         case "supervisor":
                             FrmMenu menuSupervisor = new FrmMenu();
                             menuSupervisor.PerfilSupervisor();
+                            menuSupervisor.NombreUsuario = item.nombre;
+                            menuSupervisor.PerfilUsuario = item.perfil;
                             menuSupervisor.ShowDialog();
                             this.Close();
                             break;
                         case "administrador":
                             FrmMenu menuAdministrador = new FrmMenu();
                             menuAdministrador.PerfilAdministrador();
+                            menuAdministrador.NombreUsuario = item.nombre;
+                            menuAdministrador.PerfilUsuario = item.perfil;
                             menuAdministrador.ShowDialog();
                             this.Close();
                             break;
@@ -70,5 +76,6 @@ namespace FRMVIAJES
                 txtClave.PasswordChar = '*'; // Mostrar asteriscos
             }
         }
+
     }
 }

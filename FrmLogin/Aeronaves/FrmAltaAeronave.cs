@@ -35,7 +35,7 @@ namespace FRMVIAJES
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 int cantidadBaños;
                 int cantidadAsientos;
@@ -51,7 +51,7 @@ namespace FRMVIAJES
                 DialogResult = DialogResult.OK;
                 this.Close();
 
-            } 
+            }
             catch (Exception ex)
             {
                 this.labelError.Text = $"       {ex.Message}";
@@ -70,6 +70,6 @@ namespace FRMVIAJES
                                       .Select(s => s[random.Next(s.Length)]).ToArray());
             txtMatricula.Text = matricula;
         }
-        
+
     }
 }

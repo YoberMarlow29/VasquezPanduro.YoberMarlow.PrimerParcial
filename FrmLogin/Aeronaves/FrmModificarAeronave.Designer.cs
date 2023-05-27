@@ -69,6 +69,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = Color.White;
             label2.Location = new Point(12, 173);
             label2.Name = "label2";
             label2.Size = new Size(125, 15);
@@ -112,6 +113,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.ForeColor = Color.White;
             label3.Location = new Point(12, 130);
             label3.Name = "label3";
             label3.Size = new Size(109, 15);
@@ -121,6 +123,7 @@
             // lblCantidadAsientos
             // 
             lblCantidadAsientos.AutoSize = true;
+            lblCantidadAsientos.ForeColor = Color.White;
             lblCantidadAsientos.Location = new Point(12, 75);
             lblCantidadAsientos.Name = "lblCantidadAsientos";
             lblCantidadAsientos.Size = new Size(122, 15);
@@ -130,6 +133,7 @@
             // lblMatricula
             // 
             lblMatricula.AutoSize = true;
+            lblMatricula.ForeColor = Color.White;
             lblMatricula.Location = new Point(12, 26);
             lblMatricula.Name = "lblMatricula";
             lblMatricula.Size = new Size(60, 15);
@@ -139,6 +143,7 @@
             // labelError
             // 
             labelError.AutoSize = true;
+            labelError.ForeColor = Color.Red;
             labelError.Location = new Point(233, 229);
             labelError.Name = "labelError";
             labelError.Size = new Size(43, 15);
@@ -149,6 +154,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(23, 21, 32);
             ClientSize = new Size(548, 268);
             Controls.Add(labelError);
             Controls.Add(txtCantidadAsientos);
@@ -163,6 +169,7 @@
             Controls.Add(lblCantidadAsientos);
             Controls.Add(lblMatricula);
             Name = "FrmModificarAeronave";
+            Opacity = 0.95D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmModificarAeronave";
             Load += FrmModificarAeronave_Load;

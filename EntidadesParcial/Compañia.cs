@@ -68,7 +68,7 @@ namespace EntidadesParcial
         {
             if (usuarioAgregar is not null)
             {
-                Archivos.usuarios.Add(usuarioAgregar);
+                Archivos.listaDeUsuarios.Add(usuarioAgregar);
             }
         }
     }

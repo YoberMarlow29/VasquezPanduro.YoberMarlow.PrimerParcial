@@ -99,11 +99,13 @@
             btnSalir.TabIndex = 10;
             btnSalir.Text = "x";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // FrmPasajeros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(23, 21, 32);
             ClientSize = new Size(934, 561);
             Controls.Add(btnSalir);
             Controls.Add(dataGridPasajeros);
@@ -112,6 +114,7 @@
             Controls.Add(btnAgregar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmPasajeros";
+            Opacity = 0.95D;
             Text = "FrmCliente";
             Load += FrmPasajeros_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridPasajeros).EndInit();

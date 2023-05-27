@@ -36,9 +36,15 @@
             btnPasajeros = new Button();
             btnAeronaves = new Button();
             panelUsuario = new Panel();
+            lblFecha = new Label();
+            lblPerfilUsuario = new Label();
+            lblNombreUsuario = new Label();
+            pictureBox2 = new PictureBox();
             panelFormularioHijo = new Panel();
             pictureBox1 = new PictureBox();
             panelMenuPrincipal.SuspendLayout();
+            panelUsuario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panelFormularioHijo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -65,7 +71,7 @@
             btnEstadisticas.FlatAppearance.BorderSize = 0;
             btnEstadisticas.FlatStyle = FlatStyle.Flat;
             btnEstadisticas.ForeColor = Color.Gainsboro;
-            btnEstadisticas.Location = new Point(0, 280);
+            btnEstadisticas.Location = new Point(0, 378);
             btnEstadisticas.Name = "btnEstadisticas";
             btnEstadisticas.Padding = new Padding(10, 0, 0, 0);
             btnEstadisticas.Size = new Size(250, 45);
@@ -81,7 +87,7 @@
             btnVenderPasaje.FlatAppearance.BorderSize = 0;
             btnVenderPasaje.FlatStyle = FlatStyle.Flat;
             btnVenderPasaje.ForeColor = Color.Gainsboro;
-            btnVenderPasaje.Location = new Point(0, 235);
+            btnVenderPasaje.Location = new Point(0, 333);
             btnVenderPasaje.Name = "btnVenderPasaje";
             btnVenderPasaje.Padding = new Padding(10, 0, 0, 0);
             btnVenderPasaje.Size = new Size(250, 45);
@@ -97,7 +103,7 @@
             btnVuelos.FlatAppearance.BorderSize = 0;
             btnVuelos.FlatStyle = FlatStyle.Flat;
             btnVuelos.ForeColor = Color.Gainsboro;
-            btnVuelos.Location = new Point(0, 190);
+            btnVuelos.Location = new Point(0, 288);
             btnVuelos.Name = "btnVuelos";
             btnVuelos.Padding = new Padding(10, 0, 0, 0);
             btnVuelos.Size = new Size(250, 45);
@@ -113,7 +119,7 @@
             btnPasajeros.FlatAppearance.BorderSize = 0;
             btnPasajeros.FlatStyle = FlatStyle.Flat;
             btnPasajeros.ForeColor = Color.Gainsboro;
-            btnPasajeros.Location = new Point(0, 145);
+            btnPasajeros.Location = new Point(0, 243);
             btnPasajeros.Name = "btnPasajeros";
             btnPasajeros.Padding = new Padding(10, 0, 0, 0);
             btnPasajeros.Size = new Size(250, 45);
@@ -129,7 +135,7 @@
             btnAeronaves.FlatAppearance.BorderSize = 0;
             btnAeronaves.FlatStyle = FlatStyle.Flat;
             btnAeronaves.ForeColor = Color.Gainsboro;
-            btnAeronaves.Location = new Point(0, 100);
+            btnAeronaves.Location = new Point(0, 198);
             btnAeronaves.Name = "btnAeronaves";
             btnAeronaves.Padding = new Padding(10, 0, 0, 0);
             btnAeronaves.Size = new Size(250, 45);
@@ -142,11 +148,55 @@
             // panelUsuario
             // 
             panelUsuario.BackColor = Color.FromArgb(0, 122, 204);
+            panelUsuario.Controls.Add(lblFecha);
+            panelUsuario.Controls.Add(lblPerfilUsuario);
+            panelUsuario.Controls.Add(lblNombreUsuario);
+            panelUsuario.Controls.Add(pictureBox2);
             panelUsuario.Dock = DockStyle.Top;
             panelUsuario.Location = new Point(0, 0);
             panelUsuario.Name = "panelUsuario";
-            panelUsuario.Size = new Size(250, 100);
+            panelUsuario.Size = new Size(250, 198);
             panelUsuario.TabIndex = 0;
+            // 
+            // lblFecha
+            // 
+            lblFecha.AutoSize = true;
+            lblFecha.ForeColor = Color.White;
+            lblFecha.Location = new Point(12, 167);
+            lblFecha.Name = "lblFecha";
+            lblFecha.Size = new Size(45, 19);
+            lblFecha.TabIndex = 3;
+            lblFecha.Text = "label3";
+            // 
+            // lblPerfilUsuario
+            // 
+            lblPerfilUsuario.AutoSize = true;
+            lblPerfilUsuario.ForeColor = Color.White;
+            lblPerfilUsuario.Location = new Point(12, 138);
+            lblPerfilUsuario.Name = "lblPerfilUsuario";
+            lblPerfilUsuario.Size = new Size(45, 19);
+            lblPerfilUsuario.TabIndex = 2;
+            lblPerfilUsuario.Text = "label2";
+            // 
+            // lblNombreUsuario
+            // 
+            lblNombreUsuario.AutoSize = true;
+            lblNombreUsuario.ForeColor = Color.White;
+            lblNombreUsuario.Location = new Point(12, 109);
+            lblNombreUsuario.Name = "lblNombreUsuario";
+            lblNombreUsuario.Size = new Size(45, 19);
+            lblNombreUsuario.TabIndex = 1;
+            lblNombreUsuario.Text = "label1";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(67, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(100, 86);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
             // 
             // panelFormularioHijo
             // 
@@ -184,6 +234,9 @@
             Text = "FrmMenu";
             Load += FrmMenu_Load;
             panelMenuPrincipal.ResumeLayout(false);
+            panelUsuario.ResumeLayout(false);
+            panelUsuario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panelFormularioHijo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -200,5 +253,9 @@
         private Panel panelFormularioHijo;
         private PictureBox pictureBox1;
         private Panel panelUsuario;
+        private PictureBox pictureBox2;
+        private Label lblFecha;
+        private Label lblPerfilUsuario;
+        private Label lblNombreUsuario;
     }
 }
