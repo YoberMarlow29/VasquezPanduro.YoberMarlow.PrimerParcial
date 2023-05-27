@@ -31,32 +31,6 @@ namespace FRMVIAJES
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            /*string nombre = txtNombre.Text;
-            string apellido = txtApellido.Text;
-            int edad;
-            int dni;
-            if (!int.TryParse(txtEdad.Text, out edad) || edad < 1 || edad > 100)
-            {
-                labelError.Text = $"Ingresar una edad valida";
-                labelError.Visible = true;
-                return;
-            }
-            if (!int.TryParse(txtDni.Text, out dni) || dni < 1 || dni > 99999999)
-            {
-                labelError.Text = $"Ingresar un dni valido";
-                labelError.Visible = true;
-                return;
-            }
-
-
-            this.nuevoPasajero = new Pasajero(nombre, apellido, edad, dni);
-            txtNombre.Text = "";
-            txtApellido.Text = "";
-            txtDni.Text = "";
-
-            DialogResult = DialogResult.OK;
-            this.Close();*/
-
             try
             {
                 int dni;

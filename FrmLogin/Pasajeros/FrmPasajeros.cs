@@ -28,7 +28,7 @@ namespace FRMVIAJES
             if (respuesta == DialogResult.OK)
             {
                 Pasajero nuevoPasajero = frm.NuevoPasajero;
-                Compañia.AltaDePasajeros(nuevoPasajero);
+                Compañia.AltaDePasajeros(nuevoPasajero);//añadir lista
                 UpdateDataGrid(dataGridPasajeros);
             }
             Archivos.SerializarListaXml<Pasajero>(Archivos.listaDePasajeros, Archivos.pathPasajeros);

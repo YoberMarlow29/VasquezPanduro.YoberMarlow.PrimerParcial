@@ -21,7 +21,13 @@ namespace EntidadesParcial
         private List<Pasajero> listaDePasajeros;
         private bool servicioWifi;
         private bool servicioComida;
+        private int idVuelo; 
         private bool enViaje;
+
+        public int IdVuelo              
+        { 
+            get { return idVuelo; } set {  idVuelo = value; }
+        }
         public string Origen
         {
             get { return origen; }
@@ -87,7 +93,7 @@ namespace EntidadesParcial
         public Vuelo()
         {
             this.listaDePasajeros = new List<Pasajero>();
-            
+            this.idVuelo = Archivos.listaDeViaje.Count()+1;           
         }
         public Vuelo(Aeronave aeronave, string origen, string destino, DateTime partida, bool servicioWifi, bool servicioComida) : this()
         {

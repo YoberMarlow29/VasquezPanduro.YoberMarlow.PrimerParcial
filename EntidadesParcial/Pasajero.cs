@@ -8,33 +8,9 @@ namespace EntidadesParcial
 {
     public class Pasajero : Persona
     {
-        private ClasePasajero clase;
-        private bool equipajeDeMano;
-        private double equipajeDeBodega;
-
-        public ClasePasajero Clase
-        {
-            get { return clase; }
-            set { clase = value; }
-        }
-
-        public bool EquipajeDeMano
-        {
-            get { return equipajeDeMano; }
-            set { equipajeDeMano = value; }
-        }
-
-        public double EquipajeDeBodega
-        {
-            get { return equipajeDeBodega; }
-            set { equipajeDeBodega = value; }
-        }
-
         public Pasajero()
         {
-            clase = ClasePasajero.NoCargado;
-            equipajeDeMano = false;
-            equipajeDeBodega = 0;
+
         }
         public Pasajero(string nombre, string apellido, int edad, int dni) : base(nombre, apellido, edad, dni)
         {
