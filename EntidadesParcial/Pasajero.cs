@@ -14,18 +14,19 @@ namespace EntidadesParcial
         }
         public Pasajero(string nombre, string apellido, int edad, int dni) : base(nombre, apellido, edad, dni)
         {
-            
+
         }
 
-        public static bool operator ==(Pasajero p1, Pasajero p2)
+        /*public static bool operator ==(Pasajero p1, Pasajero p2)
         {
-            return p1.GetHashCode() == p2.GetHashCode();
+
+                return p1.GetHashCode() == p2.GetHashCode();
         }
 
         public static bool operator !=(Pasajero p1, Pasajero p2)
         {
             return !(p1 == p2);
-        }
+        }*/
 
         public override bool Equals(object? obj)
         {
@@ -35,10 +36,13 @@ namespace EntidadesParcial
             }
             return false;
         }
-
-        public override string ToString()
+        public string MostrarNombre() 
         {
             return $"{base.apellido}, {base.nombre} - DNI: {base.GetHashCode()}";
+        }
+        public override string ToString()
+        {
+            return MostrarNombre();
         }
     }
 }

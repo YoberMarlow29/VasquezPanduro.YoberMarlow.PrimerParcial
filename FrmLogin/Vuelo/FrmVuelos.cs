@@ -33,16 +33,18 @@ namespace FRMVIAJES
                 Compañia.AltaDeVuelo(this.viajeNuevo);
                 UpdateDataGrid(dataGridViajes);
             }
+            //Archivos.SerializarListaJson<Aeronave>(Archivos.listaDeAeronaves, Archivos.pathAeronaves);
             Archivos.SerializarListaXml<Vuelo>(Archivos.listaDeViaje, Archivos.pathVuelo);
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show($"¿Esta seguro que quiere eliminar el pasajero {dataGridViajes.CurrentRow.DataBoundItem}?{Environment.NewLine} Esta accion es inrreversible", "Dar Baja Aeronave", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            DialogResult respuesta = MessageBox.Show($"¿Esta seguro que quiere eliminar el vuelo {dataGridViajes.CurrentRow.DataBoundItem}?{Environment.NewLine} Esta accion es inrreversible", "Dar Baja Aeronave", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             if (respuesta == DialogResult.Yes)
             {
                 Compañia.BajaDeVuelo((Vuelo)dataGridViajes.CurrentRow.DataBoundItem);
                 UpdateDataGrid(dataGridViajes);
             }
+            
             Archivos.SerializarListaXml<Vuelo>(Archivos.listaDeViaje, Archivos.pathVuelo);
         }
         public void UpdateDataGrid(DataGridView dataGridVuelos)

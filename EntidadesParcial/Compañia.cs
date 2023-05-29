@@ -8,7 +8,6 @@ namespace EntidadesParcial
 {
     public static class Compañia
     {
-
         public static void AltaDeAeronave(Aeronave nuevaAeronave)
         {
             if (nuevaAeronave is not null)
@@ -71,21 +70,9 @@ namespace EntidadesParcial
                 Archivos.listaDeUsuarios.Add(usuarioAgregar);
             }
         }
-        public static void AltaDePasaje(Pasaje nuevoPasaje)
-        {
-            if (nuevoPasaje is not null)
-            {
-                Archivos.listaPasaje.Add(nuevoPasaje);
-            }
-        }
         public static List<Pasajero> DevolverLista() 
         {
-            return Archivos.listaDePasajeros;
-        
+            return Archivos.listaDePasajeros;       
         }
-
-
     }
-
-
 }

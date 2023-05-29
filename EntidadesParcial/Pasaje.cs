@@ -9,7 +9,6 @@ namespace EntidadesParcial
     public class Pasaje
     {
         private Pasajero pasajero;
-        //private Vuelo vuelo;
         private ClasePasajero clase;
         private double equipajeDeBodega;
         private bool equipajeDeMano;
@@ -22,11 +21,6 @@ namespace EntidadesParcial
             get {  return pasajero; } 
             set {  pasajero = value; } 
         }
-        /*public Vuelo Vuelo
-        {
-            get { return vuelo; }
-            set {  vuelo = value; }
-        }*/
         public ClasePasajero Clase
         {
             get { return clase; }
@@ -47,6 +41,7 @@ namespace EntidadesParcial
             get { return equipajeDeMano; }
             set { equipajeDeMano = value; }
         }
+
         public Pasaje() 
         {
             ultimoIdPasaje++;
@@ -54,10 +49,13 @@ namespace EntidadesParcial
             this.equipajeDeBodega = 0.0;
             this.EquipajeDeMano = false;
         }
-        public Pasaje(Pasajero pasajero, ClasePasajero clase) 
+        public Pasaje(Pasajero pasajero, ClasePasajero clase,bool equipajeDeMano, double equipajeDeBodega) 
         {
             this.pasajero = pasajero;
             this.clase = clase;
+            this.equipajeDeMano= equipajeDeMano;
+            this.equipajeDeBodega= equipajeDeBodega;
+
         }
 
     }

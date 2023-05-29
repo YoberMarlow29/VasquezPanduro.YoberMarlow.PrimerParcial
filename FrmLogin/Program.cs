@@ -1,6 +1,4 @@
-using FRMVIAJES;
-
-namespace FrmLogin
+namespace FRMVIAJES
 {
     internal static class Program
     {
@@ -14,6 +12,7 @@ namespace FrmLogin
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new FrmMenu());
+            
         }
     }
 }

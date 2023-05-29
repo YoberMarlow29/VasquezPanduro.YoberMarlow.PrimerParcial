@@ -16,13 +16,11 @@ namespace EntidadesParcial
         public static string pathUsuarios;
         public static string pathPasajeros;
         public static string pathVuelo;
-        public static string pathPasaje;
         public static List<Usuario> listaDeUsuarios;
         public static List<Aeronave> listaDeAeronaves;
         public static List<Pasajero> listaDePasajeros;
         public static List<Vuelo> listaDeViaje;
         public static List<string> localidades;
-        public static List<Pasaje> listaPasaje;
         static Archivos() 
         {
             CargarUsuarios();
@@ -30,7 +28,6 @@ namespace EntidadesParcial
             CargarPasajeros();
             CargarViajes();
             CargarLocalidades();
-            CargarPasaje();
 
         }
         private static void CargarUsuarios()   
@@ -52,14 +49,6 @@ namespace EntidadesParcial
             pathPasajeros = "Pasajeros.xml";
             listaDePasajeros = new List<Pasajero>();         
             listaDePasajeros = DeserializarListaXml<Pasajero>(pathPasajeros);
-        }
-        private static void CargarPasaje() 
-        {
-            pathPasaje = "Pasaje.xml";
-            listaPasaje=new List<Pasaje>();
-            listaPasaje= DeserializarListaXml<Pasaje>(pathPasaje);
-
-
         }
         private static void CargarLocalidades()
         {

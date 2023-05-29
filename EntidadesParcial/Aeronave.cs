@@ -9,11 +9,12 @@ namespace EntidadesParcial
 {
     public class Aeronave
     {
-        private string matricula;//(un identificador alfanumérico de 8 dígitos).
+        private string matricula;
         private int cantidadAsientosTotales;
         private int cantidadBaños;
         private double capacidadBodega;
-        private bool enViaje;
+        private List<DateTime> planDeVuelos;
+
 
         public string Matricula
         {
@@ -38,20 +39,18 @@ namespace EntidadesParcial
             get { return capacidadBodega; }
             set { capacidadBodega = value; }
         }
-        public int AsientosPremium
+        public int Premium
         {
             get
             {
                 return (int)(cantidadAsientosTotales * 0.20);
             }
-            
-
         }
-        public int AsientosTuristas
+        public int Tursita
         {
             get
             {
-                return this.cantidadAsientosTotales - this.AsientosPremium;
+                return this.cantidadAsientosTotales - this.Premium;
             }
         }
         public Aeronave()
@@ -60,7 +59,7 @@ namespace EntidadesParcial
             this.cantidadBaños=0;
             this.cantidadAsientosTotales = 0;
             this.capacidadBodega=0;
-            this.enViaje=false;
+            planDeVuelos = new List<DateTime>();
         }
         public Aeronave(string matricula,int cantidadDeAsientosTotales, int cantidadDeBanios, double capacidadDeBodega) : this()
         {
@@ -68,7 +67,9 @@ namespace EntidadesParcial
             ValidarNumero(cantidadDeAsientosTotales, 1,1200,out this.cantidadAsientosTotales);
             ValidarNumero(cantidadDeBanios, 1, 12, out this.cantidadBaños);
             ValidarNumero(capacidadDeBodega, 2000, 15000, out this.capacidadBodega);
+
         }
+
         private string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
@@ -170,7 +171,24 @@ namespace EntidadesParcial
                 throw new Exception($"Ingresar valores valido entre {valorMinimo} y {valorMaximo}");
             }
         }
-
+        public void AgregarVueloAPlanDeVuelos(DateTime vueloFecha)
+        {
+            if (VerificarQueNuevoPlanDeVueloNoExista(vueloFecha))
+            {
+                this.planDeVuelos.Add(vueloFecha);
+            }
+        }
+        private bool VerificarQueNuevoPlanDeVueloNoExista(DateTime vueloFecha)
+        {
+            foreach (DateTime item in this.planDeVuelos)
+            {
+                if (item.ToShortDateString() == vueloFecha.ToShortDateString())
+                {
+                    throw new Exception($"La aerovane {this.matricula} ya tiene un vuelo en {vueloFecha.ToString("dd/MM/yyyy")}");
+                }
+            }
+            return true;
+        }
 
     }
 }

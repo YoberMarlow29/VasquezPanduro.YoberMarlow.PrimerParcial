@@ -48,9 +48,9 @@ namespace FRMVIAJES
                 {
                     try
                     {
-                        if (dtpFechaPartida.Value < DateTime.Now)
+                         if (dtpFechaPartida.Value < DateTime.Now)
                         {
-                            this.labelError.Text = $"       La Partida del vuelo no es valida.";
+                            this.labelError.Text = $"       La Partida del vuelo no es válida.";
                             this.labelError.Visible = true;
                         }
                         else

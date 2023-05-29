@@ -13,9 +13,6 @@ namespace FRMVIAJES
 {
     public partial class FrmVentaPasaje : Form
     {
-        Pasaje NuevoPasaje { get; set; }
-        Pasajero Pasajero { get; set; }
-        Vuelo Vuelo { get; set; }
         public FrmVentaPasaje()
         {
             InitializeComponent();
@@ -26,83 +23,65 @@ namespace FRMVIAJES
             labelPeso.Visible = false;
             txtPesoBodega1.Visible = false;
             txtPesoBodega2.Visible = false;
+            ListarPasajeros(Archivos.listaDePasajeros);
+            ListarVuelos(Archivos.listaDeViaje);
         }
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            int dni;
-            int.TryParse(this.txtBuscarPasajero.Text, out dni);
-            foreach (Pasajero item in Compañia.DevolverLista())
-            {
-                if (item.Dni == dni)
-                {
-                    Pasajero = item;
-                    break;
-                }
-            }
-            NuevoPasaje = new Pasaje();
-            NuevoPasaje.Pasajero = Pasajero;
-            int idVuelo;
-            int.TryParse(this.txtBuscarVuelo.Text, out idVuelo);
-            foreach (Vuelo item in Archivos.listaDeViaje)
-            {
-                if (item.IdVuelo == idVuelo)
-                {
-                    Vuelo = item;
 
-                    break;
-                }
-            }
-            NuevoPasaje = new Pasaje();
-            NuevoPasaje.Pasajero = Pasajero;
-        }
         private void btnVender_Click(object sender, EventArgs e)
         {
-            ClasePasajero clase = rbTurista.Checked ? ClasePasajero.Turista : ClasePasajero.Premium;
-            bool equipajeDeMano = cbEquipajeMano.Checked;
-            double pesoBodega1 = 0.0;
-            double pesoBodega2 = 0.0;
-
-
-            if (clase == ClasePasajero.Turista)
+            Pasajero pasajeroSeleccionado = (Pasajero)lstListaPasajeros.SelectedItem;
+            Vuelo vueloSeleccionado = (Vuelo)lstListaVuelos.SelectedItem;
+            if (pasajeroSeleccionado != null && vueloSeleccionado != null)
             {
-                double pesoBodegaTurista = ParseDoubleValue(txtPesoBodegaTurista.Text);
+                ClasePasajero clase = rbTurista.Checked ? ClasePasajero.Turista : ClasePasajero.Premium;
+                bool equipajeDeMano = cbEquipajeMano.Checked;
+                double pesoBodega1 = 0.0;
+                double pesoBodega2 = 0.0;
 
-                if (ValidatePesoBodega(pesoBodegaTurista, 0.0, 25.0))
+                if (clase == ClasePasajero.Turista)
                 {
-                    pesoBodega1 = pesoBodegaTurista;
-                }
-                else
-                {
-                    MessageBox.Show("El peso del equipaje de bodega debe estar entre 0 y 25 kg.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    double pesoBodegaTurista = ParseDoubleValue(txtPesoBodegaTurista.Text);
 
+                    if (ValidatePesoBodega(pesoBodegaTurista, 0.0, 25.0))
+                    {
+                        pesoBodega1 = pesoBodegaTurista;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El peso del equipaje de bodega debe estar entre 0 y 25 kg.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
+                else if (clase == ClasePasajero.Premium)
+                {
+                    double pesoBodegaPremium1 = ParseDoubleValue(txtPesoBodega1.Text);
+                    double pesoBodegaPremium2 = ParseDoubleValue(txtPesoBodega2.Text);
+
+                    if (ValidatePesoBodega(pesoBodegaPremium1, 0.0, 21.0) && ValidatePesoBodega(pesoBodegaPremium2, 0.0, 21.0))
+                    {
+                        pesoBodega1 = pesoBodegaPremium1;
+                        pesoBodega2 = pesoBodegaPremium2;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El peso de cada equipaje de bodega debe estar entre 0 y 21 kg.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                double pesoBodegaTotal = pesoBodega1 + pesoBodega2;
+
+                Pasaje pasaje = new Pasaje(pasajeroSeleccionado, clase, equipajeDeMano, pesoBodegaTotal);
+
+                vueloSeleccionado.ListaDePasajes.Add(pasaje);
+                
+                Archivos.SerializarListaXml<Vuelo>(Archivos.listaDeViaje, Archivos.pathVuelo);
+
+                MessageBox.Show($"La venta se realizó correctamente", "Venta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else if (clase == ClasePasajero.Premium)
+            else
             {
-                double pesoBodegaPremium1 = ParseDoubleValue(txtPesoBodega1.Text);
-                double pesoBodegaPremium2 = ParseDoubleValue(txtPesoBodega2.Text);
-
-
-                if (ValidatePesoBodega(pesoBodegaPremium1, 0.0, 21.0) && ValidatePesoBodega(pesoBodegaPremium2, 0.0, 21.0))
-                {
-                    pesoBodega1 = pesoBodegaPremium1;
-                    pesoBodega2 = pesoBodegaPremium2;
-                }
-                else
-                {
-                    MessageBox.Show("El peso de cada equipaje de bodega debe estar entre 0 y 21 kg.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
+                MessageBox.Show("Debes seleccionar un pasajero y un vuelo para realizar la venta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            double pesoBodegaTotal = pesoBodega1 + pesoBodega2;
-            txtPesoBodegaTurista.Text = "";
-            txtPesoBodega1.Text = "";
-            txtPesoBodega2.Text = "";
-
-            Compañia.AltaDePasaje(NuevoPasaje);
-            Archivos.SerializarListaXml<Pasaje>(Archivos.listaPasaje, Archivos.pathPasaje);
-
 
         }
         private void rbTurista_CheckedChanged(object sender, EventArgs e)
@@ -111,6 +90,7 @@ namespace FRMVIAJES
             labelPeso.Visible = true;
             txtPesoBodega1.Visible = false;
             txtPesoBodega2.Visible = false;
+
         }
 
         private void rbPremium_CheckedChanged_1(object sender, EventArgs e)
@@ -119,6 +99,7 @@ namespace FRMVIAJES
             labelPeso.Visible = Visible;
             txtPesoBodega1.Visible = true;
             txtPesoBodega2.Visible = true;
+
         }
 
         private double ParseDoubleValue(string value)
@@ -220,7 +201,7 @@ namespace FRMVIAJES
 
         private void txtBuscarVuelo_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(this.txtBuscarPasajero.Text))
+            if (!string.IsNullOrEmpty(this.txtBuscarVuelo.Text))
             {
                 List<Vuelo> filtrado = new List<Vuelo>();
                 FiltrarDatosDeVuelos(filtrado);

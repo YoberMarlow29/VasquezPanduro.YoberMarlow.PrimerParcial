@@ -8,21 +8,17 @@ namespace EntidadesParcial
 {
     public class Vuelo
     {
-        private const double PRECIOPORHORANACIONAL = 50;
-        private const double PRECIOPORHORAINTERNACIONAL = 100;
+
+        private int idVuelo;
         private string destino;
         private string origen;
         private ETipoDeViaje tipo;
-        private int horaDelVuelo;
-        private int minutosDelVuelo;
-        private string duracion;
+        private int duracion;
         private DateTime partida;
         private Aeronave aeronave;
-        private List<Pasajero> listaDePasajeros;
+        private List<Pasaje> listaDePasajes;
         private bool servicioWifi;
         private bool servicioComida;
-        private int idVuelo; 
-        private bool enViaje;
 
         public int IdVuelo              
         { 
@@ -43,7 +39,7 @@ namespace EntidadesParcial
             get { return this.tipo; }
             set { this.tipo = value; }
         }
-        public string Duracion
+        public int Duracion
         {
             get { return this.duracion; }
             set { this.duracion = value; }
@@ -53,25 +49,23 @@ namespace EntidadesParcial
             get { return aeronave; }
             set { aeronave = value; }
         }
-        public List<Pasajero> ListaDePasajeros
+        public List<Pasaje> ListaDePasajes
         {
-            get { return listaDePasajeros; }
-            set { listaDePasajeros = value; }
+            get { return listaDePasajes; }
+            set { listaDePasajes = value; }
         }
-        public int HoraDelVuelo
-        {
-            get { return horaDelVuelo; }
-            set { horaDelVuelo = value; }
-        }
-        public int MinutosDelVuelo
-        {
-            get { return minutosDelVuelo; }
-            set { minutosDelVuelo = value; }
-        }
+
         public DateTime Partida
         {
             get { return partida; }
             set { partida = value; }
+        }
+        public string Disponibilidad
+        {
+            get
+            {
+                return ActualizarDisponibilidad();
+            }
         }
 
         public bool ServicioComida
@@ -84,16 +78,24 @@ namespace EntidadesParcial
             get { return servicioWifi; }
             set { servicioWifi = value; }
         }
-        private bool EnViaje 
+        public int Premium
         {
-            get { return enViaje; }
-            set { enViaje = value; }
+            get
+            {
+                return CantidadDeVuelosPorClase(ClasePasajero.Premium);
+            }
         }
-
+        public int Tursita
+        {
+            get
+            {
+                return CantidadDeVuelosPorClase(ClasePasajero.Turista);
+            }
+        }
         public Vuelo()
         {
-            this.listaDePasajeros = new List<Pasajero>();
-            this.idVuelo = Archivos.listaDeViaje.Count()+1;           
+            this.listaDePasajes = new List<Pasaje>();
+            this.idVuelo = Archivos.listaDeViaje.Count()+1;
         }
         public Vuelo(Aeronave aeronave, string origen, string destino, DateTime partida, bool servicioWifi, bool servicioComida) : this()
         {
@@ -104,11 +106,12 @@ namespace EntidadesParcial
             this.tipo = DestinoEsInternacional(this.origen, this.destino);
             this.partida = partida;
             GenerarDuracionDeVuelos();
-            this.duracion = new DateTime(1, 1, 1, this.horaDelVuelo, this.minutosDelVuelo, 0).ToString("HH:mm");
-            this.servicioWifi = servicioWifi;
-            this.servicioComida = servicioComida;           
-            this.aeronave = aeronave;
             
+            this.servicioWifi = servicioWifi;
+            this.servicioComida = servicioComida;
+            this.aeronave = aeronave;
+            this.aeronave.AgregarVueloAPlanDeVuelos(this.partida);
+
         }
         private static void ValidarOrigenDestino(string origen, string destino)
         {
@@ -140,41 +143,70 @@ namespace EntidadesParcial
             }
             return ETipoDeViaje.Nacional;
         }
+        private Random rnd = new Random();
+
         private void GenerarDuracionDeVuelos()
         {
-            Random rnd = new Random();
             if (this.Tipo == ETipoDeViaje.Internacional)
             {
-                this.horaDelVuelo = rnd.Next(8, 12);
-                this.minutosDelVuelo = rnd.Next(0, 55);
-                if (this.horaDelVuelo == 12)
-                {
-                    this.minutosDelVuelo = 0;
-                }
+                this.Duracion = rnd.Next(8, 13); // Duración entre 8 y 12 horas
             }
             else
             {
-                this.horaDelVuelo = rnd.Next(2, 4);
-                this.minutosDelVuelo = rnd.Next(0, 55);
-                if (this.horaDelVuelo == 4)
-                {
-                    this.minutosDelVuelo = 0;
-                }
+                this.Duracion = rnd.Next(2, 5); // Duración entre 2 y 4 horas
             }
         }
-        public double CalcularPrecioSegunTipoDeVuelo(double horasTotales)
+        public override string ToString()
         {
-            double precioFinal;
-            if (DestinoEsInternacional(this.origen, this.destino) == ETipoDeViaje.Nacional)
-            {
-                precioFinal = PRECIOPORHORANACIONAL * horasTotales;
-            }
-            else
-            {
-                precioFinal = PRECIOPORHORAINTERNACIONAL * horasTotales;
-            }
+            return $"{this.tipo},{this.origen},{this.destino}";
+        }
 
-            return precioFinal;
+        private int CantidadDeVuelosPorClase(ClasePasajero clase)
+        {
+            int contador = 0;
+            foreach (Pasaje item in this.listaDePasajes)
+            {
+                if (item.Clase == clase)
+                {
+                    contador++;
+                }
+            }
+            return contador;
+        }
+        private DateTime MedirHorarioDeLlegada()
+        {
+            DateTime llegada;
+
+            llegada = this.partida.AddHours(this.duracion);
+
+            return llegada;
+
+        }
+        private string ActualizarEstadoDelVuelo()
+        {
+            string estado = string.Empty;
+            if (MedirHorarioDeLlegada() > DateTime.Now && this.partida < DateTime.Now)
+            {
+                estado = "EN VUELO";
+            }
+            else if (this.partida < DateTime.Now)
+            {
+                estado = "FINALIZADO";
+            }
+            return estado;
+        }
+        private string ActualizarDisponibilidad()
+        {
+            string vuelo = ActualizarEstadoDelVuelo();
+            if (!string.IsNullOrEmpty(vuelo))
+            {
+                return vuelo;
+            }
+            else if (this.listaDePasajes.Count == this.aeronave.CantidadAsientosTotales)
+            {
+                return "COMPLETO";
+            }
+            return $"{this.listaDePasajes.Count}/ {this.aeronave.CantidadAsientosTotales}";
         }
 
     }

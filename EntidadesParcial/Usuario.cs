@@ -34,8 +34,6 @@ namespace EntidadesParcial
             get { return perfi; }
             set { perfi = value; }
         }
-
-
         public Usuario(string apellido, string nombre, int legajo, string correo, string clave, string perfil):base(apellido,nombre)
         {
             ValidarCampoEmail(correo, out this.corr);
@@ -47,12 +45,10 @@ namespace EntidadesParcial
         {
             return u1 is not null && u2 is not null && u1.correo == u2.correo && u1.clave == u2.clave;
         }
-
         public static bool operator !=(Usuario u1, Usuario u2)
         {
             return !(u1 == u2);
         }
-
         public override bool Equals(object? obj)
         {
             bool ok = false;
@@ -73,7 +69,6 @@ namespace EntidadesParcial
             }
             return false;
         }
-
         private void ValidarPerfil(string perfil, out string perfilValidado)
         {
             perfilValidado = string.Empty;

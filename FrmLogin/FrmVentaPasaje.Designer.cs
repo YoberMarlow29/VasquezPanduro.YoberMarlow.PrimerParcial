@@ -41,7 +41,6 @@
             btnVender = new Button();
             btnCancelar = new Button();
             txtBuscarPasajero = new TextBox();
-            btnBuscar = new Button();
             txtBuscarVuelo = new TextBox();
             lstListaVuelos = new ListBox();
             SuspendLayout();
@@ -57,21 +56,21 @@
             // 
             // txtPesoBodega2
             // 
-            txtPesoBodega2.Location = new Point(398, 355);
+            txtPesoBodega2.Location = new Point(201, 339);
             txtPesoBodega2.Name = "txtPesoBodega2";
             txtPesoBodega2.Size = new Size(168, 23);
             txtPesoBodega2.TabIndex = 30;
             // 
             // txtPesoBodega1
             // 
-            txtPesoBodega1.Location = new Point(209, 355);
+            txtPesoBodega1.Location = new Point(12, 339);
             txtPesoBodega1.Name = "txtPesoBodega1";
             txtPesoBodega1.Size = new Size(168, 23);
             txtPesoBodega1.TabIndex = 29;
             // 
             // txtPesoBodegaTurista
             // 
-            txtPesoBodegaTurista.Location = new Point(398, 319);
+            txtPesoBodegaTurista.Location = new Point(201, 303);
             txtPesoBodegaTurista.Name = "txtPesoBodegaTurista";
             txtPesoBodegaTurista.Size = new Size(168, 23);
             txtPesoBodegaTurista.TabIndex = 28;
@@ -79,7 +78,7 @@
             // labelPeso
             // 
             labelPeso.AutoSize = true;
-            labelPeso.Location = new Point(209, 322);
+            labelPeso.Location = new Point(12, 306);
             labelPeso.Name = "labelPeso";
             labelPeso.Size = new Size(183, 15);
             labelPeso.TabIndex = 27;
@@ -88,7 +87,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(209, 287);
+            label6.Location = new Point(12, 271);
             label6.Name = "label6";
             label6.Size = new Size(105, 15);
             label6.TabIndex = 26;
@@ -97,7 +96,7 @@
             // cbEquipajeMano
             // 
             cbEquipajeMano.AutoSize = true;
-            cbEquipajeMano.Location = new Point(342, 286);
+            cbEquipajeMano.Location = new Point(145, 270);
             cbEquipajeMano.Name = "cbEquipajeMano";
             cbEquipajeMano.Size = new Size(122, 19);
             cbEquipajeMano.TabIndex = 25;
@@ -107,7 +106,7 @@
             // rbPremium
             // 
             rbPremium.AutoSize = true;
-            rbPremium.Location = new Point(492, 248);
+            rbPremium.Location = new Point(295, 232);
             rbPremium.Name = "rbPremium";
             rbPremium.Size = new Size(74, 19);
             rbPremium.TabIndex = 24;
@@ -119,7 +118,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(209, 250);
+            label4.Location = new Point(12, 234);
             label4.Name = "label4";
             label4.Size = new Size(96, 15);
             label4.TabIndex = 23;
@@ -128,7 +127,7 @@
             // rbTurista
             // 
             rbTurista.AutoSize = true;
-            rbTurista.Location = new Point(342, 248);
+            rbTurista.Location = new Point(145, 232);
             rbTurista.Name = "rbTurista";
             rbTurista.Size = new Size(60, 19);
             rbTurista.TabIndex = 22;
@@ -139,9 +138,9 @@
             // 
             // btnVender
             // 
-            btnVender.Location = new Point(296, 404);
+            btnVender.Location = new Point(12, 379);
             btnVender.Name = "btnVender";
-            btnVender.Size = new Size(75, 23);
+            btnVender.Size = new Size(72, 23);
             btnVender.TabIndex = 31;
             btnVender.Text = "VENDER";
             btnVender.UseVisualStyleBackColor = true;
@@ -149,9 +148,9 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(389, 404);
+            btnCancelar.Location = new Point(105, 379);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.Size = new Size(72, 23);
             btnCancelar.TabIndex = 32;
             btnCancelar.Text = "CANCELAR";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -163,16 +162,6 @@
             txtBuscarPasajero.Size = new Size(365, 23);
             txtBuscarPasajero.TabIndex = 33;
             txtBuscarPasajero.TextChanged += txtBuscarPasajero_TextChanged;
-            // 
-            // btnBuscar
-            // 
-            btnBuscar.Location = new Point(12, 430);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(75, 23);
-            btnBuscar.TabIndex = 34;
-            btnBuscar.Text = "button1";
-            btnBuscar.UseVisualStyleBackColor = true;
-            btnBuscar.Click += btnBuscar_Click;
             // 
             // txtBuscarVuelo
             // 
@@ -195,10 +184,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(771, 465);
+            ClientSize = new Size(771, 486);
             Controls.Add(lstListaVuelos);
             Controls.Add(txtBuscarVuelo);
-            Controls.Add(btnBuscar);
             Controls.Add(txtBuscarPasajero);
             Controls.Add(btnCancelar);
             Controls.Add(btnVender);
@@ -234,7 +222,6 @@
         private Button btnVender;
         private Button btnCancelar;
         private TextBox txtBuscarPasajero;
-        private Button btnBuscar;
         private TextBox txtBuscarVuelo;
         private ListBox lstListaVuelos;
     }
