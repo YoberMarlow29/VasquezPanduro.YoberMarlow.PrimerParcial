@@ -15,7 +15,8 @@ todos estos de un archivo xml o json.
 
 # DIAGRAMA
 
-![Diagrama de clases](file:///C:/Users/Yober/source/repos/VasquezPanduro.YoberMarlow.PrimerParcial/Archivos/diagrama.png)
+![Diagrama de clases](VasquezPanduro.YoberMarlow.PrimerParcial/Archivos/diagrama.png)
+
 # JUSTIFICACIÓN TÉCNICA
 
 - Introducción a .NET y C#
