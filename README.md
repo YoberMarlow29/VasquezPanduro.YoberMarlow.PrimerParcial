@@ -98,6 +98,8 @@ todos estos de un archivo xml o json.
 
 Esto abarcaria los 9 temas que vimos, tambien inclui expeciones para las validaciones de datos.
 
+Todos mi archivos JSON, XML y el usuario.log se guardan en bin de mi carpeta de formularios.
+
 # PROPUESTA DE VALOR AGREGADO
 
 Agregue la opcion de poder crear una cuenta, pidiendome los datos de la persona que quiera ser usuario.
