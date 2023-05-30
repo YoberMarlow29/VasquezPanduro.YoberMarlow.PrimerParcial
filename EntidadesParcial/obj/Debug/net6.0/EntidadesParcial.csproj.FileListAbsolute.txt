@@ -1,0 +1,12 @@
+C:\Users\Yober\source\repos\VasquezPanduro.YoberMarlow.PrimerParcial\EntidadesParcial\bin\Debug\net6.0\EntidadesParcial.deps.json
+C:\Users\Yober\source\repos\VasquezPanduro.YoberMarlow.PrimerParcial\EntidadesParcial\bin\Debug\net6.0\EntidadesParcial.dll
+C:\Users\Yober\source\repos\VasquezPanduro.YoberMarlow.PrimerParcial\EntidadesParcial\bin\Debug\net6.0\EntidadesParcial.pdb
+C:\Users\Yober\source\repos\VasquezPanduro.YoberMarlow.PrimerParcial\EntidadesParcial\obj\Debug\net6.0\EntidadesParcial.csproj.AssemblyReference.cache
+C:\Users\Yober\source\repos\VasquezPanduro.YoberMarlow.PrimerParcial\EntidadesParcial\obj\Debug\net6.0\EntidadesParcial.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yober\source\repos\VasquezPanduro.YoberMarlow.PrimerParcial\EntidadesParcial\obj\Debug\net6.0\EntidadesParcial.AssemblyInfoInputs.cache
+C:\Users\Yober\source\repos\VasquezPanduro.YoberMarlow.PrimerParcial\EntidadesParcial\obj\Debug\net6.0\EntidadesParcial.AssemblyInfo.cs
+C:\Users\Yober\source\repos\VasquezPanduro.YoberMarlow.PrimerParcial\EntidadesParcial\obj\Debug\net6.0\EntidadesParcial.csproj.CoreCompileInputs.cache
+C:\Users\Yober\source\repos\VasquezPanduro.YoberMarlow.PrimerParcial\EntidadesParcial\obj\Debug\net6.0\EntidadesParcial.dll
+C:\Users\Yober\source\repos\VasquezPanduro.YoberMarlow.PrimerParcial\EntidadesParcial\obj\Debug\net6.0\refint\EntidadesParcial.dll
+C:\Users\Yober\source\repos\VasquezPanduro.YoberMarlow.PrimerParcial\EntidadesParcial\obj\Debug\net6.0\EntidadesParcial.pdb
+C:\Users\Yober\source\repos\VasquezPanduro.YoberMarlow.PrimerParcial\EntidadesParcial\obj\Debug\net6.0\ref\EntidadesParcial.dll

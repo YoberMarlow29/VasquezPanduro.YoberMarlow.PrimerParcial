@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "FrmLogin/1.0.0": {
+        "dependencies": {
+          "EntidadesParcial": "1.0.0"
+        },
+        "runtime": {
+          "FrmLogin.dll": {}
+        }
+      },
+      "EntidadesParcial/1.0.0": {
+        "runtime": {
+          "EntidadesParcial.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FrmLogin/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EntidadesParcial/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
