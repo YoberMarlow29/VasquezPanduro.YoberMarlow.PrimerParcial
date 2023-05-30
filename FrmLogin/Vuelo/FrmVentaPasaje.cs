@@ -8,11 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace FRMVIAJES
 {
     public partial class FrmVentaPasaje : Form
     {
+        private List<Pasaje> nuevosPasajeros;
+        private Vuelo vueloSeleccionado;
+        public List<Pasaje> NuevosPasajeros
+        {
+            get => nuevosPasajeros;
+            set => nuevosPasajeros = value;
+        }
         public FrmVentaPasaje()
         {
             InitializeComponent();
@@ -23,14 +31,18 @@ namespace FRMVIAJES
             labelPeso.Visible = false;
             txtPesoBodega1.Visible = false;
             txtPesoBodega2.Visible = false;
+            vueloSeleccionado = new Vuelo();
             ListarPasajeros(Archivos.listaDePasajeros);
             ListarVuelos(Archivos.listaDeViaje);
+            nuevosPasajeros = new List<Pasaje>();
+            this.labelError.Visible = false;
+
         }
 
         private void btnVender_Click(object sender, EventArgs e)
         {
             Pasajero pasajeroSeleccionado = (Pasajero)lstListaPasajeros.SelectedItem;
-            Vuelo vueloSeleccionado = (Vuelo)lstListaVuelos.SelectedItem;
+            vueloSeleccionado = (Vuelo)lstListaVuelos.SelectedItem;
             if (pasajeroSeleccionado != null && vueloSeleccionado != null)
             {
                 ClasePasajero clase = rbTurista.Checked ? ClasePasajero.Turista : ClasePasajero.Premium;
@@ -71,12 +83,21 @@ namespace FRMVIAJES
                 double pesoBodegaTotal = pesoBodega1 + pesoBodega2;
 
                 Pasaje pasaje = new Pasaje(pasajeroSeleccionado, clase, equipajeDeMano, pesoBodegaTotal);
+                try
+                {
+                    Compañia.ValidarCompraDeClase(vueloSeleccionado, pasaje, this.nuevosPasajeros);
+                    AgregarVuelo(pasaje);
 
-                vueloSeleccionado.ListaDePasajes.Add(pasaje);
-                
-                Archivos.SerializarListaXml<Vuelo>(Archivos.listaDeViaje, Archivos.pathVuelo);
+                    vueloSeleccionado.ListaDePasajes.Add(pasaje);
+                    Archivos.SerializarListaXml<Vuelo>(Archivos.listaDeViaje, Archivos.pathVuelo);
+                }
+                catch 
+                {
+                    this.labelError.Text = "Error, no hay espacio";
+                    this.labelError.Visible = true;
+                }
+                this.Close();
 
-                MessageBox.Show($"La venta se realizó correctamente", "Venta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -211,6 +232,30 @@ namespace FRMVIAJES
             {
                 ListarVuelos(Archivos.listaDeViaje);
             }
+        }
+        private void AgregarVuelo(Pasaje pasajeAgregado)
+        {
+            double precioFinal;
+            this.nuevosPasajeros!.Add(pasajeAgregado);
+            vueloSeleccionado.InformarTarifasYPrecioDelPasaje(pasajeAgregado, out precioFinal);
+            ActualizarFacturacionActual();
+        }
+        public void ActualizarFacturacionActual()
+        {
+            this.rtb_Facturacion.Clear();
+            StringBuilder sb = new StringBuilder();
+            double precioFinal = 0;
+            double precioDelPasaje;
+
+            foreach (Pasaje item in this.nuevosPasajeros!)
+            {
+                sb.AppendLine(vueloSeleccionado.InformarTarifasYPrecioDelPasaje(item, out precioDelPasaje));
+                precioFinal += precioDelPasaje;
+            }
+            sb.AppendLine("***********************************");
+            sb.AppendLine($"Precio Final Neto (+IVA): $ {(precioFinal * 1.21).ToString("0.00")} U$D");
+
+            rtb_Facturacion.Text = sb.ToString();
         }
     }
 }

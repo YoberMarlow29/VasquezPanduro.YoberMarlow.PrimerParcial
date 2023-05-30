@@ -64,7 +64,7 @@ namespace FRMVIAJES
         }
         private void btnEstadisticas_Click(object sender, EventArgs e)
         {
-
+            AbrirFormularioHijo(new FrmEstadisticas());
         }
 
         private Form activarForm = null;

@@ -33,7 +33,6 @@ namespace FRMVIAJES
                 Compañia.AltaDeVuelo(this.viajeNuevo);
                 UpdateDataGrid(dataGridViajes);
             }
-            //Archivos.SerializarListaJson<Aeronave>(Archivos.listaDeAeronaves, Archivos.pathAeronaves);
             Archivos.SerializarListaXml<Vuelo>(Archivos.listaDeViaje, Archivos.pathVuelo);
         }
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -44,7 +43,6 @@ namespace FRMVIAJES
                 Compañia.BajaDeVuelo((Vuelo)dataGridViajes.CurrentRow.DataBoundItem);
                 UpdateDataGrid(dataGridViajes);
             }
-            
             Archivos.SerializarListaXml<Vuelo>(Archivos.listaDeViaje, Archivos.pathVuelo);
         }
         public void UpdateDataGrid(DataGridView dataGridVuelos)
@@ -77,14 +75,7 @@ namespace FRMVIAJES
 
                 UpdateDataGrid(dataGridViajes);
             }
-
-            Archivos.SerializarListaXml<Pasajero>(Archivos.listaDePasajeros, Archivos.pathPasajeros);
-        }
-
-        private void btnVenderPasaje_Click(object sender, EventArgs e)
-        {
-            FrmVentaPasaje frm = new FrmVentaPasaje();
-            frm.ShowDialog();
+            Archivos.SerializarListaXml<Vuelo>(Archivos.listaDeViaje, Archivos.pathVuelo);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

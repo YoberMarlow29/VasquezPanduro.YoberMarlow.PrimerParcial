@@ -32,7 +32,6 @@
             btnModificar = new Button();
             btnAgregar = new Button();
             dataGridViajes = new DataGridView();
-            btnVenderPasaje = new Button();
             btnSalir = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViajes).BeginInit();
             SuspendLayout();
@@ -91,17 +90,6 @@
             dataGridViajes.TabStop = false;
             dataGridViajes.VirtualMode = true;
             // 
-            // btnVenderPasaje
-            // 
-            btnVenderPasaje.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnVenderPasaje.Location = new Point(264, 526);
-            btnVenderPasaje.Name = "btnVenderPasaje";
-            btnVenderPasaje.Size = new Size(102, 23);
-            btnVenderPasaje.TabIndex = 10;
-            btnVenderPasaje.Text = "VENDER PASAJE";
-            btnVenderPasaje.UseVisualStyleBackColor = true;
-            btnVenderPasaje.Click += btnVenderPasaje_Click;
-            // 
             // btnSalir
             // 
             btnSalir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -120,7 +108,6 @@
             BackColor = Color.FromArgb(23, 21, 32);
             ClientSize = new Size(934, 561);
             Controls.Add(btnSalir);
-            Controls.Add(btnVenderPasaje);
             Controls.Add(dataGridViajes);
             Controls.Add(btnEliminar);
             Controls.Add(btnModificar);
@@ -140,7 +127,6 @@
         private Button btnModificar;
         private Button btnAgregar;
         private DataGridView dataGridViajes;
-        private Button btnVenderPasaje;
         private Button btnSalir;
     }
 }

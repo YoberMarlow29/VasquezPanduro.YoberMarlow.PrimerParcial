@@ -33,7 +33,7 @@ namespace FRMVIAJES
                 Compañia.AltaDeAeronave(nuevaAeronave);
                 UpdateDataGrid(dataGridAeronaves);
             }
-            Archivos.SerializarListaJson(Archivos.listaDeAeronaves, Archivos.pathAeronaves);
+            Archivos.SerializarListaJson<Aeronave>(Archivos.listaDeAeronaves, Archivos.pathAeronaves);
 
         }
         private void btnModificar_Click(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace FRMVIAJES
                 UpdateDataGrid(dataGridAeronaves);
             }
 
-            Archivos.SerializarListaJson(Archivos.listaDeAeronaves, Archivos.pathAeronaves);
+            Archivos.SerializarListaJson<Aeronave>(Archivos.listaDeAeronaves, Archivos.pathAeronaves);
 
         }
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace FRMVIAJES
                 UpdateDataGrid(dataGridAeronaves);
 
             }
-            Archivos.SerializarListaJson(Archivos.listaDeAeronaves, Archivos.pathAeronaves);
+            Archivos.SerializarListaJson<Aeronave>(Archivos.listaDeAeronaves, Archivos.pathAeronaves);
         }
         public void UpdateDataGrid(DataGridView dataGridAeronave)
         {

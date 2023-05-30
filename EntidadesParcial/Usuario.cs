@@ -61,6 +61,10 @@ namespace EntidadesParcial
             }
             return ok;
         }
+        public override int GetHashCode()
+        {
+            return this.dni;
+        }
         public bool VerificarContrasenia(string contraseniaActual)
         {
             if (contraseniaActual == this.clave)

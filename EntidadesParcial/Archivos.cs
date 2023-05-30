@@ -28,6 +28,7 @@ namespace EntidadesParcial
             CargarPasajeros();
             CargarViajes();
             CargarLocalidades();
+            
 
         }
         private static void CargarUsuarios()   
@@ -41,8 +42,16 @@ namespace EntidadesParcial
         {
 
             pathAeronaves = "Aeronaves.json";
-            listaDeAeronaves = new List<Aeronave>();
-            listaDeAeronaves = DeserializarListaJson<Aeronave>(pathAeronaves);
+            listaDeAeronaves= new List<Aeronave>();
+            if (File.Exists(pathAeronaves))
+            {
+                listaDeAeronaves = DeserializarListaJson<Aeronave>(pathAeronaves);
+            }
+            else
+            {
+                listaDeAeronaves = GenerarListaAeronavesAleatorias(30);
+                SerializarListaJson<Aeronave>(listaDeAeronaves, pathAeronaves);
+            }
         }
         private static void CargarPasajeros() 
         {
@@ -162,6 +171,46 @@ namespace EntidadesParcial
             {
                 throw new Exception("Error al serializar la lista en formato XML y guardar en el archivo '" + path + "': " + ex.Message, ex);
             }
+        }
+        private static List<Aeronave> GenerarListaAeronavesAleatorias(int cantidadAeronaves)
+        {
+            List<Aeronave> listaAeronaves = new List<Aeronave>();
+
+            for (int i = 0; i < cantidadAeronaves; i++)
+            {
+                Aeronave aeronave = CrearAeronaveAleatoria();
+                listaAeronaves.Add(aeronave);
+            }
+
+            return listaAeronaves;
+        }
+
+        private static Aeronave CrearAeronaveAleatoria()
+        {
+            Random random = new Random();
+
+            string matricula = GenerarMatriculaAleatoria();
+            int cantidadAsientosTotales = random.Next(1, 1201); // Rango de 1 a 1200
+            int cantidadBanios = random.Next(1, 13); // Rango de 1 a 12
+            double capacidadBodega = random.Next(2000, 15001); // Rango de 2000 a 15000
+
+            Aeronave aeronave = new Aeronave(matricula, cantidadAsientosTotales, cantidadBanios, capacidadBodega);
+
+            return aeronave;
+        }
+
+        private static string GenerarMatriculaAleatoria()
+        {
+            const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            Random random = new Random();
+            char[] matricula = new char[8];
+
+            for (int i = 0; i < 8; i++)
+            {
+                matricula[i] = caracteres[random.Next(caracteres.Length)];
+            }
+
+            return new string(matricula);
         }
 
     }

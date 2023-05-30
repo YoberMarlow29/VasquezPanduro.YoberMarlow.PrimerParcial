@@ -43,6 +43,8 @@
             txtBuscarPasajero = new TextBox();
             txtBuscarVuelo = new TextBox();
             lstListaVuelos = new ListBox();
+            rtb_Facturacion = new RichTextBox();
+            labelError = new Label();
             SuspendLayout();
             // 
             // lstListaPasajeros
@@ -138,7 +140,7 @@
             // 
             // btnVender
             // 
-            btnVender.Location = new Point(12, 379);
+            btnVender.Location = new Point(495, 380);
             btnVender.Name = "btnVender";
             btnVender.Size = new Size(72, 23);
             btnVender.TabIndex = 31;
@@ -148,7 +150,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(105, 379);
+            btnCancelar.Location = new Point(588, 380);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(72, 23);
             btnCancelar.TabIndex = 32;
@@ -180,11 +182,32 @@
             lstListaVuelos.Size = new Size(365, 154);
             lstListaVuelos.TabIndex = 36;
             // 
+            // rtb_Facturacion
+            // 
+            rtb_Facturacion.Location = new Point(407, 234);
+            rtb_Facturacion.Name = "rtb_Facturacion";
+            rtb_Facturacion.Size = new Size(350, 128);
+            rtb_Facturacion.TabIndex = 37;
+            rtb_Facturacion.Text = "";
+            // 
+            // labelError
+            // 
+            labelError.AutoSize = true;
+            labelError.BackColor = SystemColors.Control;
+            labelError.ForeColor = Color.Red;
+            labelError.Location = new Point(12, 398);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(38, 15);
+            labelError.TabIndex = 38;
+            labelError.Text = "label1";
+            // 
             // FrmVentaPasaje
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(771, 486);
+            Controls.Add(labelError);
+            Controls.Add(rtb_Facturacion);
             Controls.Add(lstListaVuelos);
             Controls.Add(txtBuscarVuelo);
             Controls.Add(txtBuscarPasajero);
@@ -224,5 +247,7 @@
         private TextBox txtBuscarPasajero;
         private TextBox txtBuscarVuelo;
         private ListBox lstListaVuelos;
+        private RichTextBox rtb_Facturacion;
+        private Label labelError;
     }
 }

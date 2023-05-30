@@ -14,7 +14,10 @@ namespace EntidadesParcial
         }
         public Pasajero(string nombre, string apellido, int edad, int dni) : base(nombre, apellido, edad, dni)
         {
-
+            if (ExistePasajeroConDNI(dni))
+            {
+                throw new Exception("Ya existe un pasajero con el mismo DNI.");
+            }
         }
 
         /*public static bool operator ==(Pasajero p1, Pasajero p2)
@@ -40,9 +43,24 @@ namespace EntidadesParcial
         {
             return $"{base.apellido}, {base.nombre} - DNI: {base.GetHashCode()}";
         }
+        public override int GetHashCode()
+        {
+            return this.dni;
+        }
         public override string ToString()
         {
             return MostrarNombre();
+        }
+        private bool ExistePasajeroConDNI(int dni)
+        {
+            foreach (Pasajero pasajero in Archivos.listaDePasajeros)
+            {
+                if (pasajero.Dni == dni)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

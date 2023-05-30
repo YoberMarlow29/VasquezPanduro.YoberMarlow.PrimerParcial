@@ -8,7 +8,8 @@ namespace EntidadesParcial
 {
     public class Vuelo
     {
-
+        private const double PRECIOPORHORANACIONAL = 50;
+        private const double PRECIOPORHORAINTERNACIONAL = 100;
         private int idVuelo;
         private string destino;
         private string origen;
@@ -207,6 +208,78 @@ namespace EntidadesParcial
                 return "COMPLETO";
             }
             return $"{this.listaDePasajes.Count}/ {this.aeronave.CantidadAsientosTotales}";
+        }
+        public double GananciaNacional()
+        {
+            double gananciaCabotaje = 0;
+            if (DestinoEsInternacional(this.origen, this.destino) == ETipoDeViaje.Nacional)
+            {
+                double horas = this.duracion;
+                double precioBase = CalcularPrecioSegunTipoDeVuelo(horas);
+                foreach (Pasaje item in this.listaDePasajes)
+                {
+                    gananciaCabotaje += precioBase;
+                }
+            }
+            return gananciaCabotaje;
+        }
+        public double GananciaInternacional()
+        {
+            double gananciaInternacional = 0;
+            if (DestinoEsInternacional(this.origen, this.destino) == ETipoDeViaje.Internacional)
+            {
+                double horas = this.duracion;
+                double precioBase = CalcularPrecioSegunTipoDeVuelo(horas);
+                for (int i = 0; i < this.listaDePasajes.Count; i++)
+                {
+                    gananciaInternacional += precioBase;
+                }
+            }
+            return gananciaInternacional;
+        }
+        public double CalcularPrecioSegunTipoDeVuelo(double horasTotales)
+        {
+            double precioFinal;
+            if (DestinoEsInternacional(this.origen, this.destino) == ETipoDeViaje.Nacional)
+            {
+                precioFinal = PRECIOPORHORANACIONAL * horasTotales;
+            }
+            else
+            {
+                precioFinal = PRECIOPORHORAINTERNACIONAL * horasTotales;
+            }
+
+            return precioFinal;
+        }
+        public double GananciaTotal()
+        {
+            double ganancia = 0;
+            double precioPasaje;
+            foreach (Pasaje item in this.listaDePasajes)
+            {
+                InformarTarifasYPrecioDelPasaje(item, out precioPasaje);
+                ganancia += precioPasaje;
+            }
+            return ganancia;
+        }
+        public string InformarTarifasYPrecioDelPasaje(Pasaje pasaje, out double precioFinal)
+        {
+            StringBuilder sb = new StringBuilder();
+            double precioBase = CalcularPrecioSegunTipoDeVuelo(this.duracion);
+            precioFinal = precioBase;
+            sb.AppendLine($"Precio Bruto: {precioBase.ToString("0.00")} U$D");
+            if (pasaje.Clase == ClasePasajero.Premium)
+            {
+                double precioPreium = CalcularAdicionalPremium(precioBase);
+                precioFinal += precioPreium;
+                sb.AppendLine($"Impuesto por Premium: $ {(precioPreium).ToString("0.00")} U$D");
+            }
+
+            return sb.ToString();
+        }
+        public double CalcularAdicionalPremium(double precioBase)
+        {
+            return precioBase * 0.35;
         }
 
     }

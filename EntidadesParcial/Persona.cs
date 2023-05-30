@@ -36,18 +36,15 @@ namespace EntidadesParcial
             get { return edad; }
             set { edad = value; }
         }
-
         protected Persona()
         {
 
         }
-
         protected Persona(string apellido, string nombre) :this()
         {
             ValidarCampoString(apellido, out this.apell);
             ValidarCampoString(nombre, out this.nom);
         }
-
         protected Persona(string nombre, string apellido, int edad, int dni) : this(nombre,apellido)
         {   
             ValidarCampoEdad(edad, out this.edad);
@@ -71,7 +68,6 @@ namespace EntidadesParcial
         {
             return !(p1 == p2);
         }
-
         public override bool Equals(object? obj)
         {
             bool ok = false;
@@ -84,7 +80,6 @@ namespace EntidadesParcial
             }
             return ok;
         }
-
         public override int GetHashCode()
         {
             return this.dni;
@@ -119,8 +114,6 @@ namespace EntidadesParcial
                 throw new Exception("No es una edad valida.");
             }
             edadValido = edad;
-        }
-        
-
+        }       
     }
 }

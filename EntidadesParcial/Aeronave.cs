@@ -9,7 +9,7 @@ namespace EntidadesParcial
 {
     public class Aeronave
     {
-        private string matricula;
+        private string matricula;// 8 digitos alfanumerico
         private int cantidadAsientosTotales;
         private int cantidadBaños;
         private double capacidadBodega;
@@ -63,7 +63,12 @@ namespace EntidadesParcial
         }
         public Aeronave(string matricula,int cantidadDeAsientosTotales, int cantidadDeBanios, double capacidadDeBodega) : this()
         {
-            this.matricula = matricula;
+            if (ExisteAeronaveConMismaMatricula(matricula))
+            {
+                throw new Exception("Ya existe una aeronave con la misma matrícula.");
+            }
+            else
+                this.matricula = matricula;
             ValidarNumero(cantidadDeAsientosTotales, 1,1200,out this.cantidadAsientosTotales);
             ValidarNumero(cantidadDeBanios, 1, 12, out this.cantidadBaños);
             ValidarNumero(capacidadDeBodega, 2000, 15000, out this.capacidadBodega);
@@ -188,6 +193,60 @@ namespace EntidadesParcial
                 }
             }
             return true;
+        }
+        private bool ExisteAeronaveConMismaMatricula(string matricula)
+        {
+            foreach (Aeronave aeronave in Archivos.listaDeAeronaves)
+            {
+                if (aeronave.Matricula == matricula)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public static List<Aeronave> GenerarListaAeronavesAleatorias(int cantidadAeronaves)
+        {
+            List<Aeronave> listaAeronaves = new List<Aeronave>();
+
+            for (int i = 0; i < cantidadAeronaves; i++)
+            {
+                Aeronave aeronave = CrearAeronaveAleatoria();
+                listaAeronaves.Add(aeronave);
+            }
+
+            return listaAeronaves;
+        }
+
+        public static Aeronave CrearAeronaveAleatoria()
+        {
+            Random random = new Random();
+
+            // Generar valores aleatorios para los atributos
+            string matricula = GenerarMatriculaAleatoria();
+            int cantidadAsientosTotales = random.Next(100, 500);
+            int cantidadBanios = random.Next(1, 5);
+            double capacidadBodega = random.NextDouble() * (10000 - 2000) + 2000;
+
+            // Crear la nueva instancia de Aeronave
+            Aeronave aeronave = new Aeronave(matricula, cantidadAsientosTotales, cantidadBanios, capacidadBodega);
+
+            return aeronave;
+        }
+
+        private static string GenerarMatriculaAleatoria()
+        {
+            Random random = new Random();
+            const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            StringBuilder matriculaBuilder = new StringBuilder();
+
+            for (int i = 0; i < 8; i++)
+            {
+                char caracter = caracteres[random.Next(caracteres.Length)];
+                matriculaBuilder.Append(caracter);
+            }
+
+            return matriculaBuilder.ToString();
         }
 
     }
