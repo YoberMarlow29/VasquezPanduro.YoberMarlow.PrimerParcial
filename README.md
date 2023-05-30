@@ -8,7 +8,59 @@ terminado asi que si me diverti en algunos momentos.
 
 # FORMULARIO DE BIENVENIDA
 
+![FrmBienvenida](./Archivos/Bienvenida.png)
+
+Formulario de Bienvenida en el cual puedo elegir si iniciar sesion o crearme alguna cuenta.
+
+# FORMULARIO CREAR CUENTA
+
+![FrmBienvenida](./Archivos/CrearCuenta.png)
+
+Me pedi los datos y estos se guardan dentro de mi archivo de usuarios llamado MOCK_DATA.json
+
+# FORMULARIO INICIO SESION
+
+![FrmBienvenida](./Archivos/Login.png)
+
+Me pedi mis datos para poder iniciar sesion al programa, luego de inciar sesion dependiendo del usuario tengo invalido algunos botones del formulario Menu, ya que cada usuario tiene distintas tareas, tambien cada vez que alguien se loguea se guarda en un archivo usuarios.log quien entro y la fecha con horario.Tambien le añadi un boton que me permita mostrar o ocultar la contraseña.
+
+# FORMULARIO MENU
+
 ![FrmBienvenida](./Archivos/Menu.png)
+
+En este formulario tengo distintos botones que me van a permitir acceder a mis formularios de Aeronaves,Pasajeros,Vuelos,Vender Pasaje y Estadisticas.
+
+# FORMULARIO AERONAVES
+
+![FrmBienvenida](./Archivos/AeronavesMenu.png)
+
+Dentro del formulario tengo un datagridview con los datos del avion, tambien puedo crear,eliminar y modificar aeronaves,todas acciones se van serializando en el archivo Aeronaves.json
+
+# FORMULARIO PASAJEROS
+
+![FrmBienvenida](./Archivos/PasajerosMenu.png)
+
+Dentro del formulario tengo un datagridview con los datos del pasajero, tambien puedo crear,eliminar y modificar pasajeros,todas acciones se van serializando en el archivo Pasajeros.json
+
+# FORMULARIO VUELOS
+
+![FrmBienvenida](./Archivos/vuelosMenu.png)
+
+Dentro del formulario tengo un datagridview con los datos del vuelo, tambien puedo crear,eliminar y modificar vuelos,todas acciones se van serializando en el archivo Vuelos.json
+
+# FORMULARIO VENDER PASAJE
+
+![FrmBienvenida](./Archivos/Vender.png)
+
+Dentro del formulario, me permite seleccionar un pasajero y luego un vuelo, permitiendome elegir si es premium o no, si lleva equipaje de mano o no y dependiendo de la eleccion de que si es turista o Premium me habilida poner el kg de una valija o dos valijas.
+Tambien me permite buscar los clientes o vuelos.
+
+# FORMULARIO ESTADISTICAS
+
+![FrmBienvenida](./Archivos/Estadisticas.png)
+
+Me muestra las estadisticas de los vuelos, tales como el destino mas elegido, las ganacias totales, las ganancias naciones e internacionales,los destinos facturados y las horas de las aeronaves.
+
 
 
 # RESUMEN
