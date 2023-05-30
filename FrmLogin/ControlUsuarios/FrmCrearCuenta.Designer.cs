@@ -44,6 +44,7 @@
             labelError = new Label();
             panel1 = new Panel();
             label7 = new Label();
+            btnCancelar = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -177,7 +178,7 @@
             labelError.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelError.AutoSize = true;
             labelError.ForeColor = Color.Red;
-            labelError.Location = new Point(16, 370);
+            labelError.Location = new Point(12, 411);
             labelError.Name = "labelError";
             labelError.Size = new Size(43, 15);
             labelError.TabIndex = 36;
@@ -205,12 +206,24 @@
             label7.TabIndex = 0;
             label7.Text = "CREAR CUENTA";
             // 
+            // btnCancelar
+            // 
+            btnCancelar.Anchor = AnchorStyles.Left;
+            btnCancelar.Location = new Point(99, 372);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(120, 29);
+            btnCancelar.TabIndex = 38;
+            btnCancelar.Text = "CANCELAR";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
             // FrmCrearCuenta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(23, 21, 32);
-            ClientSize = new Size(377, 435);
+            ClientSize = new Size(377, 460);
+            Controls.Add(btnCancelar);
             Controls.Add(panel1);
             Controls.Add(labelError);
             Controls.Add(btnAceptar);
@@ -232,7 +245,6 @@
             Opacity = 0.95D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmCrearCuenta";
-
             Load += FrmCrearCuenta_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -258,5 +270,6 @@
         private Label labelError;
         private Panel panel1;
         private Label label7;
+        private Button btnCancelar;
     }
 }

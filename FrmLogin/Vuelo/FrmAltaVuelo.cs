@@ -48,7 +48,7 @@ namespace FRMVIAJES
                 {
                     try
                     {
-                         if (dtpFechaPartida.Value < DateTime.Now)
+                        if (dtpFechaPartida.Value < DateTime.Now)
                         {
                             this.labelError.Text = $"       La Partida del vuelo no es válida.";
                             this.labelError.Visible = true;
@@ -88,6 +88,12 @@ namespace FRMVIAJES
         private void dtpFechaPartida_ValueChanged(object sender, EventArgs e)
         {
             this.fechaCambio = true;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
     }
 }

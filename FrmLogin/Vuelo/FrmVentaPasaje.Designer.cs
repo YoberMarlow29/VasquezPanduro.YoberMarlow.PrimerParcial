@@ -43,7 +43,6 @@
             txtBuscarPasajero = new TextBox();
             txtBuscarVuelo = new TextBox();
             lstListaVuelos = new ListBox();
-            rtb_Facturacion = new RichTextBox();
             labelError = new Label();
             SuspendLayout();
             // 
@@ -53,26 +52,26 @@
             lstListaPasajeros.ItemHeight = 15;
             lstListaPasajeros.Location = new Point(12, 66);
             lstListaPasajeros.Name = "lstListaPasajeros";
-            lstListaPasajeros.Size = new Size(365, 154);
+            lstListaPasajeros.Size = new Size(396, 154);
             lstListaPasajeros.TabIndex = 0;
             // 
             // txtPesoBodega2
             // 
-            txtPesoBodega2.Location = new Point(201, 339);
+            txtPesoBodega2.Location = new Point(441, 353);
             txtPesoBodega2.Name = "txtPesoBodega2";
             txtPesoBodega2.Size = new Size(168, 23);
             txtPesoBodega2.TabIndex = 30;
             // 
             // txtPesoBodega1
             // 
-            txtPesoBodega1.Location = new Point(12, 339);
+            txtPesoBodega1.Location = new Point(252, 353);
             txtPesoBodega1.Name = "txtPesoBodega1";
             txtPesoBodega1.Size = new Size(168, 23);
             txtPesoBodega1.TabIndex = 29;
             // 
             // txtPesoBodegaTurista
             // 
-            txtPesoBodegaTurista.Location = new Point(201, 303);
+            txtPesoBodegaTurista.Location = new Point(441, 317);
             txtPesoBodegaTurista.Name = "txtPesoBodegaTurista";
             txtPesoBodegaTurista.Size = new Size(168, 23);
             txtPesoBodegaTurista.TabIndex = 28;
@@ -80,7 +79,8 @@
             // labelPeso
             // 
             labelPeso.AutoSize = true;
-            labelPeso.Location = new Point(12, 306);
+            labelPeso.ForeColor = Color.White;
+            labelPeso.Location = new Point(252, 320);
             labelPeso.Name = "labelPeso";
             labelPeso.Size = new Size(183, 15);
             labelPeso.TabIndex = 27;
@@ -89,7 +89,8 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(12, 271);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(252, 285);
             label6.Name = "label6";
             label6.Size = new Size(105, 15);
             label6.TabIndex = 26;
@@ -98,7 +99,8 @@
             // cbEquipajeMano
             // 
             cbEquipajeMano.AutoSize = true;
-            cbEquipajeMano.Location = new Point(145, 270);
+            cbEquipajeMano.ForeColor = Color.White;
+            cbEquipajeMano.Location = new Point(385, 284);
             cbEquipajeMano.Name = "cbEquipajeMano";
             cbEquipajeMano.Size = new Size(122, 19);
             cbEquipajeMano.TabIndex = 25;
@@ -108,7 +110,8 @@
             // rbPremium
             // 
             rbPremium.AutoSize = true;
-            rbPremium.Location = new Point(295, 232);
+            rbPremium.ForeColor = Color.White;
+            rbPremium.Location = new Point(535, 246);
             rbPremium.Name = "rbPremium";
             rbPremium.Size = new Size(74, 19);
             rbPremium.TabIndex = 24;
@@ -120,7 +123,8 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 234);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(252, 248);
             label4.Name = "label4";
             label4.Size = new Size(96, 15);
             label4.TabIndex = 23;
@@ -129,7 +133,8 @@
             // rbTurista
             // 
             rbTurista.AutoSize = true;
-            rbTurista.Location = new Point(145, 232);
+            rbTurista.ForeColor = Color.White;
+            rbTurista.Location = new Point(385, 246);
             rbTurista.Name = "rbTurista";
             rbTurista.Size = new Size(60, 19);
             rbTurista.TabIndex = 22;
@@ -140,7 +145,7 @@
             // 
             // btnVender
             // 
-            btnVender.Location = new Point(495, 380);
+            btnVender.Location = new Point(441, 423);
             btnVender.Name = "btnVender";
             btnVender.Size = new Size(72, 23);
             btnVender.TabIndex = 31;
@@ -150,26 +155,27 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(588, 380);
+            btnCancelar.Location = new Point(534, 423);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(72, 23);
+            btnCancelar.Size = new Size(83, 23);
             btnCancelar.TabIndex = 32;
             btnCancelar.Text = "CANCELAR";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // txtBuscarPasajero
             // 
             txtBuscarPasajero.Location = new Point(12, 28);
             txtBuscarPasajero.Name = "txtBuscarPasajero";
-            txtBuscarPasajero.Size = new Size(365, 23);
+            txtBuscarPasajero.Size = new Size(396, 23);
             txtBuscarPasajero.TabIndex = 33;
             txtBuscarPasajero.TextChanged += txtBuscarPasajero_TextChanged;
             // 
             // txtBuscarVuelo
             // 
-            txtBuscarVuelo.Location = new Point(392, 28);
+            txtBuscarVuelo.Location = new Point(464, 28);
             txtBuscarVuelo.Name = "txtBuscarVuelo";
-            txtBuscarVuelo.Size = new Size(365, 23);
+            txtBuscarVuelo.Size = new Size(396, 23);
             txtBuscarVuelo.TabIndex = 35;
             txtBuscarVuelo.TextChanged += txtBuscarVuelo_TextChanged;
             // 
@@ -177,25 +183,17 @@
             // 
             lstListaVuelos.FormattingEnabled = true;
             lstListaVuelos.ItemHeight = 15;
-            lstListaVuelos.Location = new Point(392, 66);
+            lstListaVuelos.Location = new Point(464, 66);
             lstListaVuelos.Name = "lstListaVuelos";
-            lstListaVuelos.Size = new Size(365, 154);
+            lstListaVuelos.Size = new Size(396, 154);
             lstListaVuelos.TabIndex = 36;
-            // 
-            // rtb_Facturacion
-            // 
-            rtb_Facturacion.Location = new Point(407, 234);
-            rtb_Facturacion.Name = "rtb_Facturacion";
-            rtb_Facturacion.Size = new Size(350, 128);
-            rtb_Facturacion.TabIndex = 37;
-            rtb_Facturacion.Text = "";
             // 
             // labelError
             // 
             labelError.AutoSize = true;
             labelError.BackColor = SystemColors.Control;
             labelError.ForeColor = Color.Red;
-            labelError.Location = new Point(12, 398);
+            labelError.Location = new Point(252, 412);
             labelError.Name = "labelError";
             labelError.Size = new Size(38, 15);
             labelError.TabIndex = 38;
@@ -205,9 +203,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(771, 486);
+            BackColor = Color.FromArgb(23, 21, 32);
+            ClientSize = new Size(918, 522);
             Controls.Add(labelError);
-            Controls.Add(rtb_Facturacion);
             Controls.Add(lstListaVuelos);
             Controls.Add(txtBuscarVuelo);
             Controls.Add(txtBuscarPasajero);
@@ -223,6 +221,7 @@
             Controls.Add(label4);
             Controls.Add(rbTurista);
             Controls.Add(lstListaPasajeros);
+            MinimumSize = new Size(934, 561);
             Name = "FrmVentaPasaje";
             Text = "FrmVentaPasaje";
             Load += FrmVentaPasaje_Load;
@@ -247,7 +246,6 @@
         private TextBox txtBuscarPasajero;
         private TextBox txtBuscarVuelo;
         private ListBox lstListaVuelos;
-        private RichTextBox rtb_Facturacion;
         private Label labelError;
     }
 }

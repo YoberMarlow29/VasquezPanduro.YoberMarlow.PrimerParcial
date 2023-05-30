@@ -127,6 +127,7 @@
             btnCancelar.TabIndex = 31;
             btnCancelar.Text = "CANCELAR";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // labelError
             // 

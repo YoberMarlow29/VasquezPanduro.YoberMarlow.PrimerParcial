@@ -59,8 +59,7 @@ namespace FRMVIAJES
         }
         private void btnVenderPasaje_Click(object sender, EventArgs e)
         {
-            FrmVentaPasaje frm = new FrmVentaPasaje();
-            frm.ShowDialog();
+            AbrirFormularioHijo(new FrmVentaPasaje());
         }
         private void btnEstadisticas_Click(object sender, EventArgs e)
         {

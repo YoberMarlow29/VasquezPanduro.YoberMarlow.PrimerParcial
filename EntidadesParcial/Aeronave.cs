@@ -78,11 +78,7 @@ namespace EntidadesParcial
         private string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine($"Matricula: {this.matricula}");
-            sb.AppendLine($"Cantidad de Asientos : {this.cantidadAsientosTotales}");
-            sb.AppendLine($"Cantidad de Baños: {this.cantidadBaños}");
-            sb.AppendLine($"Capacidad de Bodega: {this.capacidadBodega.ToString("0.##")} KG.");
+            sb.AppendLine($"{this.matricula}");
 
             return sb.ToString();
         }
@@ -205,49 +201,7 @@ namespace EntidadesParcial
             }
             return false;
         }
-        public static List<Aeronave> GenerarListaAeronavesAleatorias(int cantidadAeronaves)
-        {
-            List<Aeronave> listaAeronaves = new List<Aeronave>();
-
-            for (int i = 0; i < cantidadAeronaves; i++)
-            {
-                Aeronave aeronave = CrearAeronaveAleatoria();
-                listaAeronaves.Add(aeronave);
-            }
-
-            return listaAeronaves;
-        }
-
-        public static Aeronave CrearAeronaveAleatoria()
-        {
-            Random random = new Random();
-
-            // Generar valores aleatorios para los atributos
-            string matricula = GenerarMatriculaAleatoria();
-            int cantidadAsientosTotales = random.Next(100, 500);
-            int cantidadBanios = random.Next(1, 5);
-            double capacidadBodega = random.NextDouble() * (10000 - 2000) + 2000;
-
-            // Crear la nueva instancia de Aeronave
-            Aeronave aeronave = new Aeronave(matricula, cantidadAsientosTotales, cantidadBanios, capacidadBodega);
-
-            return aeronave;
-        }
-
-        private static string GenerarMatriculaAleatoria()
-        {
-            Random random = new Random();
-            const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            StringBuilder matriculaBuilder = new StringBuilder();
-
-            for (int i = 0; i < 8; i++)
-            {
-                char caracter = caracteres[random.Next(caracteres.Length)];
-                matriculaBuilder.Append(caracter);
-            }
-
-            return matriculaBuilder.ToString();
-        }
+        
 
     }
 }

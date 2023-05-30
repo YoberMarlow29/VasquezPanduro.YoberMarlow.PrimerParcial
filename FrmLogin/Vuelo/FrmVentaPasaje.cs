@@ -85,13 +85,24 @@ namespace FRMVIAJES
                 Pasaje pasaje = new Pasaje(pasajeroSeleccionado, clase, equipajeDeMano, pesoBodegaTotal);
                 try
                 {
-                    Compañia.ValidarCompraDeClase(vueloSeleccionado, pasaje, this.nuevosPasajeros);
-                    AgregarVuelo(pasaje);
+                    double precioFinal;
+                    vueloSeleccionado.InformarTarifasYPrecioDelPasaje(pasaje, out precioFinal);
 
-                    vueloSeleccionado.ListaDePasajes.Add(pasaje);
-                    Archivos.SerializarListaXml<Vuelo>(Archivos.listaDeViaje, Archivos.pathVuelo);
+                    DialogResult result = MessageBox.Show($"El pasaje tiene un precio de: {precioFinal.ToString("0.00")} U$D. ¿Desea continuar con la venta?", "Confirmación de venta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        Compañia.ValidarCompraDeClase(vueloSeleccionado, pasaje, this.nuevosPasajeros);
+                        AgregarVuelo(pasaje);
+
+                        vueloSeleccionado.ListaDePasajes.Add(pasaje);
+                        Archivos.SerializarListaXml<Vuelo>(Archivos.listaDeViaje, Archivos.pathVuelo);
+
+                        this.Close();
+                    }
+
                 }
-                catch 
+                catch
                 {
                     this.labelError.Text = "Error, no hay espacio";
                     this.labelError.Visible = true;
@@ -183,7 +194,6 @@ namespace FRMVIAJES
                 {
                     filtrado.Add(item);
                 }
-
             }
         }
 
@@ -238,24 +248,13 @@ namespace FRMVIAJES
             double precioFinal;
             this.nuevosPasajeros!.Add(pasajeAgregado);
             vueloSeleccionado.InformarTarifasYPrecioDelPasaje(pasajeAgregado, out precioFinal);
-            ActualizarFacturacionActual();
         }
-        public void ActualizarFacturacionActual()
+
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.rtb_Facturacion.Clear();
-            StringBuilder sb = new StringBuilder();
-            double precioFinal = 0;
-            double precioDelPasaje;
+            this.Close();
 
-            foreach (Pasaje item in this.nuevosPasajeros!)
-            {
-                sb.AppendLine(vueloSeleccionado.InformarTarifasYPrecioDelPasaje(item, out precioDelPasaje));
-                precioFinal += precioDelPasaje;
-            }
-            sb.AppendLine("***********************************");
-            sb.AppendLine($"Precio Final Neto (+IVA): $ {(precioFinal * 1.21).ToString("0.00")} U$D");
-
-            rtb_Facturacion.Text = sb.ToString();
         }
     }
+
 }

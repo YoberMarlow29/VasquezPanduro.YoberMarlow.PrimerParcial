@@ -27,6 +27,19 @@ namespace FRMVIAJES
                 if (item.correo == txtCorreo.Text && item.clave == txtClave.Text)
                 {
                     correcto = 1;
+                    // Obtener la fecha y hora actual
+                    DateTime fechaActual = DateTime.Now;
+                    string fechaAcceso = fechaActual.ToString("yyyy-MM-dd HH:mm:ss");
+
+                    // Crear una cadena con la información del usuario y la fecha de acceso
+                    string informacionUsuario = $"Correo: {item.correo}, Nombre: {item.nombre}, Perfil: {item.perfil}, Fecha de acceso: {fechaAcceso}";
+
+                    // Escribir la información en el archivo usuarios.log
+                    string rutaArchivo = "usuarios.log";
+                    using (StreamWriter sw = File.AppendText(rutaArchivo))
+                    {
+                        sw.WriteLine(informacionUsuario);
+                    }
                     switch (item.perfil)
                     {
                         case "vendedor":

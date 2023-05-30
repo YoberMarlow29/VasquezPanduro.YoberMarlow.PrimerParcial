@@ -21,14 +21,15 @@ namespace EntidadesParcial
         public static List<Pasajero> listaDePasajeros;
         public static List<Vuelo> listaDeViaje;
         public static List<string> localidades;
+
         static Archivos() 
         {
+
             CargarUsuarios();
             CargarAeronaves();
             CargarPasajeros();
             CargarViajes();
             CargarLocalidades();
-            
 
         }
         private static void CargarUsuarios()   
@@ -56,8 +57,17 @@ namespace EntidadesParcial
         private static void CargarPasajeros() 
         {
             pathPasajeros = "Pasajeros.xml";
-            listaDePasajeros = new List<Pasajero>();         
-            listaDePasajeros = DeserializarListaXml<Pasajero>(pathPasajeros);
+            listaDePasajeros = new List<Pasajero>();
+
+            if (File.Exists(pathPasajeros))
+            {
+                listaDePasajeros = DeserializarListaXml<Pasajero>(pathPasajeros);
+            }
+            else
+            {
+                listaDePasajeros = GenerarListaPasajerosAleatorios(150);
+                SerializarListaXml<Pasajero>(listaDePasajeros, pathPasajeros);
+            }
         }
         private static void CargarLocalidades()
         {
@@ -212,6 +222,46 @@ namespace EntidadesParcial
 
             return new string(matricula);
         }
+        private static List<Pasajero> GenerarListaPasajerosAleatorios(int cantidadPasajeros)
+        {
+            List<Pasajero> listaPasajeros = new List<Pasajero>();
+
+            for (int i = 0; i < cantidadPasajeros; i++)
+            {
+                Pasajero pasajero = CrearPasajeroAleatorio();
+                listaPasajeros.Add(pasajero);
+            }
+
+            return listaPasajeros;
+        }
+
+        private static Pasajero CrearPasajeroAleatorio()
+        {
+            Random random = new Random();
+            string nombre = GenerarNombreAleatorio();
+            string apellido = GenerarApellidoAleatorio();
+            int edad = random.Next(1, 101); // Rango de 1 a 100
+            int dni = random.Next(1000000, 100000000); // Rango de 1000000 a 99999999
+
+            Pasajero pasajero = new Pasajero(nombre, apellido, edad, dni);
+
+            return pasajero;
+        }
+
+        private static string GenerarNombreAleatorio()
+        {
+            string[] nombres = { "Juan", "María", "Pedro", "Ana", "Luis", "Laura", "Diego", "Carolina", "Miguel", "Valentina", "José", "Sofía", "Casandra", "Megan", "Adolf", "Cleopatra","Luffy","Zoro","Naruto", "Chavo","Goku","Kirito","Segundina","Jessica","Erza","Sasuke"}; 
+            Random random = new Random();
+            return nombres[random.Next(nombres.Length)];
+        }
+
+        private static string GenerarApellidoAleatorio()
+        {
+            string[] apellidos = { "Gómez", "Pérez", "López", "Rodríguez", "González", "Martínez", "Fernández", "Giménez", "Silva", "Torres", "Hernández", "García","Hitler","Macri","Messi","Davis","Jordan","Sapito","Uzumaki","Hatake", "Uchiha", "Tsukiyama", "Senju", "Yukimura" };
+            Random random = new Random();
+            return apellidos[random.Next(apellidos.Length)];
+        }
+        
 
     }
 }

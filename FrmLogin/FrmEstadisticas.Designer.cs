@@ -62,7 +62,7 @@
             gb_Ganacias.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             gb_Ganacias.Location = new Point(12, 52);
             gb_Ganacias.Name = "gb_Ganacias";
-            gb_Ganacias.Size = new Size(303, 132);
+            gb_Ganacias.Size = new Size(270, 132);
             gb_Ganacias.TabIndex = 10;
             gb_Ganacias.TabStop = false;
             gb_Ganacias.Text = "Ganacias";
@@ -71,7 +71,7 @@
             // 
             lbl_Internacional.AutoSize = true;
             lbl_Internacional.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_Internacional.Location = new Point(21, 88);
+            lbl_Internacional.Location = new Point(5, 88);
             lbl_Internacional.Name = "lbl_Internacional";
             lbl_Internacional.Size = new Size(95, 15);
             lbl_Internacional.TabIndex = 2;
@@ -81,7 +81,7 @@
             // 
             lbl_Cabotaje.AutoSize = true;
             lbl_Cabotaje.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_Cabotaje.Location = new Point(21, 60);
+            lbl_Cabotaje.Location = new Point(5, 60);
             lbl_Cabotaje.Name = "lbl_Cabotaje";
             lbl_Cabotaje.Size = new Size(68, 15);
             lbl_Cabotaje.TabIndex = 1;
@@ -91,7 +91,7 @@
             // 
             lbl_GananciasTotales.AutoSize = true;
             lbl_GananciasTotales.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_GananciasTotales.Location = new Point(21, 32);
+            lbl_GananciasTotales.Location = new Point(5, 32);
             lbl_GananciasTotales.Name = "lbl_GananciasTotales";
             lbl_GananciasTotales.Size = new Size(130, 15);
             lbl_GananciasTotales.TabIndex = 0;
@@ -115,7 +115,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             dtg_DestinosFacturados.DefaultCellStyle = dataGridViewCellStyle1;
             dtg_DestinosFacturados.GridColor = SystemColors.ActiveCaptionText;
-            dtg_DestinosFacturados.Location = new Point(12, 212);
+            dtg_DestinosFacturados.Location = new Point(12, 213);
             dtg_DestinosFacturados.MultiSelect = false;
             dtg_DestinosFacturados.Name = "dtg_DestinosFacturados";
             dtg_DestinosFacturados.ReadOnly = true;
@@ -144,7 +144,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dtg_Aeronaves.DefaultCellStyle = dataGridViewCellStyle2;
             dtg_Aeronaves.GridColor = SystemColors.ActiveCaptionText;
-            dtg_Aeronaves.Location = new Point(436, 212);
+            dtg_Aeronaves.Location = new Point(414, 213);
             dtg_Aeronaves.MultiSelect = false;
             dtg_Aeronaves.Name = "dtg_Aeronaves";
             dtg_Aeronaves.ReadOnly = true;
@@ -159,7 +159,7 @@
             // 
             lbl_EncabezaAeronaves.AutoSize = true;
             lbl_EncabezaAeronaves.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_EncabezaAeronaves.Location = new Point(436, 192);
+            lbl_EncabezaAeronaves.Location = new Point(414, 194);
             lbl_EncabezaAeronaves.Name = "lbl_EncabezaAeronaves";
             lbl_EncabezaAeronaves.Size = new Size(216, 16);
             lbl_EncabezaAeronaves.TabIndex = 14;
@@ -169,7 +169,7 @@
             // 
             lbl_EncabezaDestinosFacturados.AutoSize = true;
             lbl_EncabezaDestinosFacturados.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_EncabezaDestinosFacturados.Location = new Point(13, 192);
+            lbl_EncabezaDestinosFacturados.Location = new Point(164, 194);
             lbl_EncabezaDestinosFacturados.Name = "lbl_EncabezaDestinosFacturados";
             lbl_EncabezaDestinosFacturados.Size = new Size(150, 16);
             lbl_EncabezaDestinosFacturados.TabIndex = 15;
@@ -179,15 +179,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(918, 522);
+            ClientSize = new Size(754, 530);
             Controls.Add(lbl_EncabezaDestinosFacturados);
             Controls.Add(lbl_EncabezaAeronaves);
             Controls.Add(dtg_Aeronaves);
             Controls.Add(dtg_DestinosFacturados);
             Controls.Add(lbl_DestinoFavorito);
             Controls.Add(gb_Ganacias);
-            MaximumSize = new Size(934, 561);
-            MinimumSize = new Size(934, 561);
             Name = "FrmEstadisticas";
             Text = "FrmEstadisticas";
             Load += FrmEstadisticas_Load;
