@@ -113,6 +113,8 @@
             Controls.Add(btnModificar);
             Controls.Add(btnAgregar);
             FormBorderStyle = FormBorderStyle.None;
+            MaximumSize = new Size(1234, 761);
+            MinimumSize = new Size(934, 561);
             Name = "FrmPasajeros";
             Opacity = 0.95D;
             Text = "FrmCliente";

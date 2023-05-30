@@ -62,7 +62,7 @@
             panelMenuPrincipal.Dock = DockStyle.Left;
             panelMenuPrincipal.Location = new Point(0, 0);
             panelMenuPrincipal.Name = "panelMenuPrincipal";
-            panelMenuPrincipal.Size = new Size(250, 561);
+            panelMenuPrincipal.Size = new Size(250, 761);
             panelMenuPrincipal.TabIndex = 0;
             // 
             // btnEstadisticas
@@ -205,7 +205,7 @@
             panelFormularioHijo.Dock = DockStyle.Fill;
             panelFormularioHijo.Location = new Point(250, 0);
             panelFormularioHijo.Name = "panelFormularioHijo";
-            panelFormularioHijo.Size = new Size(934, 561);
+            panelFormularioHijo.Size = new Size(1234, 761);
             panelFormularioHijo.TabIndex = 1;
             // 
             // pictureBox1
@@ -214,7 +214,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(934, 561);
+            pictureBox1.Size = new Size(1234, 761);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -223,7 +223,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1184, 561);
+            ClientSize = new Size(1484, 761);
             Controls.Add(panelFormularioHijo);
             Controls.Add(panelMenuPrincipal);
             Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);

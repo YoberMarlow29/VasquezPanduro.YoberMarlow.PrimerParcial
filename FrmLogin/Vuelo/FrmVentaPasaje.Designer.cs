@@ -57,6 +57,7 @@
             // 
             // txtPesoBodega2
             // 
+            txtPesoBodega2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtPesoBodega2.Location = new Point(441, 353);
             txtPesoBodega2.Name = "txtPesoBodega2";
             txtPesoBodega2.Size = new Size(168, 23);
@@ -64,6 +65,7 @@
             // 
             // txtPesoBodega1
             // 
+            txtPesoBodega1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtPesoBodega1.Location = new Point(252, 353);
             txtPesoBodega1.Name = "txtPesoBodega1";
             txtPesoBodega1.Size = new Size(168, 23);
@@ -71,6 +73,7 @@
             // 
             // txtPesoBodegaTurista
             // 
+            txtPesoBodegaTurista.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtPesoBodegaTurista.Location = new Point(441, 317);
             txtPesoBodegaTurista.Name = "txtPesoBodegaTurista";
             txtPesoBodegaTurista.Size = new Size(168, 23);
@@ -78,6 +81,7 @@
             // 
             // labelPeso
             // 
+            labelPeso.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelPeso.AutoSize = true;
             labelPeso.ForeColor = Color.White;
             labelPeso.Location = new Point(252, 320);
@@ -88,6 +92,7 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
             label6.ForeColor = Color.White;
             label6.Location = new Point(252, 285);
@@ -98,6 +103,7 @@
             // 
             // cbEquipajeMano
             // 
+            cbEquipajeMano.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             cbEquipajeMano.AutoSize = true;
             cbEquipajeMano.ForeColor = Color.White;
             cbEquipajeMano.Location = new Point(385, 284);
@@ -109,6 +115,7 @@
             // 
             // rbPremium
             // 
+            rbPremium.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             rbPremium.AutoSize = true;
             rbPremium.ForeColor = Color.White;
             rbPremium.Location = new Point(535, 246);
@@ -122,6 +129,7 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.ForeColor = Color.White;
             label4.Location = new Point(252, 248);
@@ -132,6 +140,7 @@
             // 
             // rbTurista
             // 
+            rbTurista.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             rbTurista.AutoSize = true;
             rbTurista.ForeColor = Color.White;
             rbTurista.Location = new Point(385, 246);
@@ -145,6 +154,7 @@
             // 
             // btnVender
             // 
+            btnVender.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnVender.Location = new Point(441, 423);
             btnVender.Name = "btnVender";
             btnVender.Size = new Size(72, 23);
@@ -155,6 +165,7 @@
             // 
             // btnCancelar
             // 
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnCancelar.Location = new Point(534, 423);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(83, 23);
@@ -173,6 +184,7 @@
             // 
             // txtBuscarVuelo
             // 
+            txtBuscarVuelo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtBuscarVuelo.Location = new Point(464, 28);
             txtBuscarVuelo.Name = "txtBuscarVuelo";
             txtBuscarVuelo.Size = new Size(396, 23);
@@ -181,6 +193,7 @@
             // 
             // lstListaVuelos
             // 
+            lstListaVuelos.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lstListaVuelos.FormattingEnabled = true;
             lstListaVuelos.ItemHeight = 15;
             lstListaVuelos.Location = new Point(464, 66);
@@ -190,6 +203,7 @@
             // 
             // labelError
             // 
+            labelError.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelError.AutoSize = true;
             labelError.BackColor = SystemColors.Control;
             labelError.ForeColor = Color.Red;
@@ -221,6 +235,7 @@
             Controls.Add(label4);
             Controls.Add(rbTurista);
             Controls.Add(lstListaPasajeros);
+            MaximumSize = new Size(1234, 761);
             MinimumSize = new Size(934, 561);
             Name = "FrmVentaPasaje";
             Text = "FrmVentaPasaje";
