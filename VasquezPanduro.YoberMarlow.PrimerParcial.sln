@@ -9,8 +9,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FRMVIAJES", "FrmLogin\FRMVI
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{13B9250F-5A93-441B-B6C4-4191A53E848D}"
 	ProjectSection(SolutionItems) = preProject
+		D:\Descargas\AeronavesMenu.png = D:\Descargas\AeronavesMenu.png
+		D:\Descargas\Bienvenida.png = D:\Descargas\Bienvenida.png
+		D:\Descargas\CrearCuenta.png = D:\Descargas\CrearCuenta.png
 		Archivos\diagrama.png = Archivos\diagrama.png
+		D:\Descargas\Estadisticas.png = D:\Descargas\Estadisticas.png
+		D:\Descargas\Login.png = D:\Descargas\Login.png
+		D:\Descargas\Menu.png = D:\Descargas\Menu.png
+		D:\Descargas\PasajerosMenu.png = D:\Descargas\PasajerosMenu.png
 		README.md = README.md
+		D:\Descargas\Vender.png = D:\Descargas\Vender.png
+		D:\Descargas\vuelosMenu.png = D:\Descargas\vuelosMenu.png
 	EndProjectSection
 EndProject
 Global

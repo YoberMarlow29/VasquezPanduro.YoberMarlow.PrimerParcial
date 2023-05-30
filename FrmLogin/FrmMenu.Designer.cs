@@ -231,6 +231,7 @@
             MinimumSize = new Size(1200, 600);
             Name = "FrmMenu";
             Opacity = 0.9D;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmMenu";
             Load += FrmMenu_Load;
             panelMenuPrincipal.ResumeLayout(false);

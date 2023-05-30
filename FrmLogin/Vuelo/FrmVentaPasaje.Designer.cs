@@ -65,7 +65,7 @@
             // 
             // txtPesoBodega1
             // 
-            txtPesoBodega1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtPesoBodega1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             txtPesoBodega1.Location = new Point(252, 353);
             txtPesoBodega1.Name = "txtPesoBodega1";
             txtPesoBodega1.Size = new Size(168, 23);
@@ -154,7 +154,7 @@
             // 
             // btnVender
             // 
-            btnVender.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnVender.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnVender.Location = new Point(441, 423);
             btnVender.Name = "btnVender";
             btnVender.Size = new Size(72, 23);
@@ -165,7 +165,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnCancelar.Location = new Point(534, 423);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(83, 23);

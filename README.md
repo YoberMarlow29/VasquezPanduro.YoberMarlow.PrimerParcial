@@ -6,6 +6,11 @@ tuve esta dificultad porque no tenia mucha practica al comienzo, pero
 de a poco fui haciendo las cosas. Es muy satisfactorio ver el trabajo
 terminado asi que si me diverti en algunos momentos.
 
+# FORMULARIO DE BIENVENIDA
+
+![FrmBienvenida](./Archivos/Menu.png)
+
+
 # RESUMEN
 
 La aplicacion es un sistema de ventas para una Aerolinea, permitiendo el inicio de sesion
@@ -13,9 +18,10 @@ del usuario, dependiendo del mismo cada usuario tiene diferentes tareas.Las
 tareas hay son las de crear, modificar y eliminar Aeronaves,Pasajeros y vuelos;
 todos estos de un archivo xml o json.
 
+
 # DIAGRAMA
 
-![Diagrama de clases](VasquezPanduro.YoberMarlow.PrimerParcial/Archivos/diagrama.png)
+![Diagrama de clases](./Archivos/diagrama.png)
 
 # JUSTIFICACIÓN TÉCNICA
 

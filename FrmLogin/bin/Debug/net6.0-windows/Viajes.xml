@@ -12,7 +12,32 @@
       <CantidadBaños>3</CantidadBaños>
       <CapacidadBodega>9016</CapacidadBodega>
     </Aeronave>
-    <ListaDePasajes />
+    <ListaDePasajes>
+      <Pasaje>
+        <Pasajero>
+          <apellido>Luffy</apellido>
+          <nombre>Hitler</nombre>
+          <Dni>5780651</Dni>
+          <Edad>71</Edad>
+        </Pasajero>
+        <Clase>Turista</Clase>
+        <EquipajeDeBodega>21</EquipajeDeBodega>
+        <IdPasaje>0</IdPasaje>
+        <EquipajeDeMano>true</EquipajeDeMano>
+      </Pasaje>
+      <Pasaje>
+        <Pasajero>
+          <apellido>Goku</apellido>
+          <nombre>Uchiha</nombre>
+          <Dni>62495239</Dni>
+          <Edad>35</Edad>
+        </Pasajero>
+        <Clase>Premium</Clase>
+        <EquipajeDeBodega>42</EquipajeDeBodega>
+        <IdPasaje>0</IdPasaje>
+        <EquipajeDeMano>true</EquipajeDeMano>
+      </Pasaje>
+    </ListaDePasajes>
     <Partida>2023-07-20T15:13:43</Partida>
     <ServicioComida>true</ServicioComida>
     <ServicioWifi>false</ServicioWifi>
@@ -46,7 +71,20 @@
       <CantidadBaños>5</CantidadBaños>
       <CapacidadBodega>5871</CapacidadBodega>
     </Aeronave>
-    <ListaDePasajes />
+    <ListaDePasajes>
+      <Pasaje>
+        <Pasajero>
+          <apellido>Ana</apellido>
+          <nombre>Macri</nombre>
+          <Dni>4837185</Dni>
+          <Edad>19</Edad>
+        </Pasajero>
+        <Clase>Premium</Clase>
+        <EquipajeDeBodega>42</EquipajeDeBodega>
+        <IdPasaje>0</IdPasaje>
+        <EquipajeDeMano>true</EquipajeDeMano>
+      </Pasaje>
+    </ListaDePasajes>
     <Partida>2023-09-20T15:13:58</Partida>
     <ServicioComida>true</ServicioComida>
     <ServicioWifi>false</ServicioWifi>
@@ -114,7 +152,20 @@
       <CantidadBaños>4</CantidadBaños>
       <CapacidadBodega>10715</CapacidadBodega>
     </Aeronave>
-    <ListaDePasajes />
+    <ListaDePasajes>
+      <Pasaje>
+        <Pasajero>
+          <apellido>Carolina</apellido>
+          <nombre>Martínez</nombre>
+          <Dni>66932157</Dni>
+          <Edad>37</Edad>
+        </Pasajero>
+        <Clase>Turista</Clase>
+        <EquipajeDeBodega>21</EquipajeDeBodega>
+        <IdPasaje>0</IdPasaje>
+        <EquipajeDeMano>true</EquipajeDeMano>
+      </Pasaje>
+    </ListaDePasajes>
     <Partida>2023-09-19T15:14:42</Partida>
     <ServicioComida>true</ServicioComida>
     <ServicioWifi>false</ServicioWifi>
