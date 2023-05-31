@@ -106,14 +106,14 @@ namespace FRMVIAJES
 
         public void PerfilAdministrador()
         {
-            btnVenderPasaje.Enabled = true;
-            btnEstadisticas.Enabled = true;
-            btnPasajeros.Enabled = true;
+            btnVenderPasaje.Enabled = false;
+            btnEstadisticas.Enabled = false;
+            btnPasajeros.Enabled = false;
             btnVuelos.Enabled = true;
             btnAeronaves.Enabled = true;
-            /*btnVenderPasaje.BackColor = Color.LightGray;
+            btnVenderPasaje.BackColor = Color.LightGray;
             btnEstadisticas.BackColor = Color.LightGray;
-            btnPasajeros.BackColor = Color.LightGray;*/
+            btnPasajeros.BackColor = Color.LightGray;
         }
     }
 }
